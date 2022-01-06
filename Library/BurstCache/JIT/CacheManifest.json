@@ -1974,7 +1974,7 @@
     {
       "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Pathfinding/SetBufferPathJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
       "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "663f85efb54652dca44fd473ca90b24f",
+      "ModuleHash": "27cc6119979337e33f4a3c05e5d41937",
       "LinkName": "744BC620E772DDB1",
       "AssemblyDependencyIndices": [
         5,
@@ -1993,7 +1993,7 @@
     {
       "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Pathfinding/FindPathJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
       "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "415879d47d123aa512115ceab27fb38e",
+      "ModuleHash": "292b3fb5d8cb1a8a658476ae94140e76",
       "LinkName": "B2304D468A365610",
       "AssemblyDependencyIndices": [
         5,
