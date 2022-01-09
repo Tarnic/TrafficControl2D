@@ -1,0 +1,2 @@
+D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.SpriteShape.Runtime.csprojAssemblyReference.cache
+D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.SpriteShape.Runtime.csproj.CoreCompileInputs.cache

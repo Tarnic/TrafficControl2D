@@ -7,6 +7,7 @@ public class GridNode {
     private Grid grid;
     private int x;
     private int y;
+    private int crosses;
 
     private bool isWalkable;
     private int type;
@@ -17,6 +18,7 @@ public class GridNode {
         this.x = x;
         this.y = y;
         isWalkable = true;
+        crosses = 0;
     }
 
     public bool IsWalkable() {

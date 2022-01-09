@@ -1,0 +1,2 @@
+D:\Github\Godot\TrafficControl2D\obj\Debug\Assembly-CSharp.Player.csprojAssemblyReference.cache
+D:\Github\Godot\TrafficControl2D\obj\Debug\Assembly-CSharp.Player.csproj.CoreCompileInputs.cache

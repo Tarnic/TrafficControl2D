@@ -1,0 +1,2 @@
+D:\Github\Godot\TrafficControl2D\obj\Debug\UnityEditor.TestRunner.csprojAssemblyReference.cache
+D:\Github\Godot\TrafficControl2D\obj\Debug\UnityEditor.TestRunner.csproj.CoreCompileInputs.cache

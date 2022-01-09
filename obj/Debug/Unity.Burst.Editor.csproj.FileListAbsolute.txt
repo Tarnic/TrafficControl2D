@@ -1,0 +1,2 @@
+D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Burst.Editor.csprojAssemblyReference.cache
+D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Burst.Editor.csproj.CoreCompileInputs.cache

@@ -26,7 +26,7 @@ public class SpawnUnitsSystem : ComponentSystem {
         }
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            SpawnUnits(100);
+            SpawnUnits(50);
         }
     }
 
@@ -37,15 +37,17 @@ public class SpawnUnitsSystem : ComponentSystem {
 
         for (int i = 0; i < spawnCount; i++) {
             Entity spawnedEntity = EntityManager.Instantiate(prefabEntityComponent.prefabEntity);
-            
+            int cont = 0;
             do {
                 value = new float3(random.NextInt(gridWidth), random.NextInt(gridHeight), 0f);
                 gridNode = pathfindingGrid.GetGridObject((Vector3)value);
+                cont++;
+            } while (cont<500 && (!gridNode.IsWalkable() || (gridNode.GetType() > 2 && gridNode.GetType() < 8) || gridNode.IsOccupied()));
 
-            } while (!gridNode.IsWalkable() || gridNode.IsOccupied());
-
-            EntityManager.SetComponentData(spawnedEntity, new Translation { Value = value });
-            gridNode.SetOccupied(true);
+            if (cont < 500) { 
+                EntityManager.SetComponentData(spawnedEntity, new Translation { Value = value });
+                gridNode.SetOccupied(false);
+            }
         }
     }
 

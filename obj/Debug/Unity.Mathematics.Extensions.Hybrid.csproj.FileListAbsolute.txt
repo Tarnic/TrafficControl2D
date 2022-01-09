@@ -1,0 +1,2 @@
+D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Mathematics.Extensions.Hybrid.csprojAssemblyReference.cache
+D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Mathematics.Extensions.Hybrid.csproj.CoreCompileInputs.cache

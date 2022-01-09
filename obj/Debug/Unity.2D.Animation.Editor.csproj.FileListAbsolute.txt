@@ -1,0 +1,1 @@
+D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Animation.Editor.csproj.CoreCompileInputs.cache

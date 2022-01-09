@@ -1,0 +1,2 @@
+D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.PixelPerfect.Editor.csproj.CoreCompileInputs.cache
+D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.PixelPerfect.Editor.csprojAssemblyReference.cache

@@ -40,22 +40,24 @@ public class Pathfinding : ComponentSystem {
         Entities.ForEach((Entity entity, ref PathfindingParams pathfindingParams) => {
 
             NativeArray<PathNode> tmpPathNodeArray = new NativeArray<PathNode>(pathNodeArray, Allocator.TempJob);
-
+            //EntityQuery em = GetEntityQuery(ComponentType.ReadOnly<BusComponent>());
+            bool isBus = EntityManager.HasComponent<BusComponent>(entity);
             FindPathJob findPathJob = new FindPathJob {
                 gridSize = gridSize,
                 pathNodeArray = tmpPathNodeArray,
                 startPosition = pathfindingParams.startPosition,
                 endPosition = pathfindingParams.endPosition,
                 entity = entity,
+                isBus = isBus,
             };
             findPathJobList.Add(findPathJob);
             jobHandleList.Add(findPathJob.Schedule());
 
             PostUpdateCommands.RemoveComponent<PathfindingParams>(entity);
+
         });
 
         JobHandle.CompleteAll(jobHandleList);
-
         foreach (FindPathJob findPathJob in findPathJobList) {
             new SetBufferPathJob {
                 entity = findPathJob.entity,
@@ -66,7 +68,6 @@ public class Pathfinding : ComponentSystem {
                 pathPositionBufferFromEntity = GetBufferFromEntity<PathPosition>(),
             }.Run();
         }
-
 
         pathNodeArray.Dispose();
     }
@@ -144,13 +145,15 @@ public class Pathfinding : ComponentSystem {
         public int2 endPosition;
 
         public Entity entity;
-        
+        public bool isBus;
+        //[ReadOnly] public EntityManager em;
+
         //public BufferFromEntity<PathPosition> pathPositionBuffer;
 
         public void Execute() {
             for (int i = 0; i < pathNodeArray.Length; i++) {
                 PathNode pathNode = pathNodeArray[i];
-                pathNode.hCost = CalculateDistanceCost(new int2(pathNode.x, pathNode.y), endPosition);
+                pathNode.hCost = CalculateDistanceCost(new int2(pathNode.x, pathNode.y), endPosition, pathNode.type);
                 pathNode.cameFromNodeIndex = -1;
 
                 pathNodeArray[i] = pathNode;
@@ -179,6 +182,7 @@ public class Pathfinding : ComponentSystem {
             openList.Add(startNode.index);
 
             int testIndex = 0;
+            int crosses = 0;
             while (openList.Length > 0) {
                 int currentNodeIndex = GetLowestCostFNodeIndex(openList, pathNodeArray);
                 PathNode currentNode = pathNodeArray[currentNodeIndex];
@@ -202,7 +206,6 @@ public class Pathfinding : ComponentSystem {
                     int2 neighbourOffset = neighbourOffsetArray[i];
                     int2 neighbourPosition = new int2(currentNode.x + neighbourOffset.x, currentNode.y + neighbourOffset.y);
 
-
                     if (!IsPositionInsideGrid(neighbourPosition, gridSize)) {
                         // Neighbour not valid position
                         continue;
@@ -216,50 +219,108 @@ public class Pathfinding : ComponentSystem {
 
                     PathNode neighbourNode = pathNodeArray[neighbourNodeIndex];
                     if (!neighbourNode.isWalkable) {
-                        // Not walkable
                         continue;
                     }
-
+                    // 0 -> wall, 1 -> left, 2 -> right, 3 -> busStop, 4 -> busentranceLeft, 
+                    // 5 -> buseEtranceRight, 6 -> busEntranceUp, 7 -> busEntranceDown, 8 -> LeftUpCross,
+                    // 9 -> LeftDownCross, 10 -> RightUpCross , 11 -> RightDownCross
                     int currentType = currentNode.type;
-                    if (neighbourNode.type != 0 && currentType != 0 && neighbourNode.type != currentType) {
-                        // Not a crossroad and not the same line
-                        continue;
-                    }
+                    int neighbourType = neighbourNode.type;
 
-                    if (neighbourOffset.x == 0) {
-
-                        if (currentNode.type == 1) {
-                            testIndex = CalculateIndex(currentNode.x + neighbourOffset.y, currentNode.y, gridSize.x);
-                            if (pathNodeArray[testIndex].isWalkable) {
-                                continue;
-                            }
-                        } else if (currentNode.type == 2) { 
-                            testIndex = CalculateIndex(currentNode.x + neighbourOffset.y, currentNode.y, gridSize.x);
-                            if (pathNodeArray[testIndex].type == 1) {
-                                continue;
-                            }
+                    if (!isBus)
+                    {
+                        if (neighbourType > 2 && neighbourType < 8)
+                        {
+                            continue;
                         }
                     }
-
-                    if (neighbourOffset.y == 0) {
-                        testIndex = CalculateIndex(neighbourPosition.x, neighbourPosition.y + neighbourOffset.x, gridSize.x);
-                        Debug.Log("2");
-                        if (!pathNodeArray[testIndex].isWalkable) {
+                    else
+                    {
+                        
+                        if (neighbourType == 4 && neighbourOffset.x == 1) // supposed to go left
+                        {
                             continue;
+                        }
+                        if (neighbourType == 5 && neighbourOffset.x == -1) // supposed to go right
+                        {
+                            continue;
+                        }
+                        if (neighbourType == 6 && neighbourOffset.y == -1) // supposed to go up
+                        {
+                            continue;
+                        }
+                        if (neighbourType == 7 && neighbourOffset.y == 1) // supposed to go down
+                        {
+                            continue;
+                        }
+                    }
+                    
+
+                    if (!(neighbourType > 2 && neighbourType < 8))
+                    {
+                        if ((currentType == 1 && neighbourType == 2) || (currentType == 2 && neighbourType == 1))
+                        {
+                            continue;
+                        }
+                        if (currentType == 8 && (neighbourOffset.y != -1 && neighbourOffset.x != -1))
+                        {
+                            continue;
+                        }
+                        if (currentType == 9 && (neighbourOffset.y != -1 && neighbourOffset.x != 1))
+                        {
+                            continue;
+                        }
+                        if (currentType == 10 && (neighbourOffset.y != 1 && neighbourOffset.x != -1))
+                        {
+                            continue;
+                        }
+                        if (currentType == 11 && (neighbourOffset.y != 1 && neighbourOffset.x != 1))
+                        {
+                            continue;
+                        }
+
+                        if (neighbourOffset.x == 0 && neighbourType < 3)
+                        {
+
+                            if (currentNode.type == 1)
+                            {
+                                testIndex = CalculateIndex(currentNode.x + neighbourOffset.y, currentNode.y, gridSize.x);
+                                if (pathNodeArray[testIndex].isWalkable && (pathNodeArray[testIndex].type < 3 || pathNodeArray[testIndex].type > 8))
+                                {
+                                    continue;
+                                }
+                            }
+                            else if (currentNode.type == 2)
+                            {
+                                testIndex = CalculateIndex(currentNode.x + neighbourOffset.y, currentNode.y, gridSize.x);
+                                if (pathNodeArray[testIndex].type == 1)
+                                {
+                                    continue;
+                                }
+                            }
+                        }
+
+                        if (neighbourOffset.y == 0 && neighbourType < 3)
+                        {
+                            testIndex = CalculateIndex(neighbourPosition.x, neighbourPosition.y + neighbourOffset.x, gridSize.x);
+                            if (!pathNodeArray[testIndex].isWalkable)
+                            {
+                                continue;
+                            }
                         }
                     }
 
                     int2 currentNodePosition = new int2(currentNode.x, currentNode.y);
-
-	                int tentativeGCost = currentNode.gCost + CalculateDistanceCost(currentNodePosition, neighbourPosition);
+	                int tentativeGCost = currentNode.gCost + CalculateDistanceCost(currentNodePosition, neighbourPosition, neighbourType);
 	                if (tentativeGCost < neighbourNode.gCost) {
 		                neighbourNode.cameFromNodeIndex = currentNodeIndex;
 		                neighbourNode.gCost = tentativeGCost;
 		                neighbourNode.CalculateFCost();
 		                pathNodeArray[neighbourNodeIndex] = neighbourNode;
+                        
 
-		                if (!openList.Contains(neighbourNode.index)) {
-			                openList.Add(neighbourNode.index);
+                        if (!openList.Contains(neighbourNode.index)) {
+                            openList.Add(neighbourNode.index);
 		                }
 	                }
 
@@ -299,7 +360,7 @@ public class Pathfinding : ComponentSystem {
             PathNode currentNode = endNode;
             while (currentNode.cameFromNodeIndex != -1) {
                 PathNode cameFromNode = pathNodeArray[currentNode.cameFromNodeIndex];
-                pathPositionBuffer.Add(new PathPosition { position = new int2(cameFromNode.x, cameFromNode.y) });
+                pathPositionBuffer.Add(new PathPosition { position = new int2(cameFromNode.x, cameFromNode.y), type = cameFromNode.type });
                 currentNode = cameFromNode;
             }
         }
@@ -337,11 +398,13 @@ public class Pathfinding : ComponentSystem {
         return x + y * gridWidth;
     }
 
-    private static int CalculateDistanceCost(int2 aPosition, int2 bPosition) {
+    private static int CalculateDistanceCost(int2 aPosition, int2 bPosition, int type) {
         int xDistance = math.abs(aPosition.x - bPosition.x);
         int yDistance = math.abs(aPosition.y - bPosition.y);
         int remaining = math.abs(xDistance - yDistance);
-        return MOVE_DIAGONAL_COST * math.min(xDistance, yDistance) + MOVE_STRAIGHT_COST * remaining;
+        int crossCost = 0;
+        
+        return MOVE_DIAGONAL_COST * math.min(xDistance, yDistance) + MOVE_STRAIGHT_COST * remaining + crossCost;
     }
 
     
@@ -359,7 +422,7 @@ public class Pathfinding : ComponentSystem {
     private struct PathNode {
         public int x;
         public int y;
-
+        public int crosses;
         public int index;
 
         public int gCost;

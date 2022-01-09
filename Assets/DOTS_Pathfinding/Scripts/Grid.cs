@@ -30,14 +30,8 @@ public class Grid {
     private int height;
     private float cellSize;
     private Vector3 originPosition;
+    private List<Vector3> busStops = new List<Vector3>();
     private GridNode[,] gridArray;
-
-    private enum GridNodeType {
-        Crossroad,
-        Tilemap_sx,
-        Tilemap_dx,
-        Colliders
-    }
 
     public Grid(int width, int height, float cellSize, Vector3 originPosition, Func<Grid, int, int, GridNode> createGridObject) {
         this.width = width;
@@ -51,30 +45,59 @@ public class Grid {
             for (int y = 0; y < gridArray.GetLength(1); y++) {
                 GridNode gridNode = createGridObject(this, x, y);
 
-                int type = 3;
+                int type = 0;
                 Tilemap[] tilemapList = GameObject.FindObjectsOfType<Tilemap>();
                 foreach(var tilemap in tilemapList) {
                     if (tilemap.HasTile(new Vector3Int(x - 18, y - 4, 0))) {
                         string name = tilemap.name;
                         
-                        if (type != 3 && (name == "Tilemap_sx" || name == "Tilemap_dx")) {
-                            type = 0;
-                        } else { 
-                            if (name == "Crossroads") { 
-                                type = 0;
-                            } else if (name == "Tilemap_sx") { 
-                                type = 1;
-                            } else if (name == "Tilemap_dx") {
-                                type = 2;
-                            } else {
-                                type = 3;
-                            }
-                        }
 
-                        
+                        if (name == "Tilemap_sx") { 
+                            type = 1;
+                        } else if (name == "Tilemap_dx") {
+                            type = 2;
+                        }
+                        else if (name == "BusStops")
+                        {
+                            type = 3;
+                            busStops.Add(new Vector3(x, y, 0));
+                        }
+                        else if (name == "BusEntrancesLeft")
+                        {
+                            type = 4;
+                        }
+                        else if (name == "BusEntrancesRight")
+                        {
+                            type = 5;
+                        }
+                        else if (name == "BusEntrancesUp")
+                        {
+                            type = 6;
+                        }
+                        else if (name == "BusEntrancesDown")
+                        {
+                            type = 7;
+                        }
+                        else if (name == "CrossLeftUp"){
+                            type = 8;
+                        } else if (name == "CrossLeftDown")
+                        {
+                            type = 9;
+                        } else if (name == "CrossRightUp")
+                        {
+                            type = 10;
+                        }
+                        else if (name == "CrossRightDown")
+                        {
+                            type = 11;
+                        }
+                        else
+                        {
+                            type = 0;
+                        }   
                     }
                 }
-                if (type == 3) {
+                if (type == 0) {
                     gridNode.SetIsWalkable(false);
                 }
                 gridNode.SetType(type);
@@ -155,4 +178,8 @@ public class Grid {
         return GetGridObject(x, y);
     }
 
+    public List<Vector3> GetBusStops()
+    {
+        return busStops;
+    }
 }

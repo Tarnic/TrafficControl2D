@@ -1,2 +1,4 @@
 C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Assembly-CSharp.csproj.AssemblyReference.cache
 C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+D:\Github\Godot\TrafficControl2D\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+D:\Github\Godot\TrafficControl2D\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
