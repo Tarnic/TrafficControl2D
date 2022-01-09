@@ -16,8 +16,7 @@ public class PathFollowSystem : SystemBase {
         cellVsEntityPositions = new NativeMultiHashMap<int, float3>(0, Allocator.Persistent);
     }
 
-    public static int GetUniqueKeyForPosition(float3 position, float cellSize)
-    {
+    public static int GetUniqueKeyForPosition(float3 position, float cellSize) {
         return (int)(19 * math.floor(position.x / cellSize) + (17 * math.floor(position.y / cellSize)));
     }
 
@@ -46,59 +45,61 @@ public class PathFollowSystem : SystemBase {
         Entities
             .WithReadOnly(cellVsEntityPositionsForJob)
             .ForEach((Entity entity, DynamicBuffer<PathPosition> pathPositionBuffer, ref Translation translation, ref PathFollow pathFollow) => {
-            if (pathFollow.pathIndex >= 0) {
-                // Has path to follow
-                PathPosition pathPosition = pathPositionBuffer[pathFollow.pathIndex];
-                float3 targetPosition = new float3(pathPosition.position.x, pathPosition.position.y, 0);
-                float3 moveDir = math.normalizesafe(targetPosition - translation.Value);
-                float moveSpeed = 10f;
+                if (pathFollow.pathIndex >= 0) {
+                    // Has path to follow
+                    PathPosition pathPosition = pathPositionBuffer[pathFollow.pathIndex];
+                    float3 targetPosition = new float3(pathPosition.position.x, pathPosition.position.y, 0);
+                    float3 moveDir = math.normalizesafe(targetPosition - translation.Value);
+                    float moveSpeed = 10f;
 
-                float3 positionToCheck;
-                float currentDistance = 1f;
-                NativeMultiHashMapIterator<int> mapIterator;
-                int indexTarget = GetUniqueKeyForPosition(targetPosition, cellSize);
-                int countCollisions = 0;
+                    float3 positionToCheck;
+                    float currentDistance = 1f;
+                    NativeMultiHashMapIterator<int> mapIterator;
+                    int indexTarget = GetUniqueKeyForPosition(targetPosition, cellSize);
+                    int countCollisions = 0;
 
-                if (pathPosition.type > 7 && ((pathPosition.type == 8 && moveDir.y < -0.5f && timeElapsed >= 5) || (pathPosition.type == 9 && moveDir.x > 0.5f && timeElapsed < 5)|| (pathPosition.type == 10 && moveDir.x < -0.5f && timeElapsed < 5)|| (pathPosition.type == 11 && moveDir.y > 0.5f && timeElapsed >= 5)))
-                {}
-                else {
-                    if (cellVsEntityPositionsForJob.TryGetFirstValue(indexTarget, out positionToCheck, out mapIterator)) {
-                        do {
+                    if (pathPosition.type > 7 && ((pathPosition.type == 8 && moveDir.y < -0.5f && timeElapsed >= 5) || (pathPosition.type == 9 && moveDir.x > 0.5f && timeElapsed < 5)|| (pathPosition.type == 10 && moveDir.x < -0.5f && timeElapsed < 5)|| (pathPosition.type == 11 && moveDir.y > 0.5f && timeElapsed >= 5)))
+                    {}
+                    else {
+                        if (cellVsEntityPositionsForJob.TryGetFirstValue(indexTarget, out positionToCheck, out mapIterator)) {
+                            do {
 
-                            if (!translation.Value.Equals(positionToCheck)) {
+                                if (!translation.Value.Equals(positionToCheck)) {
 
-                                if (!math.normalizesafe(positionToCheck - translation.Value).Equals(moveDir)) {
-                                    continue;
+                                    float3 checkDir = math.normalizesafe(positionToCheck - translation.Value);
+                                    //Debug.LogFormat("CheckDirection: {0},{1}", checkDir.x, checkDir.y);
+                                    Debug.LogFormat("Distance: {0}", math.length(moveDir - checkDir));
+                                    //Debug.LogFormat("Direction: {0},{1}", moveDir.x, moveDir.y);
+
+                                    if (math.length(moveDir - checkDir) > 1) {
+                                        continue;
+                                    }
+                                    /*if (math.length(translation.Value * moveDir - positionToCheck * moveDir) < 0) {
+                                        continue;
+                                    }*/
+                                    else if (currentDistance > math.sqrt(math.lengthsq(translation.Value - positionToCheck))) {
+                                        // Debug.Log("Collision");
+                                        Debug.LogFormat("Current distance: {0}", math.sqrt(math.lengthsq(translation.Value - positionToCheck)));
+                                        countCollisions++;
+                                    }
+                                    
                                 }
-                                if (math.length(translation.Value * moveDir - positionToCheck * moveDir) < 0) {
-                                    continue;
-                                }
-                                else if (currentDistance > math.sqrt(math.lengthsq(translation.Value - positionToCheck))) {
-                                    countCollisions++;
-                                }
-                                else {
-                                    continue;
-                                }
-                            }
+                                // Debug.LogFormat("key: {0}, value: {1}", indexTarget, positionToCheck);
 
-                        } while (cellVsEntityPositionsForJob.TryGetNextValue(out positionToCheck, ref mapIterator));
+                            } while (cellVsEntityPositionsForJob.TryGetNextValue(out positionToCheck, ref mapIterator));
+                        }
+
+                        if (countCollisions == 0) {
+                            translation.Value += moveDir * moveSpeed * deltaTime;
+                        }
                     }
-
-                    if (countCollisions == 0) {
-                        translation.Value += moveDir * moveSpeed * deltaTime;
-                    }
-
-                    //translation.Value += moveDir * moveSpeed * deltaTime;
-                }
-
-
                 
                 
-                if (math.distance(translation.Value, targetPosition) < .1f) {
-                    // Next waypoint
-                    pathFollow.pathIndex--;
+                    if (math.distance(translation.Value, targetPosition) < .1f) {
+                        // Next waypoint
+                        pathFollow.pathIndex--;
+                    }
                 }
-            }
         }).ScheduleParallel();
     }
 
