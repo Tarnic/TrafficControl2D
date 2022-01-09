@@ -285,3 +285,7 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.InternalAPIEditorBridge.012.csp
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.InternalAPIEditorBridge.012.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.InternalAPIEditorBridge.012.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.InternalAPIEditorBridge.012.pdb
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.InternalAPIEditorBridge.012.csproj.AssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.InternalAPIEditorBridge.012.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.InternalAPIEditorBridge.012.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.InternalAPIEditorBridge.012.pdb

@@ -285,3 +285,6 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.VSCode.Editor.csproj.CopyComple
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.VSCode.Editor.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.VSCode.Editor.pdb
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.VSCode.Editor.csprojAssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.VSCode.Editor.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.VSCode.Editor.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.VSCode.Editor.pdb

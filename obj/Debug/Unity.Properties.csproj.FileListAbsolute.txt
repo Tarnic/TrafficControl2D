@@ -282,3 +282,6 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Properties.csproj.CoreCompileIn
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Properties.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Properties.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Properties.pdb
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Properties.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Properties.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Properties.pdb

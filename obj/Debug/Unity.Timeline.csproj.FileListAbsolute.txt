@@ -282,3 +282,6 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Timeline.csproj.CoreCompileInpu
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Timeline.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Timeline.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Timeline.pdb
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Timeline.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Timeline.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Timeline.pdb

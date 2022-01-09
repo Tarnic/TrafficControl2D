@@ -283,3 +283,7 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Animation.Triangle.Runtime.c
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Animation.Triangle.Runtime.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Animation.Triangle.Runtime.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Animation.Triangle.Runtime.pdb
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Animation.Triangle.Runtime.csproj.AssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Animation.Triangle.Runtime.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Animation.Triangle.Runtime.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Animation.Triangle.Runtime.pdb

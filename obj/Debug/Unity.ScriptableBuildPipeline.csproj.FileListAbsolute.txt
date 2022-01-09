@@ -283,3 +283,7 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.ScriptableBuildPipeline.csproj.
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.ScriptableBuildPipeline.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.ScriptableBuildPipeline.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.ScriptableBuildPipeline.pdb
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.ScriptableBuildPipeline.csproj.AssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.ScriptableBuildPipeline.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.ScriptableBuildPipeline.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.ScriptableBuildPipeline.pdb

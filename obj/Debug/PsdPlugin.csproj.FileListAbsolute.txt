@@ -285,3 +285,7 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\PsdPlugin.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\PsdPlugin.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\PsdPlugin.pdb
 D:\Github\Godot\TrafficControl2D\obj\Debug\PsdPlugin.csprojAssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\PsdPlugin.csproj.AssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\PsdPlugin.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\PsdPlugin.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\PsdPlugin.pdb

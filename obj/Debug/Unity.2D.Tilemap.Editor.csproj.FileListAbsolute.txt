@@ -285,3 +285,7 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Tilemap.Editor.csproj.CopyCo
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Tilemap.Editor.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Tilemap.Editor.pdb
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Tilemap.Editor.csprojAssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Tilemap.Editor.csproj.AssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Tilemap.Editor.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Tilemap.Editor.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Tilemap.Editor.pdb

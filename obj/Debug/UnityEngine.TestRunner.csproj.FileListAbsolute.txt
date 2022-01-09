@@ -276,3 +276,7 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\UnityEngine.TestRunner.csproj.CoreCom
 D:\Github\Godot\TrafficControl2D\obj\Debug\UnityEngine.TestRunner.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\UnityEngine.TestRunner.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\UnityEngine.TestRunner.pdb
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\UnityEngine.TestRunner.csproj.AssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\UnityEngine.TestRunner.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\UnityEngine.TestRunner.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\UnityEngine.TestRunner.pdb

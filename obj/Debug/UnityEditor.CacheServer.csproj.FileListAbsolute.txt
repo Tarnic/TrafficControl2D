@@ -285,3 +285,6 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\UnityEditor.CacheServer.csproj.CoreCo
 D:\Github\Godot\TrafficControl2D\obj\Debug\UnityEditor.CacheServer.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\UnityEditor.CacheServer.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\UnityEditor.CacheServer.pdb
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\UnityEditor.CacheServer.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\UnityEditor.CacheServer.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\UnityEditor.CacheServer.pdb

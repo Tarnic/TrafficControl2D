@@ -1,2 +1,4 @@
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.ScriptableBuildPipeline.Editor.csprojAssemblyReference.cache
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.ScriptableBuildPipeline.Editor.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.ScriptableBuildPipeline.Editor.csproj.AssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.ScriptableBuildPipeline.Editor.csproj.CoreCompileInputs.cache

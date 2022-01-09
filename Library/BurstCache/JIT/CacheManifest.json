@@ -59,7 +59,7 @@
     },
     {
       "FullName": "Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-01-09T16:33:44.2298067Z"
+      "LastWriteTime": "2022-01-09T17:16:12.9109262Z"
     },
     {
       "FullName": "Unity.Scenes, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -558,7 +558,7 @@
     {
       "FullName": "System.Void Unity.Entities.JobChunkExtensions/JobChunkProducer`1<PathFollowSystem/<>c__DisplayClass_OnUpdate_LambdaJob0>::Execute(Unity.Entities.JobChunkExtensions/JobChunkWrapper`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
       "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "6dfc5561fbe0bd88fdd2f37c02ae5887",
+      "ModuleHash": "316048e761295b53eddf50f311ba2eff",
       "LinkName": "FFC77E8F20A61597",
       "AssemblyDependencyIndices": [
         3,
@@ -575,7 +575,7 @@
     {
       "FullName": "System.Void Unity.Entities.JobChunkExtensions/JobChunkProducer`1<PathFollowSystem/<>c__DisplayClass_OnUpdate_LambdaJob1>::Execute(Unity.Entities.JobChunkExtensions/JobChunkWrapper`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
       "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "4d3053beaa3c4a8f5ba1bc655ff8a5bd",
+      "ModuleHash": "d26eb16e93686b595fe04ace76402cae",
       "LinkName": "1946F81EDC776851",
       "AssemblyDependencyIndices": [
         3,
@@ -584,9 +584,9 @@
         2,
         5,
         6,
+        7,
         9,
-        13,
-        7
+        13
       ]
     },
     {
@@ -1971,7 +1971,7 @@
     {
       "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Pathfinding/SetBufferPathJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
       "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "88277f25cf4fe190b55a47052b7a41cf",
+      "ModuleHash": "ddcc392dfc4099c08304b6730d148b68",
       "LinkName": "744BC620E772DDB1",
       "AssemblyDependencyIndices": [
         5,
@@ -1990,7 +1990,7 @@
     {
       "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Pathfinding/FindPathJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
       "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "be6ea9b6b6a3a41caa6d1c93a53ce0ff",
+      "ModuleHash": "db32f82912433802e45e094c0d134827",
       "LinkName": "B2304D468A365610",
       "AssemblyDependencyIndices": [
         5,
@@ -2921,10 +2921,10 @@
       ]
     },
     {
-      "FullName": "System.Void Unity.Entities.StructuralChange::_mono_to_burst_DestroyEntity(System.IntPtr,System.IntPtr,System.Int32)",
+      "FullName": "System.Void Unity.Entities.StructuralChange::_mono_to_burst_CreateEntity(System.IntPtr,System.IntPtr,System.IntPtr,System.Int32)",
       "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "2f0537861689540d7de1605dff676557",
-      "LinkName": "A46CC20C548484C5",
+      "ModuleHash": "dff3e48188e281d93844fa346b224b0e",
+      "LinkName": "F147725FBD6D5A56",
       "AssemblyDependencyIndices": [
         3,
         1,
@@ -2939,10 +2939,10 @@
       ]
     },
     {
-      "FullName": "System.Void Unity.Entities.StructuralChange::_mono_to_burst_CreateEntity(System.IntPtr,System.IntPtr,System.IntPtr,System.Int32)",
+      "FullName": "System.Void Unity.Entities.StructuralChange::_mono_to_burst_DestroyEntity(System.IntPtr,System.IntPtr,System.Int32)",
       "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "dff3e48188e281d93844fa346b224b0e",
-      "LinkName": "F147725FBD6D5A56",
+      "ModuleHash": "2f0537861689540d7de1605dff676557",
+      "LinkName": "A46CC20C548484C5",
       "AssemblyDependencyIndices": [
         3,
         1,

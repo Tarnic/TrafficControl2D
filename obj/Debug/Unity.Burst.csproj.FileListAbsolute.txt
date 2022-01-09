@@ -283,3 +283,7 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Burst.csproj.CoreCompileInputs.
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Burst.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Burst.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Burst.pdb
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Burst.csproj.AssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Burst.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Burst.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Burst.pdb

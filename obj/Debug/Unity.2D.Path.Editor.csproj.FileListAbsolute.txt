@@ -285,3 +285,7 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Path.Editor.csproj.CoreCompi
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Path.Editor.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Path.Editor.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Path.Editor.pdb
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Path.Editor.csproj.AssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Path.Editor.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Path.Editor.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Path.Editor.pdb

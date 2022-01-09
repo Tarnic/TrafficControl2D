@@ -284,3 +284,6 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Jobs.Editor.csproj.CoreCompileI
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Jobs.Editor.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Jobs.Editor.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Jobs.Editor.pdb
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Jobs.Editor.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Jobs.Editor.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Jobs.Editor.pdb

@@ -1,2 +1,4 @@
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.TextMeshPro.csprojAssemblyReference.cache
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.TextMeshPro.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.TextMeshPro.csproj.AssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.TextMeshPro.csproj.CoreCompileInputs.cache

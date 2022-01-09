@@ -283,3 +283,7 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Mathematics.csproj.CoreCompileI
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Mathematics.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Mathematics.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Mathematics.pdb
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Mathematics.csproj.AssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Mathematics.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Mathematics.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Mathematics.pdb

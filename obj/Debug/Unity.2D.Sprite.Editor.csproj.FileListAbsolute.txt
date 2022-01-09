@@ -285,3 +285,7 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Sprite.Editor.csproj.CoreCom
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Sprite.Editor.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Sprite.Editor.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.Sprite.Editor.pdb
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Sprite.Editor.csproj.AssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Sprite.Editor.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Sprite.Editor.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.Sprite.Editor.pdb

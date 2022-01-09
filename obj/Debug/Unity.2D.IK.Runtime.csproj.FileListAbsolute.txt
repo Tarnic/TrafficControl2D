@@ -282,3 +282,6 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.IK.Runtime.csproj.CoreCompil
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.IK.Runtime.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.IK.Runtime.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.IK.Runtime.pdb
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.IK.Runtime.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.IK.Runtime.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.IK.Runtime.pdb

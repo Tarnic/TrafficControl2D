@@ -280,3 +280,7 @@ D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.PlasticSCM.Editor.csproj.CoreCo
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.PlasticSCM.Editor.csproj.CopyComplete
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.PlasticSCM.Editor.dll
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.PlasticSCM.Editor.pdb
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.PlasticSCM.Editor.csproj.AssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.PlasticSCM.Editor.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.PlasticSCM.Editor.dll
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.PlasticSCM.Editor.pdb

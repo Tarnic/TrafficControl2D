@@ -1,2 +1,4 @@
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Serialization.csprojAssemblyReference.cache
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Serialization.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Serialization.csproj.AssemblyReference.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Serialization.csproj.CoreCompileInputs.cache
