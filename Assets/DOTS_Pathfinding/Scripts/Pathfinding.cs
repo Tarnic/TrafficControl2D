@@ -159,7 +159,7 @@ public class Pathfinding : ComponentSystem {
                 pathNodeArray[i] = pathNode;
             }
 
-            NativeArray<int2> neighbourOffsetArray = new NativeArray<int2>(8, Allocator.Temp);
+            NativeArray<int2> neighbourOffsetArray = new NativeArray<int2>(4, Allocator.Temp);
             neighbourOffsetArray[0] = new int2(-1, 0); // Left
             neighbourOffsetArray[1] = new int2(+1, 0); // Right
             neighbourOffsetArray[2] = new int2(0, +1); // Up
@@ -222,14 +222,14 @@ public class Pathfinding : ComponentSystem {
                         continue;
                     }
                     // 0 -> wall, 1 -> left, 2 -> right, 3 -> busStop, 4 -> busentranceLeft, 
-                    // 5 -> buseEtranceRight, 6 -> busEntranceUp, 7 -> busEntranceDown, 8 -> LeftUpCross,
-                    // 9 -> LeftDownCross, 10 -> RightUpCross , 11 -> RightDownCross
+                    // 5 -> buseEtranceRight, 6 -> busEntranceUp, 7 -> busEntranceDown, 8 -> Parking, 9 -> LeftUpCross,
+                    // 10 -> LeftDownCross, 11 -> RightUpCross , 12 -> RightDownCross
                     int currentType = currentNode.type;
                     int neighbourType = neighbourNode.type;
 
                     if (!isBus)
                     {
-                        if (neighbourType > 2 && neighbourType < 8)
+                        if (neighbourType > 2 && neighbourType < 9)
                         {
                             continue;
                         }
@@ -256,25 +256,25 @@ public class Pathfinding : ComponentSystem {
                     }
                     
 
-                    if (!(neighbourType > 2 && neighbourType < 8))
+                    if (!(neighbourType > 2 && neighbourType < 9))
                     {
                         if ((currentType == 1 && neighbourType == 2) || (currentType == 2 && neighbourType == 1))
                         {
                             continue;
                         }
-                        if (currentType == 8 && (neighbourOffset.y != -1 && neighbourOffset.x != -1))
+                        if (currentType == 9 && (neighbourOffset.y != -1 && neighbourOffset.x != -1))
                         {
                             continue;
                         }
-                        if (currentType == 9 && (neighbourOffset.y != -1 && neighbourOffset.x != 1))
+                        if (currentType == 10 && (neighbourOffset.y != -1 && neighbourOffset.x != 1))
                         {
                             continue;
                         }
-                        if (currentType == 10 && (neighbourOffset.y != 1 && neighbourOffset.x != -1))
+                        if (currentType == 11 && (neighbourOffset.y != 1 && neighbourOffset.x != -1))
                         {
                             continue;
                         }
-                        if (currentType == 11 && (neighbourOffset.y != 1 && neighbourOffset.x != 1))
+                        if (currentType == 12 && (neighbourOffset.y != 1 && neighbourOffset.x != 1))
                         {
                             continue;
                         }
@@ -285,7 +285,7 @@ public class Pathfinding : ComponentSystem {
                             if (currentNode.type == 1)
                             {
                                 testIndex = CalculateIndex(currentNode.x + neighbourOffset.y, currentNode.y, gridSize.x);
-                                if (pathNodeArray[testIndex].isWalkable && (pathNodeArray[testIndex].type < 3 || pathNodeArray[testIndex].type > 8))
+                                if (pathNodeArray[testIndex].isWalkable && (pathNodeArray[testIndex].type < 3 || pathNodeArray[testIndex].type > 9))
                                 {
                                     continue;
                                 }
@@ -445,5 +445,6 @@ public class Pathfinding : ComponentSystem {
         public void SetType(int type) {
             this.type = type;
         }
+
     }
 }

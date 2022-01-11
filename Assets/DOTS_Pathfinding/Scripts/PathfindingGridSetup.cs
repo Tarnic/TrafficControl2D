@@ -15,7 +15,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
 using CodeMonkey;
-using Unity.Entities;
+using Unity.Mathematics;
+using Unity.Collections;
+
 
 public class PathfindingGridSetup : MonoBehaviour {
 
@@ -31,19 +33,21 @@ public class PathfindingGridSetup : MonoBehaviour {
     private void Start() {
         pathfindingGrid = new Grid(70, 30, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
 
-        pathfindingGrid.GetGridObject(2, 0).SetIsWalkable(false);
-
         pathfindingVisual.SetGrid(pathfindingGrid);
     }
 
     private void Update() {
-        if (Input.GetMouseButtonDown(1)) {
+        /*if (Input.GetMouseButtonDown(1)) {
             Vector3 mousePosition = UtilsClass.GetMouseWorldPosition() + (new Vector3(+1, +1) * pathfindingGrid.GetCellSize() * .5f);
             GridNode gridNode = pathfindingGrid.GetGridObject(mousePosition);
             if (gridNode != null) {
                 gridNode.SetIsWalkable(!gridNode.IsWalkable());
             }
-        }
+        }*/
     }
 
+    private void OnDestroy()
+    {
+
+    }
 }
