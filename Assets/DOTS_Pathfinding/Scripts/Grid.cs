@@ -11,7 +11,7 @@
  */
 
 using System;
-using System.Collections;
+using Unity.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -30,6 +30,10 @@ public class Grid {
     private int height;
     private float cellSize;
     private Vector3 originPosition;
+<<<<<<< Updated upstream
+=======
+    private NativeList<Vector3> busStops;
+>>>>>>> Stashed changes
     private GridNode[,] gridArray;
 
     private enum GridNodeType {
@@ -44,6 +48,7 @@ public class Grid {
         this.height = height;
         this.cellSize = cellSize;
         this.originPosition = originPosition;
+        this.busStops = new NativeList<Vector3>(0, Allocator.Persistent);
 
         gridArray = new GridNode[width, height];
 
@@ -57,7 +62,53 @@ public class Grid {
                     if (tilemap.HasTile(new Vector3Int(x - 18, y - 4, 0))) {
                         string name = tilemap.name;
                         
+<<<<<<< Updated upstream
                         if (type != 3 && (name == "Tilemap_sx" || name == "Tilemap_dx")) {
+=======
+
+                        if (name == "Tilemap_sx") { 
+                            type = 1;
+                        } else if (name == "Tilemap_dx") {
+                            type = 2;
+                        }
+                        else if (name == "BusStops")
+                        {
+                            type = 3;
+                            Debug.Log("BusStop");
+                            busStops.Add(new Vector3(x, y, 0));
+                        }
+                        else if (name == "BusEntrancesLeft")
+                        {
+                            type = 4;
+                        }
+                        else if (name == "BusEntrancesRight")
+                        {
+                            type = 5;
+                        }
+                        else if (name == "BusEntrancesUp")
+                        {
+                            type = 6;
+                        }
+                        else if (name == "BusEntrancesDown")
+                        {
+                            type = 7;
+                        }
+                        else if (name == "CrossLeftUp"){
+                            type = 8;
+                        } else if (name == "CrossLeftDown")
+                        {
+                            type = 9;
+                        } else if (name == "CrossRightUp")
+                        {
+                            type = 10;
+                        }
+                        else if (name == "CrossRightDown")
+                        {
+                            type = 11;
+                        }
+                        else
+                        {
+>>>>>>> Stashed changes
                             type = 0;
                         } else { 
                             if (name == "Crossroads") { 
@@ -155,4 +206,11 @@ public class Grid {
         return GetGridObject(x, y);
     }
 
+<<<<<<< Updated upstream
+=======
+    public NativeList<Vector3> GetBusStops()
+    {
+        return busStops;
+    }
+>>>>>>> Stashed changes
 }

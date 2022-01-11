@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.11</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.12</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.19f1</UnityVersion>
@@ -62,6 +62,7 @@
     <Compile Include="Assets\_\CodeMonkey\Utils\World_Bar.cs" />
     <Compile Include="Assets\DOTS_Pathfinding\Scripts\Grid.cs" />
     <Compile Include="Assets\DOTS_Pathfinding\Scripts\MeshUtils.cs" />
+    <Compile Include="Assets\DOTS_Pathfinding\Scripts\ParkingTimerComponent.cs" />
     <Compile Include="Assets\_\CodeMonkey\Utils\FunctionUpdater.cs" />
     <Compile Include="Assets\_\CodeMonkey\Utils\FunctionTimer.cs" />
     <Compile Include="Assets\DOTS_Pathfinding\Scripts\PathPosition.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\DOTS_Pathfinding\Scripts\Pathfinding.cs" />
     <Compile Include="Assets\DOTS_Pathfinding\Scripts\UnitMoveOrderSystem.cs" />
     <Compile Include="Assets\DOTS_Pathfinding\Scripts\PathPositionAuthoring.cs" />
+    <Compile Include="Assets\DOTS_Pathfinding\Scripts\CheckParking.cs" />
     <Compile Include="Assets\_\CodeMonkey\Utils\UI_TextComplex.cs" />
     <Compile Include="Assets\DOTS_Pathfinding\Scripts\PathfindingVisual.cs" />
     <Compile Include="Assets\_\CodeMonkey\Utils\Button_Sprite.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Assets\DOTS_Pathfinding\Scripts\PathfindingParams.cs" />
     <Compile Include="Assets\_\CodeMonkey\CMDebug.cs" />
     <Compile Include="Assets\_\CodeMonkey\Utils\FunctionPeriodic.cs" />
+    <Compile Include="Assets\DOTS_Pathfinding\Scripts\CheckEntityPositions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_\CodeMonkey\README.txt" />
