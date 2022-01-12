@@ -30,10 +30,9 @@ public class CheckParking : SystemBase
                 .ForEach((Entity entity, int entityInQueryIndex) =>
                 {
                     entityCommandBuffer.RemoveComponent<ParkingTimerComponent>(entityInQueryIndex, entity);
-
                 }).ScheduleParallel();
 
-            timeRemaining = 10;
+            timeRemaining = 5;
         }
     }
 }

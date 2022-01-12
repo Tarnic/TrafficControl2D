@@ -46,7 +46,7 @@ public class SpawnUnitsSystem : ComponentSystem {
 
             if (cont < 500) { 
                 EntityManager.SetComponentData(spawnedEntity, new Translation { Value = value });
-                gridNode.SetOccupied(false);
+                gridNode.SetOccupied(true);
             }
         }
     }

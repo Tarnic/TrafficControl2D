@@ -11,7 +11,8 @@
  */
 
 using System;
-using System.Collections;
+using Unity.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -30,7 +31,7 @@ public class Grid {
     private int height;
     private float cellSize;
     private Vector3 originPosition;
-    private List<Vector3> busStops = new List<Vector3>();
+    private static NativeList<Vector3> busStops;
     private GridNode[,] gridArray;
 
     public Grid(int width, int height, float cellSize, Vector3 originPosition, Func<Grid, int, int, GridNode> createGridObject) {
@@ -38,7 +39,7 @@ public class Grid {
         this.height = height;
         this.cellSize = cellSize;
         this.originPosition = originPosition;
-
+        busStops = new NativeList<Vector3>(0, Allocator.Persistent);
         gridArray = new GridNode[width, height];
 
         for (int x = 0; x < gridArray.GetLength(0); x++) {
@@ -78,18 +79,23 @@ public class Grid {
                         {
                             type = 7;
                         }
-                        else if (name == "CrossLeftUp"){
-                            type = 8;
-                        } else if (name == "CrossLeftDown")
+                        else if (name == "Parking")
                         {
+                            type = 8;
+                        }
+                        else if (name == "CrossLeftUp"){
                             type = 9;
-                        } else if (name == "CrossRightUp")
+                        }
+                        else if (name == "CrossLeftDown")
                         {
                             type = 10;
+                        } else if (name == "CrossRightUp")
+                        {
+                            type = 11;
                         }
                         else if (name == "CrossRightDown")
                         {
-                            type = 11;
+                            type = 12;
                         }
                         else
                         {
@@ -178,7 +184,7 @@ public class Grid {
         return GetGridObject(x, y);
     }
 
-    public List<Vector3> GetBusStops()
+    public NativeList<Vector3> GetBusStops()
     {
         return busStops;
     }

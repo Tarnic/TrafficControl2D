@@ -6,14 +6,72 @@ using Unity.Jobs;
 using System.Collections.Generic;
 using System;
 using Unity.Collections;
+using Unity.Burst;
 
+public struct PositionInfo
+{
+    public float3 currentPosition;
+    public float3 nextPosition;
+    public Entity entity;
+
+}
+
+public class CheckEntityPositions : SystemBase
+{
+    public static NativeHashMap<int, PositionInfo> cellVsEntityCustom;
+    protected override void OnCreate()
+    {
+        cellVsEntityCustom = new NativeHashMap<int, PositionInfo>(0, Allocator.Persistent);
+    }
+    public static int GetKeyFromPosition(float3 position, float cellSize, int width)
+    {
+        return (int)(math.floor(position.x / cellSize) + (width * math.floor(position.y / cellSize)));
+    }
+
+    protected override void OnUpdate()
+    {
+        float deltaTime = Time.DeltaTime;
+        float cellSize = PathfindingGridSetup.Instance.pathfindingGrid.GetCellSize();
+        int width = PathfindingGridSetup.Instance.pathfindingGrid.GetWidth();
+
+        EntityQuery eq = GetEntityQuery(typeof(PathFollow));
+        cellVsEntityCustom.Clear();
+        if (eq.CalculateEntityCount() > cellVsEntityCustom.Capacity)
+        {
+            cellVsEntityCustom.Capacity = eq.CalculateEntityCount();
+        }
+
+        NativeHashMap<int, PositionInfo>.ParallelWriter cellEntityCustomParallel = cellVsEntityCustom.AsParallelWriter();
+
+        Entities.ForEach((Entity entity,DynamicBuffer < PathPosition > pathPositionBuffer, ref Translation translation, ref PathFollow pathFollow) =>
+        {
+            PathPosition pathPosition = pathPositionBuffer[pathFollow.pathIndex];
+            float3 targetPosition = new float3(pathPosition.position.x, pathPosition.position.y, 0);
+            PositionInfo positionInfo = new PositionInfo{ currentPosition = translation.Value, nextPosition = targetPosition, entity = entity };
+            cellEntityCustomParallel.TryAdd(GetKeyFromPosition(translation.Value + new float3(0.5f, 0.5f, 0f), cellSize, width), positionInfo);
+        }).ScheduleParallel();
+
+    }
+
+    protected override void OnDestroy()
+    {
+        cellVsEntityCustom.Dispose();
+    }
+}
+
+[UpdateAfter(typeof(CheckEntityPositions))]
 public class PathFollowSystem : SystemBase {
-    private static NativeMultiHashMap<int, float3> cellVsEntityPositions;
+    //private static NativeMultiHashMap<int, float3> cellVsEntityPositions;
     private Unity.Mathematics.Random random;
 
     protected override void OnCreate() {
         random = new Unity.Mathematics.Random(56);
-        cellVsEntityPositions = new NativeMultiHashMap<int, float3>(0, Allocator.Persistent);
+        //cellVsEntityPositions = new NativeMultiHashMap<int, float3>(0, Allocator.Persistent);
+    }
+
+    public static int GetKeyFromPosition(float3 position, float cellSize, int width)
+    {
+        return (int)(math.floor(position.x / cellSize) + (width * math.floor(position.y / cellSize)));
     }
 
     public static int GetUniqueKeyForPosition(float3 position, float cellSize) {
@@ -23,72 +81,65 @@ public class PathFollowSystem : SystemBase {
     protected override void OnUpdate() {
         float deltaTime = Time.DeltaTime;
         float cellSize = PathfindingGridSetup.Instance.pathfindingGrid.GetCellSize();
-
-        EntityQuery eq = GetEntityQuery(typeof(PathFollow));
-        cellVsEntityPositions.Clear();
-        if (eq.CalculateEntityCount() > cellVsEntityPositions.Capacity) {
-            cellVsEntityPositions.Capacity = eq.CalculateEntityCount();
-        }
+        int width = PathfindingGridSetup.Instance.pathfindingGrid.GetWidth();
 
         String seconds = DateTime.Now.ToString("ss");
         int timeElapsed = int.Parse(seconds[1].ToString());
-        //int timeElapsed = int.Parse((DateTime.Now.ToString("ss"))[1]);
 
-        NativeMultiHashMap<int, float3>.ParallelWriter cellEntityPositionParallel = cellVsEntityPositions.AsParallelWriter();
-
-        Entities.ForEach((ref Translation translation, ref PathFollow pathFollow) => {
-            cellEntityPositionParallel.Add(GetUniqueKeyForPosition(translation.Value, cellSize), translation.Value);
-        }).ScheduleParallel();
-
-        NativeMultiHashMap<int, float3> cellVsEntityPositionsForJob = cellVsEntityPositions;
+        NativeHashMap<int, PositionInfo> cellVsEntityPositionsForJob = CheckEntityPositions.cellVsEntityCustom;
 
         Entities
-            .WithReadOnly(cellVsEntityPositionsForJob)
+            .WithReadOnly(cellVsEntityPositionsForJob).WithNone<ParkingTimerComponent>()
             .ForEach((Entity entity, DynamicBuffer<PathPosition> pathPositionBuffer, ref Translation translation, ref PathFollow pathFollow) => {
                 if (pathFollow.pathIndex >= 0) {
                     // Has path to follow
                     PathPosition pathPosition = pathPositionBuffer[pathFollow.pathIndex];
                     float3 targetPosition = new float3(pathPosition.position.x, pathPosition.position.y, 0);
+                    float3 precedencePosition = targetPosition;
                     float3 moveDir = math.normalizesafe(targetPosition - translation.Value);
-                    float moveSpeed = 10f;
+                    float moveSpeed = 7f;
 
-                    float3 positionToCheck;
+                    if (moveDir.y > 0.5f)
+                    {
+                        precedencePosition += new float3(1f, 0, 0);
+                    }
+                    else if (moveDir.y < -0.5f)
+                    {
+                        precedencePosition += new float3(-1f, 0, 0);
+                    }
+                    else if (moveDir.x > 0.5f)
+                    {
+                        precedencePosition += new float3(0, -1f, 0);
+                    }
+                    else if (moveDir.x < -0.5f)
+                    {
+                        precedencePosition += new float3(0, 1f, 0);
+                    }
+
+
+                    PositionInfo position;
                     float currentDistance = 1f;
-                    NativeMultiHashMapIterator<int> mapIterator;
-                    int indexTarget = GetUniqueKeyForPosition(targetPosition, cellSize);
+                    int indexCustom = GetKeyFromPosition(targetPosition + new float3(0.5f, 0.5f, 0f), cellSize, width);
+                    int indexRight = GetKeyFromPosition(precedencePosition + new float3(0.5f, 0.5f, 0f), cellSize, width);
                     int countCollisions = 0;
 
-                    if (pathPosition.type > 7 && ((pathPosition.type == 8 && moveDir.y < -0.5f && timeElapsed >= 5) || (pathPosition.type == 9 && moveDir.x > 0.5f && timeElapsed < 5)|| (pathPosition.type == 10 && moveDir.x < -0.5f && timeElapsed < 5)|| (pathPosition.type == 11 && moveDir.y > 0.5f && timeElapsed >= 5)))
+                    if (pathPosition.type > 8 && math.distance(translation.Value, targetPosition) > .9f && ((pathPosition.type == 9 && moveDir.y < -0.5f && timeElapsed >= 5) || (pathPosition.type == 10 && moveDir.x > 0.5f && timeElapsed < 5)|| (pathPosition.type == 11 && moveDir.x < -0.5f && timeElapsed < 5)|| (pathPosition.type == 12 && moveDir.y > 0.5f && timeElapsed >= 5)))
                     {}
                     else {
-                        if (cellVsEntityPositionsForJob.TryGetFirstValue(indexTarget, out positionToCheck, out mapIterator)) {
-                            do {
-
-                                if (!translation.Value.Equals(positionToCheck)) {
-
-                                    float3 checkDir = math.normalizesafe(positionToCheck - translation.Value);
-                                    //Debug.LogFormat("CheckDirection: {0},{1}", checkDir.x, checkDir.y);
-                                    Debug.LogFormat("Distance: {0}", math.length(moveDir - checkDir));
-                                    //Debug.LogFormat("Direction: {0},{1}", moveDir.x, moveDir.y);
-
-                                    if (math.length(moveDir - checkDir) > 1) {
-                                        continue;
-                                    }
-                                    /*if (math.length(translation.Value * moveDir - positionToCheck * moveDir) < 0) {
-                                        continue;
-                                    }*/
-                                    else if (currentDistance > math.sqrt(math.lengthsq(translation.Value - positionToCheck))) {
-                                        // Debug.Log("Collision");
-                                        Debug.LogFormat("Current distance: {0}", math.sqrt(math.lengthsq(translation.Value - positionToCheck)));
-                                        countCollisions++;
-                                    }
-                                    
+                        if (cellVsEntityPositionsForJob.TryGetValue(indexCustom, out position)){
+                            float3 positionToCheck = position.currentPosition;
+                            if (math.sqrt(math.lengthsq(translation.Value - positionToCheck)) > 0.1f && currentDistance > math.sqrt(math.lengthsq(translation.Value - positionToCheck)))
+                            {
+                                countCollisions = 1;
+                            }
+                            else
+                            {
+                                if (math.sqrt(math.lengthsq(translation.Value - positionToCheck)) > 0.1f && math.sqrt(math.lengthsq(translation.Value - positionToCheck)) < 1.5f)
+                                {
+                                    moveSpeed = moveSpeed / 8;
                                 }
-                                // Debug.LogFormat("key: {0}, value: {1}", indexTarget, positionToCheck);
-
-                            } while (cellVsEntityPositionsForJob.TryGetNextValue(out positionToCheck, ref mapIterator));
+                            }
                         }
-
                         if (countCollisions == 0) {
                             translation.Value += moveDir * moveSpeed * deltaTime;
                         }
@@ -110,8 +161,7 @@ public class PathFollowSystem : SystemBase {
 
     protected override void OnDestroy()
     {
-
-        cellVsEntityPositions.Dispose();
+        //cellVsEntityPositions.Dispose();
     }
 
 }
@@ -123,56 +173,49 @@ public class PathFollowSystem : SystemBase {
 public class PathFollowGetNewPathSystem : SystemBase {
 
     private Unity.Mathematics.Random random;
-    //private EndSimulationEntityCommandBufferSystem endSimulationEntityCommandBufferSystem;
+    private EndSimulationEntityCommandBufferSystem endSimulationEntityCommandBufferSystem;
 
     protected override void OnCreate() {
         random = new Unity.Mathematics.Random(56);
-
-        //endSimulationEntityCommandBufferSystem = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+        
+        endSimulationEntityCommandBufferSystem = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
     }
 
     protected override void OnUpdate() {
         int mapWidth = PathfindingGridSetup.Instance.pathfindingGrid.GetWidth();
         int mapHeight = PathfindingGridSetup.Instance.pathfindingGrid.GetHeight();
-        List<Vector3> busStops = PathfindingGridSetup.Instance.pathfindingGrid.GetBusStops();
-        Debug.Log("BUSSSSSS");
-        if(busStops == null)
-        {
-            Debug.Log("NULL");
-        }
-        else
-        {
-            Debug.Log(busStops.Capacity);
-        }
+        NativeList<Vector3> busStops = PathfindingGridSetup.Instance.pathfindingGrid.GetBusStops();
+        
+
         float3 originPosition = float3.zero;
         float cellSize = PathfindingGridSetup.Instance.pathfindingGrid.GetCellSize();
         Unity.Mathematics.Random random = new Unity.Mathematics.Random(this.random.NextUInt(1, 10000));
 
-        //EntityCommandBuffer.ParallelWriter entityCommandBuffer = endSimulationEntityCommandBufferSystem.CreateCommandBuffer().AsParallelWriter();
+        EntityCommandBuffer.ParallelWriter entityCommandBuffer = endSimulationEntityCommandBufferSystem.CreateCommandBuffer().AsParallelWriter();
 
-        Entities.WithStructuralChanges().WithNone<PathfindingParams>().WithAll<BusComponent>().ForEach((Entity entity, int entityInQueryIndex, in PathFollow pathFollow, in Translation translation) => {
+
+        Entities.WithReadOnly(busStops).WithNone<PathfindingParams, ParkingTimerComponent>().WithAll<BusComponent>().ForEach((Entity entity, int entityInQueryIndex, in PathFollow pathFollow, in Translation translation) => {
             if (pathFollow.pathIndex == -1)
             {
-
                 GetXY(translation.Value + new float3(1, 1, 0) * cellSize * +.5f, originPosition, cellSize, out int startX, out int startY);
-
                 ValidateGridPosition(ref startX, ref startY, mapWidth, mapHeight);
                 
 
-                Vector3 busPos = busStops[random.NextInt(0, busStops.Capacity)];
-                int busStop = random.NextInt(0, busStops.Capacity);
+                int busStop = random.NextInt(0, busStops.Length);
                 int endX = (int)busStops[busStop].x;
                 int endY = (int)busStops[busStop].y;
-
-                EntityManager.AddComponentData(entity, new PathfindingParams
+                //Debug.Log(busStop);
+                entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new PathfindingParams
                 {
                     startPosition = new int2(startX, startY),
                     endPosition = new int2(endX, endY)
                 });
             }
-        }).Run();
+            
 
-        Entities.WithStructuralChanges().WithNone<PathfindingParams,BusComponent>().ForEach((Entity entity, int entityInQueryIndex, in PathFollow pathFollow, in Translation translation) => { 
+        }).ScheduleParallel();
+
+        Entities.WithNone<PathfindingParams,BusComponent, ParkingTimerComponent>().ForEach((Entity entity, int entityInQueryIndex, in PathFollow pathFollow, in Translation translation) => { 
             if (pathFollow.pathIndex == -1) {
                 
                 GetXY(translation.Value + new float3(1, 1, 0) * cellSize * +.5f, originPosition, cellSize, out int startX, out int startY);
@@ -181,13 +224,18 @@ public class PathFollowGetNewPathSystem : SystemBase {
                 int endX = random.NextInt(0, mapWidth);
                 int endY = random.NextInt(0, mapHeight);
 
-                EntityManager.AddComponentData(entity, new PathfindingParams { 
+                entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new PathfindingParams { 
                     startPosition = new int2(startX, startY), endPosition = new int2(endX, endY) 
                 });
             }
-        }).Run();
+        }).ScheduleParallel();
 
-        //endSimulationEntityCommandBufferSystem.AddJobHandleForProducer(jobHandle);
+        endSimulationEntityCommandBufferSystem.AddJobHandleForProducer(this.Dependency);
+    }
+
+    protected override void OnDestroy()
+    {
+       
     }
 
     private static void ValidateGridPosition(ref int x, ref int y, int width, int height) {
