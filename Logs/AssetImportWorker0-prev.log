@@ -15,19 +15,11 @@ C:/Users/tarni/Unity Projects/TrafficControl2D
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-<<<<<<< Updated upstream
 62574
 Successfully changed project path to: C:/Users/tarni/Unity Projects/TrafficControl2D
 C:/Users/tarni/Unity Projects/TrafficControl2D
 Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 91.02 ms, found 4 plugins.
-=======
-50100
-Successfully changed project path to: C:/Users/tarni/Unity Projects/TrafficControl2D
-C:/Users/tarni/Unity Projects/TrafficControl2D
-Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 112.73 ms, found 4 plugins.
->>>>>>> Stashed changes
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.19f1 (68f137dc9bbe)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/Resources/UnitySubsystems
@@ -38,12 +30,11 @@ Direct3D:
     Renderer: AMD Radeon RX 5600 XT (ID=0x731f)
     Vendor:   
     VRAM:     6103 MB
-    Driver:   30.0.13025.5005
+    Driver:   30.0.13023.1012
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/MonoBleedingEdge/etc'
-<<<<<<< Updated upstream
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56828
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
@@ -57,27 +48,11 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (1365ms)
 		BeginReloadAssembly (69ms)
-=======
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56832
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003165 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 105.98 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.589 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1589ms)
-		BeginReloadAssembly (76ms)
->>>>>>> Stashed changes
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-<<<<<<< Updated upstream
 		EndReloadAssembly (527ms)
 			LoadAssemblies (66ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
@@ -85,36 +60,19 @@ Domain Reload Profiling:
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (32ms)
 			SetupLoadedEditorAssemblies (250ms)
-=======
-		EndReloadAssembly (618ms)
-			LoadAssemblies (73ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (202ms)
-			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (41ms)
-			SetupLoadedEditorAssemblies (278ms)
->>>>>>> Stashed changes
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
-<<<<<<< Updated upstream
 				RefreshPlugins (95ms)
 				BeforeProcessingInitializeOnLoad (18ms)
 				ProcessInitializeOnLoadAttributes (99ms)
 				ProcessInitializeOnLoadMethodAttributes (33ms)
-=======
-				RefreshPlugins (106ms)
-				BeforeProcessingInitializeOnLoad (24ms)
-				ProcessInitializeOnLoadAttributes (105ms)
-				ProcessInitializeOnLoadMethodAttributes (37ms)
->>>>>>> Stashed changes
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-<<<<<<< Updated upstream
 Registered in 0.012455 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
@@ -146,46 +104,12 @@ Domain Reload Profiling:
 				ProcessInitializeOnLoadAttributes (1316ms)
 				ProcessInitializeOnLoadMethodAttributes (63ms)
 				AfterProcessingInitializeOnLoad (11ms)
-=======
-Registered in 0.014455 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 251.80 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-TypeManager.Initialize took: 326ms
-Mono: successfully reloaded assembly
-- Completed reload, in  5.778 seconds
-Domain Reload Profiling:
-	ReloadAssembly (5781ms)
-		BeginReloadAssembly (279ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (11ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (1ms)
-			CreateAndSetChildDomain (42ms)
-		EndReloadAssembly (5349ms)
-			LoadAssemblies (266ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (1004ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (93ms)
-			SetupLoadedEditorAssemblies (3602ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (13ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (252ms)
-				BeforeProcessingInitializeOnLoad (362ms)
-				ProcessInitializeOnLoadAttributes (2829ms)
-				ProcessInitializeOnLoadMethodAttributes (125ms)
-				AfterProcessingInitializeOnLoad (18ms)
->>>>>>> Stashed changes
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (8ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-<<<<<<< Updated upstream
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
 Refreshing native plugins compatible for Editor in 0.90 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
@@ -195,17 +119,6 @@ System memory in use after: 162.9 MB.
 
 Unloading 44 unused Assets to reduce memory usage. Loaded Objects now: 4511.
 Total: 5.464200 ms (FindLiveObjects: 0.375700 ms CreateObjectMapping: 0.119600 ms MarkObjects: 4.879100 ms  DeleteObjects: 0.087600 ms)
-=======
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
-Refreshing native plugins compatible for Editor in 1.66 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4083 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 163.2 MB.
-System memory in use after: 163.4 MB.
-
-Unloading 44 unused Assets to reduce memory usage. Loaded Objects now: 4516.
-Total: 13.686000 ms (FindLiveObjects: 1.224000 ms CreateObjectMapping: 0.296500 ms MarkObjects: 11.923300 ms  DeleteObjects: 0.236300 ms)
->>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:DOTSType/UnityEngine.Timeline.ActivationPlayableAsset: 9c051015c3099b609c051015c3099b60 -> 
@@ -1270,7 +1183,6 @@ AssetImportParameters requested are different than current active one (requested
   custom:DOTSType/UnityEditor.CurveEditorSelection: a250a06b16ef8f99a250a06b16ef8f99 -> 
   custom:DOTSType/Unity.Rendering.BuiltinMaterialPropertyUnity_MatrixPreviousMI_Tag: 797ac022d7e96bdb797ac022d7e96bdb -> 
   custom:DOTSType/UnityEditor.SceneManagement.MainStage: 5ebb5c04848ec6ec5ebb5c04848ec6ec -> 
-  custom:DOTSType/ParkingTimerComponent: 5292f42b31c813c65292f42b31c813c6 -> 
   custom:DOTSType/UnityEditor.AudioHighPassFilterEditor: 9831f5d71e4a920a9831f5d71e4a920a -> 
   custom:DOTSType/Unity.Entities.CompanionLink: 71f3122a15d3ef9071f3122a15d3ef90 -> 
   custom:DOTSType/UnityEngine.UIExtras.SearchWindow: 920fe37896289505920fe37896289505 -> 
@@ -1477,7 +1389,6 @@ AssetImportParameters requested are different than current active one (requested
   custom:DOTSType/UnityEditor.NavMeshObstacleInspector: e09ab8310b8a0334e09ab8310b8a0334 -> 
 ========================================================================
 Received Import Request.
-<<<<<<< Updated upstream
   path: Assets/DOTS_Pathfinding/Prefabs/PrefabCar.prefab
   artifactKey: Guid(8f9a41753b22dee4f8407696d9b0f1c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/DOTS_Pathfinding/Prefabs/PrefabCar.prefab using Guid(8f9a41753b22dee4f8407696d9b0f1c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c062acd0f27b19dce79bfd70ef3c34d0') in 0.124933 seconds 
@@ -1522,33 +1433,10 @@ Received Import Request.
   artifactKey: Guid(8f9a41753b22dee4f8407696d9b0f1c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/DOTS_Pathfinding/Prefabs/PrefabCar.prefab using Guid(8f9a41753b22dee4f8407696d9b0f1c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbc68965e146943ba8e473d639909c9b') in 0.014190 seconds 
   Import took 0.022634 seconds .
-=======
-  path: Assets/DOTS_Pathfinding/Scripts/PathFollowSystem.cs
-  artifactKey: Guid(0c805d7f6a1c8aa4bb8c88a761fe948a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DOTS_Pathfinding/Scripts/PathFollowSystem.cs using Guid(0c805d7f6a1c8aa4bb8c88a761fe948a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c64f319fe940db94587d67e97b782e4') in 0.070116 seconds 
-  Import took 0.081908 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000970 seconds.
-  path: Assets/DOTS_Pathfinding/Scripts/CheckParking.cs
-  artifactKey: Guid(5014a376dee54ee43a7492cb98fc3f5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DOTS_Pathfinding/Scripts/CheckParking.cs using Guid(5014a376dee54ee43a7492cb98fc3f5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44ec00b7950838fcb10031d530059c73') in 0.004211 seconds 
-  Import took 0.013839 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 49.727296 seconds.
-  path: Assets/DOTS_Pathfinding/Scripts/CheckEntityPositions.cs
-  artifactKey: Guid(519cfbe59e3f4e44199602694ae01622) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DOTS_Pathfinding/Scripts/CheckEntityPositions.cs using Guid(519cfbe59e3f4e44199602694ae01622) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9dc5d804e7bbcb72daef9002833b5bf9') in 0.006461 seconds 
-  Import took 0.017348 seconds .
->>>>>>> Stashed changes
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-<<<<<<< Updated upstream
 Registered in 0.011951 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
@@ -1583,60 +1471,15 @@ Domain Reload Profiling:
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (26ms)
-=======
-Registered in 0.019554 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.96 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-TypeManager.Initialize took: 251ms
-Mono: successfully reloaded assembly
-- Completed reload, in  3.074 seconds
-Domain Reload Profiling:
-	ReloadAssembly (3074ms)
-		BeginReloadAssembly (210ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (16ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (79ms)
-		EndReloadAssembly (2764ms)
-			LoadAssemblies (169ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (1027ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (66ms)
-			SetupLoadedEditorAssemblies (1299ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (10ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (244ms)
-				ProcessInitializeOnLoadAttributes (971ms)
-				ProcessInitializeOnLoadMethodAttributes (57ms)
-				AfterProcessingInitializeOnLoad (12ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (35ms)
->>>>>>> Stashed changes
 Platform modules already initialized, skipping
 Refreshing native plugins compatible for Editor in 1.29 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-<<<<<<< Updated upstream
 Unloading 4070 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 165.3 MB.
 System memory in use after: 165.5 MB.
 
 Unloading 30 unused Assets to reduce memory usage. Loaded Objects now: 4528.
 Total: 7.368700 ms (FindLiveObjects: 0.684100 ms CreateObjectMapping: 0.320300 ms MarkObjects: 6.332900 ms  DeleteObjects: 0.029900 ms)
-=======
-Unloading 4071 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 162.7 MB.
-System memory in use after: 162.9 MB.
-
-Unloading 30 unused Assets to reduce memory usage. Loaded Objects now: 4522.
-Total: 10.095500 ms (FindLiveObjects: 0.827100 ms CreateObjectMapping: 0.449300 ms MarkObjects: 8.733900 ms  DeleteObjects: 0.082900 ms)
->>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:DOTSType/UnityEngine.Timeline.ActivationPlayableAsset: 9c051015c3099b609c051015c3099b60 -> 
@@ -2476,7 +2319,6 @@ AssetImportParameters requested are different than current active one (requested
   custom:DOTSType/UnityEditor.TrueTypeFontImporter: 879db9475b6b3731879db9475b6b3731 -> 
   custom:DOTSType/UnityEditor.Graphs.AnimationStateMachine.InvalidStateMachineBehaviourEditor: aa0224fd9a281861aa0224fd9a281861 -> 
   custom:DOTSType/Unity.Entities.GameObjectConversionUtility+DeclaredReferenceObjectsTag: 9297c5717cd023cb9297c5717cd023cb -> 
-  custom:DOTSType/CheckEntityPositions: c8be813f63fe24a2c8be813f63fe24a2 -> 
   custom:DOTSType/UnityEditor.Timeline.Signals.SignalReceiverItem+UnityEventCloner: c069b46d64e0cc86c069b46d64e0cc86 -> 
   custom:DOTSType/Unity.Transforms.CompositeScale: 078db9cc48876ebd078db9cc48876ebd -> 
   custom:DOTSType/UnityEngine.TestRunner.Utils.TestRunCallbackListener: be8e9fd807bd1303be8e9fd807bd1303 -> 
@@ -2703,7 +2545,6 @@ AssetImportParameters requested are different than current active one (requested
   custom:DOTSType/UnityEditor.CurveEditorSelection: a250a06b16ef8f99a250a06b16ef8f99 -> 
   custom:DOTSType/Unity.Rendering.BuiltinMaterialPropertyUnity_MatrixPreviousMI_Tag: 797ac022d7e96bdb797ac022d7e96bdb -> 
   custom:DOTSType/UnityEditor.SceneManagement.MainStage: 5ebb5c04848ec6ec5ebb5c04848ec6ec -> 
-  custom:DOTSType/ParkingTimerComponent: 5292f42b31c813c65292f42b31c813c6 -> 
   custom:DOTSType/UnityEditor.AudioHighPassFilterEditor: 9831f5d71e4a920a9831f5d71e4a920a -> 
   custom:DOTSType/Unity.Entities.CompanionLink: 71f3122a15d3ef9071f3122a15d3ef90 -> 
   custom:DOTSType/UnityEngine.UIExtras.SearchWindow: 920fe37896289505920fe37896289505 -> 
@@ -2910,7 +2751,6 @@ AssetImportParameters requested are different than current active one (requested
   custom:DOTSType/UnityEditor.NavMeshObstacleInspector: e09ab8310b8a0334e09ab8310b8a0334 -> 
 ========================================================================
 Received Import Request.
-<<<<<<< Updated upstream
   Time since last request: 78.064390 seconds.
   path: Assets/_/CodeMonkey/Assets.cs
   artifactKey: Guid(eda7ff5f6e8175c4da119ea9ed256f6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -6916,11 +6756,3 @@ AssetImportParameters requested are different than current active one (requested
   custom:DOTSType/PrefabEntityComponentAuthoring: 1cef05d38cc0bbf41cef05d38cc0bbf4 -> 
   custom:DOTSType/UnityEditor.NavMeshObstacleInspector: e09ab8310b8a0334e09ab8310b8a0334 -> 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
-=======
-  Time since last request: 57.843604 seconds.
-  path: Assets/DOTS_Pathfinding/Scripts/CheckEntityPositions.cs
-  artifactKey: Guid(519cfbe59e3f4e44199602694ae01622) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DOTS_Pathfinding/Scripts/CheckEntityPositions.cs using Guid(519cfbe59e3f4e44199602694ae01622) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '346607dea1b8baba791400a18a1a7c00') in 0.018409 seconds 
-  Import took 0.031103 seconds .
-
->>>>>>> Stashed changes
