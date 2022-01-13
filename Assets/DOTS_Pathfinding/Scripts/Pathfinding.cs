@@ -40,7 +40,6 @@ public class Pathfinding : ComponentSystem {
         Entities.ForEach((Entity entity, ref PathfindingParams pathfindingParams) => {
 
             NativeArray<PathNode> tmpPathNodeArray = new NativeArray<PathNode>(pathNodeArray, Allocator.TempJob);
-            //EntityQuery em = GetEntityQuery(ComponentType.ReadOnly<BusComponent>());
             bool isBus = EntityManager.HasComponent<BusComponent>(entity);
             FindPathJob findPathJob = new FindPathJob {
                 gridSize = gridSize,

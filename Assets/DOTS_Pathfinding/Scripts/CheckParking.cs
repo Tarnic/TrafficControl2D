@@ -1,22 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Unity.Entities;
+using System;
+using Unity.Mathematics;
+using Unity.Collections;
+using Unity.Transforms;
+using UnityEngine;
 
 public class CheckParking : SystemBase 
 {
-
-    private float timeRemaining = 10;
+    private Unity.Mathematics.Random random;
+    private float timeRemaining = 5;
     private BeginInitializationEntityCommandBufferSystem commandBufferSystem;
 
     protected override void OnCreate()
     {
         commandBufferSystem = World.GetOrCreateSystem<BeginInitializationEntityCommandBufferSystem>();
+        random = new Unity.Mathematics.Random(56);
     }
 
     protected override void OnUpdate() {
 
         EntityCommandBuffer.ParallelWriter entityCommandBuffer = commandBufferSystem.CreateCommandBuffer().AsParallelWriter();
+        NativeList<Vector3> busStops = PathfindingGridSetup.Instance.pathfindingGrid.GetBusStops();
+        Unity.Mathematics.Random random = new Unity.Mathematics.Random(this.random.NextUInt(1, 10000));
+
+        float cellSize = PathfindingGridSetup.Instance.pathfindingGrid.GetCellSize();
+        int mapWidth = PathfindingGridSetup.Instance.pathfindingGrid.GetWidth();
+        int mapHeight = PathfindingGridSetup.Instance.pathfindingGrid.GetHeight();
 
         if (timeRemaining > 0)
         {
@@ -24,15 +33,50 @@ public class CheckParking : SystemBase
         }
         else
         {
-            // Debug.Log("Time has run out");
+            timeRemaining = 5;
+            Debug.Log("Time has run out");
             Entities
-                .WithAll<ParkingTimerComponent>()
-                .ForEach((Entity entity, int entityInQueryIndex) =>
+                .WithoutBurst()
+                .WithReadOnly(busStops)
+                .WithAll<ParkingTimerComponent, BusComponent>()
+                .ForEach((Entity entity, int entityInQueryIndex, ref ParkingTimerComponent parkingTimer, ref Translation translation) =>
                 {
-                    entityCommandBuffer.RemoveComponent<ParkingTimerComponent>(entityInQueryIndex, entity);
+                    if (parkingTimer.timeOfDeparture.Subtract(DateTime.Now).TotalSeconds <= 0)
+                    {
+                        entityCommandBuffer.RemoveComponent<ParkingTimerComponent>(entityInQueryIndex, entity);
+
+                        PathFollowGetNewPathSystem.AssignNewParams(entity, translation, busStops, cellSize, mapWidth, mapHeight, true, random, out int startX, out int startY, out int endX, out int endY);
+
+                        entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new PathfindingParams
+                        {
+                            startPosition = new int2(startX, startY),
+                            endPosition = new int2(endX, endY)
+                        });
+                    }
+                    
                 }).ScheduleParallel();
 
-            timeRemaining = 5;
+            Entities
+                .WithReadOnly(busStops)
+                .WithoutBurst()
+                .WithNone<BusComponent>()
+                .WithAll<ParkingTimerComponent>()
+                .ForEach((Entity entity, int entityInQueryIndex, ref ParkingTimerComponent parkingTimer, ref Translation translation) =>
+                {
+                    if (parkingTimer.timeOfDeparture.Subtract(DateTime.Now).TotalSeconds <= 0)
+                    {
+                        entityCommandBuffer.RemoveComponent<ParkingTimerComponent>(entityInQueryIndex, entity);
+
+                        PathFollowGetNewPathSystem.AssignNewParams(entity, translation, busStops, cellSize, mapWidth, mapHeight, false, random, out int startX, out int startY, out int endX, out int endY);
+
+                        entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new PathfindingParams
+                        {
+                            startPosition = new int2(startX, startY),
+                            endPosition = new int2(endX, endY)
+                        });
+                    }
+
+                }).ScheduleParallel();
         }
     }
 }

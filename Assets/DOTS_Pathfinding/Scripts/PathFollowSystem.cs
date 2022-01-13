@@ -43,12 +43,19 @@ public class CheckEntityPositions : SystemBase
 
         NativeHashMap<int, PositionInfo>.ParallelWriter cellEntityCustomParallel = cellVsEntityCustom.AsParallelWriter();
 
-        Entities.ForEach((Entity entity,DynamicBuffer < PathPosition > pathPositionBuffer, ref Translation translation, ref PathFollow pathFollow) =>
+        Entities.ForEach((Entity entity, DynamicBuffer <PathPosition> pathPositionBuffer, ref Translation translation, ref PathFollow pathFollow) =>
         {
-            PathPosition pathPosition = pathPositionBuffer[pathFollow.pathIndex];
-            float3 targetPosition = new float3(pathPosition.position.x, pathPosition.position.y, 0);
-            PositionInfo positionInfo = new PositionInfo{ currentPosition = translation.Value, nextPosition = targetPosition, entity = entity };
+            float3 targetPosition = translation.Value;
+
+            if (pathFollow.pathIndex != -1)
+            {
+                PathPosition pathPosition = pathPositionBuffer[pathFollow.pathIndex];
+                targetPosition = new float3(pathPosition.position.x, pathPosition.position.y, 0);
+            }
+
+            PositionInfo positionInfo = new PositionInfo { currentPosition = translation.Value, nextPosition = targetPosition, entity = entity };
             cellEntityCustomParallel.TryAdd(GetKeyFromPosition(translation.Value + new float3(0.5f, 0.5f, 0f), cellSize, width), positionInfo);
+
         }).ScheduleParallel();
 
     }
@@ -61,12 +68,10 @@ public class CheckEntityPositions : SystemBase
 
 [UpdateAfter(typeof(CheckEntityPositions))]
 public class PathFollowSystem : SystemBase {
-    //private static NativeMultiHashMap<int, float3> cellVsEntityPositions;
     private Unity.Mathematics.Random random;
 
     protected override void OnCreate() {
         random = new Unity.Mathematics.Random(56);
-        //cellVsEntityPositions = new NativeMultiHashMap<int, float3>(0, Allocator.Persistent);
     }
 
     public static int GetKeyFromPosition(float3 position, float cellSize, int width)
@@ -159,11 +164,6 @@ public class PathFollowSystem : SystemBase {
         y = math.clamp(y, 0, PathfindingGridSetup.Instance.pathfindingGrid.GetHeight() - 1);
     }
 
-    protected override void OnDestroy()
-    {
-        //cellVsEntityPositions.Dispose();
-    }
-
 }
 
 
@@ -177,65 +177,80 @@ public class PathFollowGetNewPathSystem : SystemBase {
 
     protected override void OnCreate() {
         random = new Unity.Mathematics.Random(56);
-        
         endSimulationEntityCommandBufferSystem = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
     }
 
     protected override void OnUpdate() {
+        NativeList<Vector3> busStops = PathfindingGridSetup.Instance.pathfindingGrid.GetBusStops();
+        Unity.Mathematics.Random random = new Unity.Mathematics.Random(this.random.NextUInt(1, 10000));
+
+        float cellSize = PathfindingGridSetup.Instance.pathfindingGrid.GetCellSize();
         int mapWidth = PathfindingGridSetup.Instance.pathfindingGrid.GetWidth();
         int mapHeight = PathfindingGridSetup.Instance.pathfindingGrid.GetHeight();
-        NativeList<Vector3> busStops = PathfindingGridSetup.Instance.pathfindingGrid.GetBusStops();
-        
-
-        float3 originPosition = float3.zero;
-        float cellSize = PathfindingGridSetup.Instance.pathfindingGrid.GetCellSize();
-        Unity.Mathematics.Random random = new Unity.Mathematics.Random(this.random.NextUInt(1, 10000));
 
         EntityCommandBuffer.ParallelWriter entityCommandBuffer = endSimulationEntityCommandBufferSystem.CreateCommandBuffer().AsParallelWriter();
 
 
-        Entities.WithReadOnly(busStops).WithNone<PathfindingParams, ParkingTimerComponent>().WithAll<BusComponent>().ForEach((Entity entity, int entityInQueryIndex, in PathFollow pathFollow, in Translation translation) => {
-            if (pathFollow.pathIndex == -1)
-            {
-                GetXY(translation.Value + new float3(1, 1, 0) * cellSize * +.5f, originPosition, cellSize, out int startX, out int startY);
-                ValidateGridPosition(ref startX, ref startY, mapWidth, mapHeight);
-                
-
-                int busStop = random.NextInt(0, busStops.Length);
-                int endX = (int)busStops[busStop].x;
-                int endY = (int)busStops[busStop].y;
-                //Debug.Log(busStop);
-                entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new PathfindingParams
+        Entities
+            .WithoutBurst()
+            .WithReadOnly(busStops)
+            .WithNone<PathfindingParams, ParkingTimerComponent>()
+            .WithAll<BusComponent>()
+            .ForEach((Entity entity, int entityInQueryIndex, in PathFollow pathFollow, in Translation translation) => {
+                if (pathFollow.pathIndex == -1)
                 {
-                    startPosition = new int2(startX, startY),
-                    endPosition = new int2(endX, endY)
-                });
-            }
-            
+                    AssignNewParams(entity, translation, busStops, cellSize, mapWidth, mapHeight, true, random, out int startX, out int startY, out int endX, out int endY);
 
-        }).ScheduleParallel();
+                    GridNode gridNode = PathfindingGridSetup.Instance.pathfindingGrid.GetGridObject(startX, startY);
 
-        Entities.WithNone<PathfindingParams,BusComponent, ParkingTimerComponent>().ForEach((Entity entity, int entityInQueryIndex, in PathFollow pathFollow, in Translation translation) => { 
-            if (pathFollow.pathIndex == -1) {
-                
-                GetXY(translation.Value + new float3(1, 1, 0) * cellSize * +.5f, originPosition, cellSize, out int startX, out int startY);
+                    if (gridNode.GetType() == 3)
+                    {
+                        entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new ParkingTimerComponent { timeOfDeparture = DateTime.Now.AddSeconds(5) });
+                    }
 
-                ValidateGridPosition(ref startX, ref startY, mapWidth, mapHeight);
-                int endX = random.NextInt(0, mapWidth);
-                int endY = random.NextInt(0, mapHeight);
+                    entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new PathfindingParams
+                    {
+                        startPosition = new int2(startX, startY),
+                        endPosition = new int2(endX, endY)
+                    });
+                }
+            }).ScheduleParallel();
 
-                entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new PathfindingParams { 
-                    startPosition = new int2(startX, startY), endPosition = new int2(endX, endY) 
-                });
-            }
-        }).ScheduleParallel();
+        Entities
+            .WithReadOnly(busStops)
+            .WithNone<PathfindingParams, BusComponent, ParkingTimerComponent>()
+            .ForEach((Entity entity, int entityInQueryIndex, in PathFollow pathFollow, in Translation translation) => { 
+                if (pathFollow.pathIndex == -1) {
+
+                    AssignNewParams(entity, translation, busStops, cellSize, mapWidth, mapHeight, false, random, out int startX, out int startY, out int endX, out int endY);
+
+                    entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new PathfindingParams { 
+                        startPosition = new int2(startX, startY), endPosition = new int2(endX, endY) 
+                    });
+                }
+            }).ScheduleParallel();
 
         endSimulationEntityCommandBufferSystem.AddJobHandleForProducer(this.Dependency);
     }
 
-    protected override void OnDestroy()
+    public static void AssignNewParams(Entity entity, Translation translation, NativeList<Vector3> busStops, float cellSize, int mapWidth, int mapHeight, bool isBus, Unity.Mathematics.Random random, out int startX, out int startY, out int endX, out int endY)
     {
-       
+        GetXY(translation.Value + new float3(1, 1, 0) * cellSize * +.5f, float3.zero, cellSize, out startX, out startY);
+        ValidateGridPosition(ref startX, ref startY, mapWidth, mapHeight);
+
+        if (isBus)
+        {
+            int busStop = random.NextInt(0, busStops.Length);
+            endX = (int)busStops[busStop].x;
+            endY = (int)busStops[busStop].y;
+
+        }
+        else
+        {
+            endX = random.NextInt(0, mapWidth);
+            endY = random.NextInt(0, mapHeight);
+        }
+        
     }
 
     private static void ValidateGridPosition(ref int x, ref int y, int width, int height) {
