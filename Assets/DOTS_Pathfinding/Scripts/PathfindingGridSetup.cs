@@ -31,7 +31,7 @@ public class PathfindingGridSetup : MonoBehaviour {
     }
 
     private void Start() {
-        pathfindingGrid = new Grid(70, 30, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
+        pathfindingGrid = new Grid(250, 100, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
 
         pathfindingVisual.SetGrid(pathfindingGrid);
     }

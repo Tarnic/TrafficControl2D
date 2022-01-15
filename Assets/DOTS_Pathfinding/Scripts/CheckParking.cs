@@ -34,7 +34,6 @@ public class CheckParking : SystemBase
         else
         {
             timeRemaining = 5;
-            Debug.Log("Time has run out");
             Entities
                 .WithoutBurst()
                 .WithReadOnly(busStops)

@@ -26,7 +26,7 @@ public class SpawnUnitsSystem : ComponentSystem {
         }
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            SpawnUnits(50);
+            SpawnUnits(200);
         }
     }
 

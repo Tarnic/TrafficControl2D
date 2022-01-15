@@ -89,7 +89,8 @@ public class PathFollowSystem : SystemBase {
         int width = PathfindingGridSetup.Instance.pathfindingGrid.GetWidth();
 
         String seconds = DateTime.Now.ToString("ss");
-        int timeElapsed = int.Parse(seconds[1].ToString());
+        bool flag = SemaphoreColorSystem.flag;
+        //int timeElapsed = int.Parse(seconds[1].ToString());
 
         NativeHashMap<int, PositionInfo> cellVsEntityPositionsForJob = CheckEntityPositions.cellVsEntityCustom;
 
@@ -128,7 +129,7 @@ public class PathFollowSystem : SystemBase {
                     int indexRight = GetKeyFromPosition(precedencePosition + new float3(0.5f, 0.5f, 0f), cellSize, width);
                     int countCollisions = 0;
 
-                    if (pathPosition.type > 8 && math.distance(translation.Value, targetPosition) > .9f && ((pathPosition.type == 9 && moveDir.y < -0.5f && timeElapsed >= 5) || (pathPosition.type == 10 && moveDir.x > 0.5f && timeElapsed < 5)|| (pathPosition.type == 11 && moveDir.x < -0.5f && timeElapsed < 5)|| (pathPosition.type == 12 && moveDir.y > 0.5f && timeElapsed >= 5)))
+                    if (pathPosition.type > 8 && math.distance(translation.Value, targetPosition) > .9f && ((pathPosition.type == 9 && moveDir.y < -0.5f && !flag) || (pathPosition.type == 10 && moveDir.x > 0.5f && flag)|| (pathPosition.type == 11 && moveDir.x < -0.5f && flag)|| (pathPosition.type == 12 && moveDir.y > 0.5f && !flag)))
                     {}
                     else {
                         if (cellVsEntityPositionsForJob.TryGetValue(indexCustom, out position)){

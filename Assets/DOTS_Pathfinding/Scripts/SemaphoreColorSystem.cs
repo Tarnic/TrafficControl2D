@@ -8,8 +8,8 @@ public class SemaphoreColorSystem : MonoBehaviour
     [SerializeField] private Material myMaterialH;
     [SerializeField] private Material myMaterialV;
 
-    private float timeRemaining = 5;
-    private bool flag = true;
+    public static float timeRemaining = 5;
+    public static bool flag = true;
 
     // Start is called before the first frame update
     void Start()
