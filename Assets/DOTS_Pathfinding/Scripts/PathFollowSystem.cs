@@ -87,7 +87,8 @@ public class PathFollowSystem : SystemBase {
         int width = PathfindingGridSetup.Instance.pathfindingGrid.GetWidth();
 
         String seconds = DateTime.Now.ToString("ss");
-        bool flag = SemaphoreColorSystem.flag;
+        bool flagV = SemaphoreColorSystem.flagV;
+        bool flagH = SemaphoreColorSystem.flagH;
         //int timeElapsed = int.Parse(seconds[1].ToString());
 
         NativeHashMap<int, PositionInfo> cellVsEntityPositionsForJob = CheckEntityPositions.cellVsEntityCustom;
@@ -101,7 +102,7 @@ public class PathFollowSystem : SystemBase {
                     float3 targetPosition = new float3(pathPosition.position.x, pathPosition.position.y, 0);
                     float3 precedencePosition = targetPosition;
                     float3 moveDir = math.normalizesafe(targetPosition - translation.Value);
-                    float moveSpeed = 7f;
+                    float moveSpeed = 2f;
 
                     if (moveDir.y > 0.5f)
                     {
@@ -122,14 +123,19 @@ public class PathFollowSystem : SystemBase {
 
 
                     PositionInfo position;
-                    float currentDistance = 1f;
+                    float currentDistance = 2f;
                     int indexCustom = GetKeyFromPosition(targetPosition + new float3(0.5f, 0.5f, 0f), cellSize, width);
                     int indexRight = GetKeyFromPosition(precedencePosition + new float3(0.5f, 0.5f, 0f), cellSize, width);
                     int countCollisions = 0;
 
                     // Check Semaphores
-                    if (pathPosition.type > 10 && math.distance(translation.Value, targetPosition) > .9f && ((pathPosition.type == 11 && moveDir.y < -0.5f && !flag) || (pathPosition.type == 12 && moveDir.x > 0.5f && flag)|| (pathPosition.type == 13 && moveDir.x < -0.5f && flag)|| (pathPosition.type == 14 && moveDir.y > 0.5f && !flag)))
-                    {}
+                    if (pathPosition.type > 10 
+                        && math.distance(translation.Value, targetPosition) > .9f
+                        && ((pathPosition.type == 11 && moveDir.y < -0.5f && !flagV) // CrossLeftUp
+                        || (pathPosition.type == 12 && moveDir.x > 0.5f && !flagH)    // CrossLeftDown
+                        || (pathPosition.type == 13 && moveDir.x < -0.5f && !flagH)   // CrossRightUp
+                        || (pathPosition.type == 14 && moveDir.y > 0.5f && !flagV))) // CrossRightDown
+                    { }
                     else {
                         if (cellVsEntityPositionsForJob.TryGetValue(indexCustom, out position)){
                             float3 positionToCheck = position.currentPosition;
@@ -140,7 +146,7 @@ public class PathFollowSystem : SystemBase {
                             }
                             else
                             {
-                                if (math.sqrt(math.lengthsq(translation.Value - positionToCheck)) > 0.1f && math.sqrt(math.lengthsq(translation.Value - positionToCheck)) < 1.5f)
+                                if (math.sqrt(math.lengthsq(translation.Value - positionToCheck)) > 0.1f && math.sqrt(math.lengthsq(translation.Value - positionToCheck)) < 2.5f)
                                 {
                                     //slow down when getting closer to another car
                                     moveSpeed = moveSpeed / 8;
@@ -156,6 +162,7 @@ public class PathFollowSystem : SystemBase {
                             {
                                 pathFollow.pathIndex = -1;
                             }
+                            translation.Value += moveDir * moveSpeed * deltaTime;
                         }
                     }
                 

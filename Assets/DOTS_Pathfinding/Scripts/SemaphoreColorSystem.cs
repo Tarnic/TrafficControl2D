@@ -9,7 +9,10 @@ public class SemaphoreColorSystem : MonoBehaviour
     [SerializeField] private Material myMaterialV;
 
     public static float timeRemaining = 5;
-    public static bool flag = true;
+    public static bool flagV = false;
+    public static bool flagH = false;
+    private int order = 0;     // 0 flagV - 1 flagH
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,17 +29,26 @@ public class SemaphoreColorSystem : MonoBehaviour
         }
         else
         {
-            timeRemaining = 3;
-            flag = !flag;
-            if (flag)
+            if (flagV == flagH && order == 0)
             {
+                timeRemaining = 5;
+                order = 1;
+                flagV = true;
+                myMaterialV.color = Color.green;
+            } 
+            else if (flagV == flagH && order == 1)
+            {
+                timeRemaining = 5;
+                order = 0;
+                flagH = true;
                 myMaterialH.color = Color.green;
-                myMaterialV.color = Color.red;
             }
             else
             {
-                myMaterialV.color = Color.green;
+                flagH = flagV = false;  // first both the semaphores become red
                 myMaterialH.color = Color.red;
+                myMaterialV.color = Color.red;
+                timeRemaining = 3;
             }
         }
     }
