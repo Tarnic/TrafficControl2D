@@ -32,6 +32,7 @@ public class Grid {
     private float cellSize;
     private Vector3 originPosition;
     private static NativeList<Vector3> busStops;
+    private static NativeList<Vector3> validPositions;
     private GridNode[,] gridArray;
 
     public Grid(int width, int height, float cellSize, Vector3 originPosition, Func<Grid, int, int, GridNode> createGridObject) {
@@ -40,6 +41,7 @@ public class Grid {
         this.cellSize = cellSize;
         this.originPosition = originPosition;
         busStops = new NativeList<Vector3>(0, Allocator.Persistent);
+        validPositions = new NativeList<Vector3>(0, Allocator.Persistent);
         gridArray = new GridNode[width, height];
 
         for (int x = 0; x < gridArray.GetLength(0); x++) {
@@ -53,49 +55,64 @@ public class Grid {
                         string name = tilemap.name;
                         
 
-                        if (name == "Tilemap_sx") { 
+                        if      (name == "MoveUp") { 
                             type = 1;
-                        } else if (name == "Tilemap_dx") {
+                            validPositions.Add(new Vector3(x, y, 0));
+                        }
+                        else if (name == "MoveDown")
+                        {
                             type = 2;
+                            validPositions.Add(new Vector3(x, y, 0));
+                        }
+                        else if (name == "MoveLeft")
+                        {
+                            type = 3;
+                            validPositions.Add(new Vector3(x, y, 0));
+                        }
+                        else if (name == "MoveRight")
+                        {
+                            type = 4;
+                            validPositions.Add(new Vector3(x, y, 0));
                         }
                         else if (name == "BusStops")
                         {
-                            type = 3;
+                            type = 5;
                             busStops.Add(new Vector3(x, y, 0));
                         }
                         else if (name == "BusEntrancesLeft")
                         {
-                            type = 4;
+                            type = 6;
                         }
                         else if (name == "BusEntrancesRight")
                         {
-                            type = 5;
+                            type = 7;
                         }
                         else if (name == "BusEntrancesUp")
                         {
-                            type = 6;
+                            type = 8;
                         }
                         else if (name == "BusEntrancesDown")
                         {
-                            type = 7;
+                            type = 9;
                         }
-                        else if (name == "Parking")
+                        else if (name == "Parkings")
                         {
-                            type = 8;
+                            type = 10;
+                            validPositions.Add(new Vector3(x, y, 0));
                         }
                         else if (name == "CrossLeftUp"){
-                            type = 9;
+                            type = 11;
                         }
                         else if (name == "CrossLeftDown")
                         {
-                            type = 10;
+                            type = 12;
                         } else if (name == "CrossRightUp")
                         {
-                            type = 11;
+                            type = 13;
                         }
                         else if (name == "CrossRightDown")
                         {
-                            type = 12;
+                            type = 14;
                         }
                         else
                         {
@@ -112,7 +129,7 @@ public class Grid {
             }
         }
 
-        bool showDebug = false;
+        /*bool showDebug = false;
         if (showDebug) {
             TextMesh[,] debugTextArray = new TextMesh[width, height];
 
@@ -129,7 +146,7 @@ public class Grid {
             OnGridObjectChanged += (object sender, OnGridObjectChangedEventArgs eventArgs) => {
                 debugTextArray[eventArgs.x, eventArgs.y].text = gridArray[eventArgs.x, eventArgs.y]?.ToString();
             };
-        }
+        }*/
     }
 
     public int GetWidth() {
@@ -187,5 +204,9 @@ public class Grid {
     public NativeList<Vector3> GetBusStops()
     {
         return busStops;
+    }
+    public NativeList<Vector3> GetValidPositions()
+    {
+        return validPositions;
     }
 }

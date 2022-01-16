@@ -8,7 +8,7 @@ using UnityEngine;
 public class CheckParking : SystemBase 
 {
     private Unity.Mathematics.Random random;
-    private float timeRemaining = 5;
+    private float timeRemaining = 2;
     private BeginInitializationEntityCommandBufferSystem commandBufferSystem;
 
     protected override void OnCreate()
@@ -21,6 +21,7 @@ public class CheckParking : SystemBase
 
         EntityCommandBuffer.ParallelWriter entityCommandBuffer = commandBufferSystem.CreateCommandBuffer().AsParallelWriter();
         NativeList<Vector3> busStops = PathfindingGridSetup.Instance.pathfindingGrid.GetBusStops();
+        NativeList<Vector3> validPositions = PathfindingGridSetup.Instance.pathfindingGrid.GetValidPositions();
         Unity.Mathematics.Random random = new Unity.Mathematics.Random(this.random.NextUInt(1, 10000));
 
         float cellSize = PathfindingGridSetup.Instance.pathfindingGrid.GetCellSize();
@@ -33,7 +34,7 @@ public class CheckParking : SystemBase
         }
         else
         {
-            timeRemaining = 5;
+            timeRemaining = 2;
             Entities
                 .WithoutBurst()
                 .WithReadOnly(busStops)
@@ -56,7 +57,7 @@ public class CheckParking : SystemBase
                 }).ScheduleParallel();
 
             Entities
-                .WithReadOnly(busStops)
+                .WithReadOnly(validPositions)
                 .WithoutBurst()
                 .WithNone<BusComponent>()
                 .WithAll<ParkingTimerComponent>()
@@ -66,7 +67,7 @@ public class CheckParking : SystemBase
                     {
                         entityCommandBuffer.RemoveComponent<ParkingTimerComponent>(entityInQueryIndex, entity);
 
-                        PathFollowGetNewPathSystem.AssignNewParams(entity, translation, busStops, cellSize, mapWidth, mapHeight, false, random, out int startX, out int startY, out int endX, out int endY);
+                        PathFollowGetNewPathSystem.AssignNewParams(entity, translation, validPositions, cellSize, mapWidth, mapHeight, false, random, out int startX, out int startY, out int endX, out int endY);
 
                         entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new PathfindingParams
                         {

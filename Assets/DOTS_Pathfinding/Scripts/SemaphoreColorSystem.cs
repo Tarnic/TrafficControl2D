@@ -26,7 +26,7 @@ public class SemaphoreColorSystem : MonoBehaviour
         }
         else
         {
-            timeRemaining = 5;
+            timeRemaining = 3;
             flag = !flag;
             if (flag)
             {

@@ -3,6 +3,7 @@ using Unity.Entities;
 using Unity.Transforms;
 using Unity.Mathematics;
 
+
 public class SpawnUnitsSystem : ComponentSystem {
 
     private Unity.Mathematics.Random random;
@@ -32,6 +33,7 @@ public class SpawnUnitsSystem : ComponentSystem {
 
     private void SpawnUnits(int spawnCount) {
         PrefabEntityComponent prefabEntityComponent = GetSingleton<PrefabEntityComponent>();
+        //NativeList<Vector3> validPositions = PathfindingGridSetup.Instance.pathfindingGrid.GetValidPositions();
         float3 value = new float3(0, 0, 0);
         GridNode gridNode;
 
@@ -42,7 +44,7 @@ public class SpawnUnitsSystem : ComponentSystem {
                 value = new float3(random.NextInt(gridWidth), random.NextInt(gridHeight), 0f);
                 gridNode = pathfindingGrid.GetGridObject((Vector3)value);
                 cont++;
-            } while (cont<500 && (!gridNode.IsWalkable() || (gridNode.GetType() > 2 && gridNode.GetType() < 8) || gridNode.IsOccupied()));
+            } while (cont<500 && (!gridNode.IsWalkable() || (gridNode.GetType() > 4 && gridNode.GetType() != 10) || gridNode.IsOccupied()));
 
             if (cont < 500) { 
                 EntityManager.SetComponentData(spawnedEntity, new Translation { Value = value });

@@ -163,10 +163,6 @@ public class Pathfinding : ComponentSystem {
             neighbourOffsetArray[1] = new int2(+1, 0); // Right
             neighbourOffsetArray[2] = new int2(0, +1); // Up
             neighbourOffsetArray[3] = new int2(0, -1); // Down
-            /** neighbourOffsetArray[4] = new int2(-1, -1); // Left Down
-            neighbourOffsetArray[5] = new int2(-1, +1); // Left Up
-            neighbourOffsetArray[6] = new int2(+1, -1); // Right Down
-            neighbourOffsetArray[7] = new int2(+1, +1); // Right Up **/
 
             int endNodeIndex = CalculateIndex(endPosition.x, endPosition.y, gridSize.x);
 
@@ -181,7 +177,7 @@ public class Pathfinding : ComponentSystem {
             openList.Add(startNode.index);
 
             int testIndex = 0;
-            int crosses = 0;
+
             while (openList.Length > 0) {
                 int currentNodeIndex = GetLowestCostFNodeIndex(openList, pathNodeArray);
                 PathNode currentNode = pathNodeArray[currentNodeIndex];
@@ -200,7 +196,7 @@ public class Pathfinding : ComponentSystem {
                 }
 
                 closedList.Add(currentNodeIndex);
-
+                
                 for (int i = 0; i < neighbourOffsetArray.Length; i++) {
                     int2 neighbourOffset = neighbourOffsetArray[i];
                     int2 neighbourPosition = new int2(currentNode.x + neighbourOffset.x, currentNode.y + neighbourOffset.y);
@@ -228,85 +224,78 @@ public class Pathfinding : ComponentSystem {
 
                     if (!isBus)
                     {
-                        if (neighbourType > 2 && neighbourType < 9)
+                        if (neighbourType > 4 && neighbourType < 10)
                         {
                             continue;
                         }
                     }
                     else
                     {
-                        
-                        if (neighbourType == 4 && neighbourOffset.x == 1) // supposed to go left
+                        // Check Bus Entrances
+                        if (neighbourType == 6 && neighbourOffset.x == 1) // supposed to go left
                         {
                             continue;
                         }
-                        if (neighbourType == 5 && neighbourOffset.x == -1) // supposed to go right
+                        if (neighbourType == 7 && neighbourOffset.x == -1) // supposed to go right
                         {
                             continue;
                         }
-                        if (neighbourType == 6 && neighbourOffset.y == -1) // supposed to go up
+                        if (neighbourType == 8 && neighbourOffset.y == -1) // supposed to go up
                         {
                             continue;
                         }
-                        if (neighbourType == 7 && neighbourOffset.y == 1) // supposed to go down
+                        if (neighbourType == 9 && neighbourOffset.y == 1) // supposed to go down
                         {
                             continue;
                         }
                     }
+
+                    if (currentType == 10 && neighbourType == 10)
+                    {
+                        continue;
+                    }
                     
 
-                    if (!(neighbourType > 2 && neighbourType < 9))
+                    if (!(neighbourType > 4 && neighbourType < 11))
                     {
-                        if ((currentType == 1 && neighbourType == 2) || (currentType == 2 && neighbourType == 1))
+                        // Normal Streets
+                        
+                        if (currentType == 1 && neighbourOffset.y != 1)
                         {
                             continue;
                         }
-                        if (currentType == 9 && (neighbourOffset.y != -1 && neighbourOffset.x != -1))
+                        if (currentType == 2 && neighbourOffset.y != -1)
                         {
                             continue;
                         }
-                        if (currentType == 10 && (neighbourOffset.y != -1 && neighbourOffset.x != 1))
+                        if (currentType == 3 && neighbourOffset.x != -1)
                         {
                             continue;
                         }
-                        if (currentType == 11 && (neighbourOffset.y != 1 && neighbourOffset.x != -1))
-                        {
-                            continue;
-                        }
-                        if (currentType == 12 && (neighbourOffset.y != 1 && neighbourOffset.x != 1))
+                        if (currentType == 4 && neighbourOffset.x != 1)
                         {
                             continue;
                         }
 
-                        if (neighbourOffset.x == 0 && neighbourType < 3)
+                        // Cross Roads
+                        if (currentType == 11 && (neighbourOffset.y != -1 && neighbourOffset.x != -1))
                         {
-
-                            if (currentNode.type == 1)
-                            {
-                                testIndex = CalculateIndex(currentNode.x + neighbourOffset.y, currentNode.y, gridSize.x);
-                                if (pathNodeArray[testIndex].isWalkable && (pathNodeArray[testIndex].type < 3 || pathNodeArray[testIndex].type > 9))
-                                {
-                                    continue;
-                                }
-                            }
-                            else if (currentNode.type == 2)
-                            {
-                                testIndex = CalculateIndex(currentNode.x + neighbourOffset.y, currentNode.y, gridSize.x);
-                                if (pathNodeArray[testIndex].type == 1)
-                                {
-                                    continue;
-                                }
-                            }
+                            continue;
+                        }
+                        if (currentType == 12 && (neighbourOffset.y != -1 && neighbourOffset.x != 1))
+                        {
+                            continue;
+                        }
+                        if (currentType == 13 && (neighbourOffset.y != 1 && neighbourOffset.x != -1))
+                        {
+                            continue;
+                        }
+                        if (currentType == 14 && (neighbourOffset.y != 1 && neighbourOffset.x != 1))
+                        {
+                            continue;
                         }
 
-                        if (neighbourOffset.y == 0 && neighbourType < 3)
-                        {
-                            testIndex = CalculateIndex(neighbourPosition.x, neighbourPosition.y + neighbourOffset.x, gridSize.x);
-                            if (!pathNodeArray[testIndex].isWalkable)
-                            {
-                                continue;
-                            }
-                        }
+                        
                     }
 
                     int2 currentNodePosition = new int2(currentNode.x, currentNode.y);
