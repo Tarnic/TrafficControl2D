@@ -3,11 +3,9 @@ using Unity.Entities;
 using Unity.Transforms;
 using Unity.Mathematics;
 using Unity.Jobs;
-using System.Collections.Generic;
 using System;
 using Unity.Collections;
-using Unity.Burst;
-
+using Random = Unity.Mathematics.Random;
 public struct PositionInfo
 {
     public float3 currentPosition;
@@ -68,10 +66,10 @@ public class CheckEntityPositions : SystemBase
 
 [UpdateAfter(typeof(CheckEntityPositions))]
 public class PathFollowSystem : SystemBase {
-    private Unity.Mathematics.Random random;
+    private Random random;
 
     protected override void OnCreate() {
-        random = new Unity.Mathematics.Random(56);
+        random = new Random(56);
     }
 
     public static int GetKeyFromPosition(float3 position, float cellSize, int width)
@@ -135,6 +133,7 @@ public class PathFollowSystem : SystemBase {
                     else {
                         if (cellVsEntityPositionsForJob.TryGetValue(indexCustom, out position)){
                             float3 positionToCheck = position.currentPosition;
+
                             if (math.sqrt(math.lengthsq(translation.Value - positionToCheck)) > 0.1f && currentDistance > math.sqrt(math.lengthsq(translation.Value - positionToCheck)))
                             {
                                 countCollisions = 1;
@@ -182,18 +181,18 @@ public class PathFollowSystem : SystemBase {
 [UpdateAfter(typeof(PathFollowSystem))]
 public class PathFollowGetNewPathSystem : SystemBase {
 
-    private Unity.Mathematics.Random random;
+    private Random random;
     private EndSimulationEntityCommandBufferSystem endSimulationEntityCommandBufferSystem;
 
     protected override void OnCreate() {
-        random = new Unity.Mathematics.Random(56);
+        random = new Random();
         endSimulationEntityCommandBufferSystem = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
     }
 
     protected override void OnUpdate() {
         NativeList<Vector3> busStops = PathfindingGridSetup.Instance.pathfindingGrid.GetBusStops();
         NativeList<Vector3> validPositions = PathfindingGridSetup.Instance.pathfindingGrid.GetValidPositions();
-        Unity.Mathematics.Random random = new Unity.Mathematics.Random(this.random.NextUInt(1, 10000));
+        //Random random = new Unity.Mathematics.Random(this.random.NextUInt(1, 10000));
 
         float cellSize = PathfindingGridSetup.Instance.pathfindingGrid.GetCellSize();
         int mapWidth = PathfindingGridSetup.Instance.pathfindingGrid.GetWidth();
@@ -210,6 +209,7 @@ public class PathFollowGetNewPathSystem : SystemBase {
             .ForEach((Entity entity, int entityInQueryIndex, in PathFollow pathFollow, in Translation translation) => {
                 if (pathFollow.pathIndex == -1)
                 {
+                    Random random = Random.CreateFromIndex((uint) entityInQueryIndex+1);
                     AssignNewParams(entity, translation, busStops, cellSize, mapWidth, mapHeight, true, random, out int startX, out int startY, out int endX, out int endY);
 
                     GridNode gridNode = PathfindingGridSetup.Instance.pathfindingGrid.GetGridObject(startX, startY);
@@ -234,7 +234,9 @@ public class PathFollowGetNewPathSystem : SystemBase {
             .ForEach((Entity entity, int entityInQueryIndex, in PathFollow pathFollow, in Translation translation) => { 
                 if (pathFollow.pathIndex == -1) {
 
+                    Random random = Random.CreateFromIndex((uint)entityInQueryIndex+1);
                     AssignNewParams(entity, translation, validPositions, cellSize, mapWidth, mapHeight, false, random, out int startX, out int startY, out int endX, out int endY);
+
                     GridNode gridNode = PathfindingGridSetup.Instance.pathfindingGrid.GetGridObject(startX, startY);
                     if (gridNode.GetType() == 10)
                     {
@@ -250,7 +252,7 @@ public class PathFollowGetNewPathSystem : SystemBase {
         endSimulationEntityCommandBufferSystem.AddJobHandleForProducer(this.Dependency);
     }
 
-    public static void AssignNewParams(Entity entity, Translation translation, NativeList<Vector3> positions, float cellSize, int mapWidth, int mapHeight, bool isBus, Unity.Mathematics.Random random, out int startX, out int startY, out int endX, out int endY)
+    public static void AssignNewParams(Entity entity, Translation translation, NativeList<Vector3> positions, float cellSize, int mapWidth, int mapHeight, bool isBus, Random random, out int startX, out int startY, out int endX, out int endY)
     {
         GetXY(translation.Value + new float3(1, 1, 0) * cellSize * +.5f, float3.zero, cellSize, out startX, out startY);
         ValidateGridPosition(ref startX, ref startY, mapWidth, mapHeight);
@@ -267,8 +269,6 @@ public class PathFollowGetNewPathSystem : SystemBase {
             int position = random.NextInt(0, positions.Length);
             endX = (int)positions[position].x;
             endY = (int)positions[position].y;
-            //endX = random.NextInt(0, mapWidth);
-            //endY = random.NextInt(0, mapHeight);
         }
 
     }

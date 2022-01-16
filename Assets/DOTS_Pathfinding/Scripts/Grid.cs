@@ -12,12 +12,9 @@
 
 using System;
 using Unity.Collections;
-
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using CodeMonkey.Utils;
-using Unity.Mathematics;
+
 
 public class Grid {
 
@@ -54,8 +51,7 @@ public class Grid {
                     if (tilemap.HasTile(new Vector3Int(x - 18, y - 4, 0))) {
                         string name = tilemap.name;
                         
-
-                        if      (name == "MoveUp") { 
+                        if (name == "MoveUp") { 
                             type = 1;
                             validPositions.Add(new Vector3(x, y, 0));
                         }
@@ -129,24 +125,6 @@ public class Grid {
             }
         }
 
-        /*bool showDebug = false;
-        if (showDebug) {
-            TextMesh[,] debugTextArray = new TextMesh[width, height];
-
-            for (int x = 0; x < gridArray.GetLength(0); x++) {
-                for (int y = 0; y < gridArray.GetLength(1); y++) {
-                    debugTextArray[x, y] = UtilsClass.CreateWorldText(gridArray[x, y]?.ToString(), null, GetWorldPosition(x, y) + new Vector3(cellSize, cellSize) * .5f, 30, Color.white, TextAnchor.MiddleCenter);
-                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
-                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 100f);
-                }
-            }
-            Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
-            Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
-
-            OnGridObjectChanged += (object sender, OnGridObjectChangedEventArgs eventArgs) => {
-                debugTextArray[eventArgs.x, eventArgs.y].text = gridArray[eventArgs.x, eventArgs.y]?.ToString();
-            };
-        }*/
     }
 
     public int GetWidth() {

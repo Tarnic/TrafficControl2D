@@ -3,6 +3,7 @@
 [GenerateAuthoringComponent]
 public struct PrefabEntityComponent : IComponentData {
 
-    public Entity prefabEntity;
+    public Entity carPrefab;
+    public Entity busPrefab;
 
 }

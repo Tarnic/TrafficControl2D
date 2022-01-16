@@ -48,6 +48,7 @@ public class PathfindingGridSetup : MonoBehaviour {
 
     private void OnDestroy()
     {
-
+        pathfindingGrid.GetBusStops().Dispose();
+        pathfindingGrid.GetValidPositions().Dispose();
     }
 }
