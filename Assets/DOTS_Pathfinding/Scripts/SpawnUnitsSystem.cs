@@ -24,7 +24,7 @@ public class SpawnUnitsSystem : ComponentSystem {
             gridWidth = pathfindingGrid.GetWidth();
             gridHeight = pathfindingGrid.GetHeight();
 
-            SpawnUnits(10000);
+            SpawnUnits(1000);
         }
 
         //if (Input.GetKeyDown(KeyCode.Space)) {
@@ -63,7 +63,7 @@ public class SpawnUnitsSystem : ComponentSystem {
 
             if (cont < 500) { 
                 EntityManager.SetComponentData(spawnedEntity, new Translation { Value = value });
-                //gridNode.SetOccupied(true);
+                gridNode.SetOccupied(true);
             }
         }
     }

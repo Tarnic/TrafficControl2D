@@ -162,7 +162,7 @@ public class PathFollowSystem : SystemBase {
                             {
                                 pathFollow.pathIndex = -1;
                             }
-                            translation.Value += moveDir * moveSpeed * deltaTime;
+                            // translation.Value += moveDir * moveSpeed * deltaTime;
                         }
                     }
                 
