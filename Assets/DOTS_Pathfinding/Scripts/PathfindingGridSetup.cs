@@ -23,7 +23,7 @@ public class PathfindingGridSetup : MonoBehaviour {
 
     public static PathfindingGridSetup Instance { private set; get; }
 
-    [SerializeField] private PathfindingVisual pathfindingVisual;
+    // [SerializeField] private PathfindingVisual pathfindingVisual;
     public Grid pathfindingGrid;
 
     private void Awake() {
@@ -31,10 +31,11 @@ public class PathfindingGridSetup : MonoBehaviour {
     }
 
     private void Start() {
-        pathfindingGrid = new Grid(250, 100, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
+        pathfindingGrid = new Grid(500, 100, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
+        //pathfindingGrid = new Grid(250, 100, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
         //pathfindingGrid = new Grid(70, 50, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
 
-        pathfindingVisual.SetGrid(pathfindingGrid);
+        // pathfindingVisual.SetGrid(pathfindingGrid);
     }
 
     private void Update() {

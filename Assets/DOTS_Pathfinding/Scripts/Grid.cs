@@ -48,7 +48,7 @@ public class Grid {
                 int type = 0;
                 Tilemap[] tilemapList = GameObject.FindObjectsOfType<Tilemap>();
                 foreach(var tilemap in tilemapList) {
-                    if (tilemap.HasTile(new Vector3Int(x - 18, y - 4, 0))) {
+                    if (tilemap.HasTile(new Vector3Int(x - 18, y - 4, 0)) || tilemap.HasTile(new Vector3Int(x - 196, y - 4, 0))) {
                         string name = tilemap.name;
                         
                         if (name == "MoveUp") { 
