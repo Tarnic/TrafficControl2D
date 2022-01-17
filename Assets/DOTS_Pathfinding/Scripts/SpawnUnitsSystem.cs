@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
 using Unity.Entities;
 using Unity.Transforms;
 using Unity.Mathematics;
@@ -11,20 +13,22 @@ public class SpawnUnitsSystem : ComponentSystem {
     private int gridWidth;
     private int gridHeight;
     Grid pathfindingGrid;
-
+    public int spawnedCars = 0;
+    public int spawnedBusses = 0;
     //private bool firstUpdate = true;
 
     protected override void OnUpdate() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             //firstUpdate = false;
-            
-            //random = new Unity.Mathematics.Random(56);
 
+            //random = new Unity.Mathematics.Random(56);
+            Text textUI = GameObject.Find("CarNumber").GetComponent<Text>();
             pathfindingGrid = PathfindingGridSetup.Instance.pathfindingGrid;
             gridWidth = pathfindingGrid.GetWidth();
             gridHeight = pathfindingGrid.GetHeight();
-
+            
             SpawnUnits(1000);
+            textUI.text = "Current Cars: " + spawnedCars.ToString() + "\nCurrent Busses: " + spawnedBusses.ToString();
         }
 
         //if (Input.GetKeyDown(KeyCode.Space)) {
@@ -44,10 +48,12 @@ public class SpawnUnitsSystem : ComponentSystem {
             if (i % 10 == 0)
             {
                 spawnedEntity = EntityManager.Instantiate(prefabEntityComponent.busPrefab);
+                spawnedBusses++;
             }
             else
             {
                 spawnedEntity = EntityManager.Instantiate(prefabEntityComponent.carPrefab);
+                spawnedCars++;
             }
              
             int cont = 0;

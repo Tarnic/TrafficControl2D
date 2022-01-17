@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class SemaphoreColorSystem : MonoBehaviour
 {
     [SerializeField] private Material myMaterialH;
     [SerializeField] private Material myMaterialV;
+    [SerializeField] private Slider _slider;
 
     public static float timeRemaining = 5;
     public static bool flagV = false;
@@ -18,6 +20,10 @@ public class SemaphoreColorSystem : MonoBehaviour
     void Start()
     {
 
+        _slider.onValueChanged.AddListener((v) =>
+        {
+            Time.timeScale = v;
+        });
     }
 
     // Update is called once per frame

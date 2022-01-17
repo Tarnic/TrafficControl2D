@@ -99,33 +99,69 @@ public class PathFollowSystem : SystemBase {
                 if (pathFollow.pathIndex >= 0) {
                     // Has path to follow
                     PathPosition pathPosition = pathPositionBuffer[pathFollow.pathIndex];
+                    //PathPosition futurePosition;
                     float3 targetPosition = new float3(pathPosition.position.x, pathPosition.position.y, 0);
-                    float3 precedencePosition = targetPosition;
                     float3 moveDir = math.normalizesafe(targetPosition - translation.Value);
                     float moveSpeed = 2f;
+                    bool checkPrec = false;
 
-                    if (moveDir.y > 0.5f)
+                    if (pathPosition.type > 10)
                     {
-                        precedencePosition += new float3(1f, 0, 0);
-                    }
-                    else if (moveDir.y < -0.5f)
-                    {
-                        precedencePosition += new float3(-1f, 0, 0);
-                    }
-                    else if (moveDir.x > 0.5f)
-                    {
-                        precedencePosition += new float3(0, -1f, 0);
-                    }
-                    else if (moveDir.x < -0.5f)
-                    {
-                        precedencePosition += new float3(0, 1f, 0);
+                        // calculate the remaining 3 position in the cross road if the car is just entering the cross road.
+                        float3 posA = new Vector3(0, 0, 0);
+                        float3 posB = new Vector3(0, 0, 0);
+                        float3 posC = new Vector3(0, 0, 0); 
+                        if (moveDir.y > 0.5f && pathPosition.type == 14)
+                        {
+                            posA = targetPosition + new float3(0, 1f, 0);
+                            posB = targetPosition + new float3(-1f, 1f, 0);
+                            posC = targetPosition + new float3(-1f, 0, 0);
+                            checkPrec = true;
+                        }
+                        else if (moveDir.y < -0.5f && pathPosition.type == 11)
+                        {
+                            posA = targetPosition + new float3(1f, 0, 0);
+                            posB = targetPosition + new float3(0, -1f, 0);
+                            posC = targetPosition + new float3(1f, -1f, 0);
+                            checkPrec = true;
+                        }
+                        else if (moveDir.x > 0.5f && pathPosition.type == 12)
+                        {
+                            posA = targetPosition + new float3(0, 1f, 0);
+                            posB = targetPosition + new float3(1f, 1f, 0);
+                            posC = targetPosition + new float3(1f, 0, 0);
+                            checkPrec = true;
+                        }
+                        else if (moveDir.x < -0.5f && pathPosition.type == 13)
+                        {
+                            posA = targetPosition + new float3(0, -1f, 0);
+                            posB = targetPosition + new float3(-1f, 0, 0);
+                            posC = targetPosition + new float3(-1f, -1f, 0);
+                            checkPrec = true;
+                        }
+
+                        if (checkPrec)
+                        {
+                            PositionInfo tmp;
+                            if (cellVsEntityPositionsForJob.TryGetValue(GetKeyFromPosition(posA + new float3(0.5f, 0.5f, 0f), cellSize, width), out tmp) &&
+                                cellVsEntityPositionsForJob.TryGetValue(GetKeyFromPosition(posB + new float3(0.5f, 0.5f, 0f), cellSize, width), out tmp) &&
+                                cellVsEntityPositionsForJob.TryGetValue(GetKeyFromPosition(posC + new float3(0.5f, 0.5f, 0f), cellSize, width), out tmp))
+                            {
+                               
+                            }
+                            else
+                            {
+                                checkPrec = false;
+                            }
+                        }
+                        
+                        
                     }
 
 
                     PositionInfo position;
                     float currentDistance = 2f;
                     int indexCustom = GetKeyFromPosition(targetPosition + new float3(0.5f, 0.5f, 0f), cellSize, width);
-                    int indexRight = GetKeyFromPosition(precedencePosition + new float3(0.5f, 0.5f, 0f), cellSize, width);
                     int countCollisions = 0;
 
                     // Check Semaphores
@@ -146,6 +182,8 @@ public class PathFollowSystem : SystemBase {
                             }
                             else
                             {
+
+
                                 if (math.sqrt(math.lengthsq(translation.Value - positionToCheck)) > 0.1f && math.sqrt(math.lengthsq(translation.Value - positionToCheck)) < 2.5f)
                                 {
                                     //slow down when getting closer to another car
@@ -153,7 +191,7 @@ public class PathFollowSystem : SystemBase {
                                 }
                             }
                         }
-                        if (countCollisions == 0) {
+                        if (countCollisions == 0 && !checkPrec) {
                             translation.Value += moveDir * moveSpeed * deltaTime;
                         }
                         else
@@ -165,9 +203,10 @@ public class PathFollowSystem : SystemBase {
                             // translation.Value += moveDir * moveSpeed * deltaTime;
                         }
                     }
+
                 
                 
-                    if (math.distance(translation.Value, targetPosition) < .1f) {
+                    if (math.distance(translation.Value, targetPosition) < .1f && pathFollow.pathIndex != -1) {
                         // Next waypoint
                         pathFollow.pathIndex--;
                     }
