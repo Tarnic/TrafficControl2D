@@ -27,7 +27,7 @@ public class SpawnUnitsSystem : ComponentSystem {
             gridWidth = pathfindingGrid.GetWidth();
             gridHeight = pathfindingGrid.GetHeight();
             
-            SpawnUnits(1000);
+            SpawnUnits(10000);
             textUI.text = "Current Cars: " + spawnedCars.ToString() + "\nCurrent Busses: " + spawnedBusses.ToString();
         }
 

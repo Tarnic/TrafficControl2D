@@ -26,49 +26,53 @@ public class Pathfinding : ComponentSystem {
 
     private const int MOVE_STRAIGHT_COST = 10;
     private const int MOVE_DIAGONAL_COST = 14;
+    float timeRemaining = 2;
 
     protected override void OnUpdate() {
         int gridWidth = PathfindingGridSetup.Instance.pathfindingGrid.GetWidth();
         int gridHeight = PathfindingGridSetup.Instance.pathfindingGrid.GetHeight();
         int2 gridSize = new int2(gridWidth, gridHeight);
-
+        timeRemaining -= Time.DeltaTime;
         List<FindPathJob> findPathJobList = new List<FindPathJob>();
         NativeList<JobHandle> jobHandleList = new NativeList<JobHandle>(Allocator.Temp);
         
         NativeArray<PathNode> pathNodeArray = GetPathNodeArray();
+        if(timeRemaining <= 0)
+        {
+            timeRemaining = 1f;
+            Entities.ForEach((Entity entity, ref PathfindingParams pathfindingParams) => {
 
-        Entities.ForEach((Entity entity, ref PathfindingParams pathfindingParams) => {
+                NativeArray<PathNode> tmpPathNodeArray = new NativeArray<PathNode>(pathNodeArray, Allocator.TempJob);
+                bool isBus = EntityManager.HasComponent<BusComponent>(entity);
+                FindPathJob findPathJob = new FindPathJob {
+                    gridSize = gridSize,
+                    pathNodeArray = tmpPathNodeArray,
+                    startPosition = pathfindingParams.startPosition,
+                    endPosition = pathfindingParams.endPosition,
+                    entity = entity,
+                    isBus = isBus,
+                };
+                findPathJobList.Add(findPathJob);
+                jobHandleList.Add(findPathJob.Schedule());
 
-            NativeArray<PathNode> tmpPathNodeArray = new NativeArray<PathNode>(pathNodeArray, Allocator.TempJob);
-            bool isBus = EntityManager.HasComponent<BusComponent>(entity);
-            FindPathJob findPathJob = new FindPathJob {
-                gridSize = gridSize,
-                pathNodeArray = tmpPathNodeArray,
-                startPosition = pathfindingParams.startPosition,
-                endPosition = pathfindingParams.endPosition,
-                entity = entity,
-                isBus = isBus,
-            };
-            findPathJobList.Add(findPathJob);
-            jobHandleList.Add(findPathJob.Schedule());
+                PostUpdateCommands.RemoveComponent<PathfindingParams>(entity);
 
-            PostUpdateCommands.RemoveComponent<PathfindingParams>(entity);
+            });
 
-        });
+            JobHandle.CompleteAll(jobHandleList);
+            foreach (FindPathJob findPathJob in findPathJobList) {
+                new SetBufferPathJob {
+                    entity = findPathJob.entity,
+                    gridSize = findPathJob.gridSize,
+                    pathNodeArray = findPathJob.pathNodeArray,
+                    pathfindingParamsComponentDataFromEntity = GetComponentDataFromEntity<PathfindingParams>(),
+                    pathFollowComponentDataFromEntity = GetComponentDataFromEntity<PathFollow>(),
+                    pathPositionBufferFromEntity = GetBufferFromEntity<PathPosition>(),
+                }.Run();
+            }
 
-        JobHandle.CompleteAll(jobHandleList);
-        foreach (FindPathJob findPathJob in findPathJobList) {
-            new SetBufferPathJob {
-                entity = findPathJob.entity,
-                gridSize = findPathJob.gridSize,
-                pathNodeArray = findPathJob.pathNodeArray,
-                pathfindingParamsComponentDataFromEntity = GetComponentDataFromEntity<PathfindingParams>(),
-                pathFollowComponentDataFromEntity = GetComponentDataFromEntity<PathFollow>(),
-                pathPositionBufferFromEntity = GetBufferFromEntity<PathPosition>(),
-            }.Run();
+            pathNodeArray.Dispose();
         }
-
-        pathNodeArray.Dispose();
     }
     
     private NativeArray<PathNode> GetPathNodeArray() {
