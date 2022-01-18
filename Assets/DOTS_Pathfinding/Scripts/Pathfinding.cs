@@ -145,11 +145,10 @@ public class Pathfinding : ComponentSystem {
 
         public Entity entity;
         public bool isBus;
-        //[ReadOnly] public EntityManager em;
 
-        //public BufferFromEntity<PathPosition> pathPositionBuffer;
 
         public void Execute() {
+            // Define hCost for each node of the grid for A* pathfinding.
             for (int i = 0; i < pathNodeArray.Length; i++) {
                 PathNode pathNode = pathNodeArray[i];
                 pathNode.hCost = CalculateDistanceCost(new int2(pathNode.x, pathNode.y), endPosition, pathNode.type);
@@ -158,6 +157,7 @@ public class Pathfinding : ComponentSystem {
                 pathNodeArray[i] = pathNode;
             }
 
+            // Define which are the visitable neighbours -> since we move only in 4 directions there are only 4 visitable neighbours
             NativeArray<int2> neighbourOffsetArray = new NativeArray<int2>(4, Allocator.Temp);
             neighbourOffsetArray[0] = new int2(-1, 0); // Left
             neighbourOffsetArray[1] = new int2(+1, 0); // Right
@@ -298,6 +298,7 @@ public class Pathfinding : ComponentSystem {
                         
                     }
 
+                    // add the node to the list and keep checkin
                     int2 currentNodePosition = new int2(currentNode.x, currentNode.y);
 	                int tentativeGCost = currentNode.gCost + CalculateDistanceCost(currentNodePosition, neighbourPosition, neighbourType);
 	                if (tentativeGCost < neighbourNode.gCost) {
@@ -314,21 +315,6 @@ public class Pathfinding : ComponentSystem {
 
                 }
             }
-
-            //pathPositionBuffer.Clear();
-
-            /*
-            PathNode endNode = pathNodeArray[endNodeIndex];
-            if (endNode.cameFromNodeIndex == -1) {
-                // Didn't find a path!
-                //Debug.Log("Didn't find a path!");
-                pathFollowComponentDataFromEntity[entity] = new PathFollow { pathIndex = -1 };
-            } else {
-                // Found a path
-                //CalculatePath(pathNodeArray, endNode, pathPositionBuffer);
-                //pathFollowComponentDataFromEntity[entity] = new PathFollow { pathIndex = pathPositionBuffer.Length - 1 };
-            }
-            */
 
             neighbourOffsetArray.Dispose();
             openList.Dispose();

@@ -90,7 +90,7 @@ public class PathFollowSystem : SystemBase {
         bool flagV = SemaphoreColorSystem.flagV;
         bool flagH = SemaphoreColorSystem.flagH;
         //int timeElapsed = int.Parse(seconds[1].ToString());
-
+        bool collisions = PathfindingGridSetup.GetCollisions();
         NativeHashMap<int, PositionInfo> cellVsEntityPositionsForJob = CheckEntityPositions.cellVsEntityCustom;
 
         Entities
@@ -108,6 +108,7 @@ public class PathFollowSystem : SystemBase {
                     if (pathPosition.type > 10)
                     {
                         // calculate the remaining 3 position in the cross road if the car is just entering the cross road.
+                        // if there are 3 positions taken in the cross road then the car won't move because it is highly probable that it would stuck inside the cross road and to create a stall.
                         float3 posA = new Vector3(0, 0, 0);
                         float3 posB = new Vector3(0, 0, 0);
                         float3 posC = new Vector3(0, 0, 0); 
@@ -164,7 +165,7 @@ public class PathFollowSystem : SystemBase {
                     int indexCustom = GetKeyFromPosition(targetPosition + new float3(0.5f, 0.5f, 0f), cellSize, width);
                     int countCollisions = 0;
 
-                    // Check Semaphores
+                    // Check Traffic Lights, if the car is going to a cross road and the light is red, then the car should not move.
                     if (pathPosition.type > 10 
                         && math.distance(translation.Value, targetPosition) > .9f
                         && ((pathPosition.type == 11 && moveDir.y < -0.5f && !flagV) // CrossLeftUp
@@ -200,7 +201,10 @@ public class PathFollowSystem : SystemBase {
                             {
                                 pathFollow.pathIndex = -1;
                             }
-                            // translation.Value += moveDir * moveSpeed * deltaTime;
+                            if (!collisions)
+                            {
+                                translation.Value += moveDir * moveSpeed * deltaTime;
+                            }
                         }
                     }
 
@@ -246,7 +250,7 @@ public class PathFollowGetNewPathSystem : SystemBase {
 
         EntityCommandBuffer.ParallelWriter entityCommandBuffer = endSimulationEntityCommandBufferSystem.CreateCommandBuffer().AsParallelWriter();
 
-
+        // whenever a bus arrives to its target position, then a new busStop to reach is assigned.
         Entities
             .WithoutBurst()
             .WithReadOnly(busStops)
@@ -262,7 +266,7 @@ public class PathFollowGetNewPathSystem : SystemBase {
 
                     if (gridNode.GetType() == 5)
                     {
-                        entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new ParkingTimerComponent { timeOfDeparture = DateTime.Now.AddSeconds(5) });
+                        entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new ParkingTimerComponent { timeOfDeparture = DateTime.Now.AddSeconds(random.NextInt(5, 200)) });
                     }
 
                     entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new PathfindingParams
@@ -286,7 +290,7 @@ public class PathFollowGetNewPathSystem : SystemBase {
                     GridNode gridNode = PathfindingGridSetup.Instance.pathfindingGrid.GetGridObject(startX, startY);
                     if (gridNode.GetType() == 10)
                     {
-                        entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new ParkingTimerComponent { timeOfDeparture = DateTime.Now.AddSeconds(5) });
+                        entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new ParkingTimerComponent { timeOfDeparture = DateTime.Now.AddSeconds(random.NextInt(10, 200)) });
                     }
 
                     entityCommandBuffer.AddComponent(entityInQueryIndex, entity, new PathfindingParams { 

@@ -31,9 +31,6 @@ public class SpawnUnitsSystem : ComponentSystem {
             textUI.text = "Current Cars: " + spawnedCars.ToString() + "\nCurrent Busses: " + spawnedBusses.ToString();
         }
 
-        //if (Input.GetKeyDown(KeyCode.Space)) {
-        //    SpawnUnits(200);
-        //}
     }
 
     private void SpawnUnits(int spawnCount) {
@@ -43,6 +40,7 @@ public class SpawnUnitsSystem : ComponentSystem {
         GridNode gridNode;
         Entity spawnedEntity;
 
+        // spawning a certain amount of entities, every 10 cars a bus is spawned
         for (int i = 0; i < spawnCount; i++) {
 
             if (i % 10 == 0)
@@ -57,6 +55,7 @@ public class SpawnUnitsSystem : ComponentSystem {
             }
              
             int cont = 0;
+            // keep looking for a position till an empty cell is found
             do
             {
                 random = Random.CreateFromIndex((uint)i);
@@ -64,7 +63,6 @@ public class SpawnUnitsSystem : ComponentSystem {
                 //value = new float3(random.NextInt(gridWidth), random.NextInt(gridHeight), 0f);
                 gridNode = pathfindingGrid.GetGridObject((Vector3)value);
                 cont++;
-                //} while (cont<500 && (!gridNode.IsWalkable() || (gridNode.GetType() > 4 && gridNode.GetType() != 10) || gridNode.IsOccupied()));
             } while (cont<500 && gridNode.IsOccupied());
 
             if (cont < 500) { 

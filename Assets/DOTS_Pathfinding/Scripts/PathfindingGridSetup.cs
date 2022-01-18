@@ -20,6 +20,10 @@ using Unity.Collections;
 
 
 public class PathfindingGridSetup : MonoBehaviour {
+    [SerializeField] public int height = 50;
+    [SerializeField] public int width = 50;
+    [SerializeField] public bool collisions;
+    public static bool collisionsFlag;
 
     public static PathfindingGridSetup Instance { private set; get; }
 
@@ -28,10 +32,11 @@ public class PathfindingGridSetup : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
+        collisionsFlag = collisions;
     }
 
     private void Start() {
-        pathfindingGrid = new Grid(500, 100, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
+        pathfindingGrid = new Grid(height, width, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
         //pathfindingGrid = new Grid(250, 100, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
         //pathfindingGrid = new Grid(70, 50, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
 
@@ -53,4 +58,10 @@ public class PathfindingGridSetup : MonoBehaviour {
         pathfindingGrid.GetBusStops().Dispose();
         pathfindingGrid.GetValidPositions().Dispose();
     }
+
+    public static bool GetCollisions()
+    {
+        return collisionsFlag;
+    }
+
 }
