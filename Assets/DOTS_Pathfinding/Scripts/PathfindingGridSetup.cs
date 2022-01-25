@@ -17,15 +17,21 @@ using CodeMonkey.Utils;
 using CodeMonkey;
 using Unity.Mathematics;
 using Unity.Collections;
+using System.IO;
 
 
 public class PathfindingGridSetup : MonoBehaviour {
     [SerializeField] public int height = 50;
     [SerializeField] public int width = 50;
     [SerializeField] public bool collisions;
-    [SerializeField] public int units;
+    [SerializeField] public int busUnits;
+    [SerializeField] public int carUnits;
+
+
+
     public static bool collisionsFlag;
-    public static int unitsToSpawn;
+    public static int busToSpawn;
+    public static int carsToSpawn;
 
     public static PathfindingGridSetup Instance { private set; get; }
 
@@ -34,8 +40,23 @@ public class PathfindingGridSetup : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
+        /////////////////////////////////////////////////////
+        // LOADING CONFIGURATIONS FROM TXT FILE
+        ///////////////////////////////////////////////////
+        StreamReader reader = new StreamReader("Assets/configuration.TXT");
+        string[] data = reader.ReadToEnd().Split('\n');
+        width = int.Parse(data[0].Split('=')[1]);
+        height = int.Parse(data[1].Split('=')[1]);
+        //collisions = data[2].Split('=')[1] == "true";
+        collisions = int.Parse(data[2].Split('=')[1]) == 1;
+        busToSpawn = int.Parse(data[3].Split('=')[1]);
+        carsToSpawn = int.Parse(data[4].Split('=')[1]);
         collisionsFlag = collisions;
-        unitsToSpawn = units;
+        Debug.Log(width);
+        Debug.Log(height);
+        Debug.Log(collisions);
+        Debug.Log(busToSpawn);
+        Debug.Log(carsToSpawn);
     }
 
     private void Start() {
@@ -64,9 +85,14 @@ public class PathfindingGridSetup : MonoBehaviour {
         return collisionsFlag;
     }
 
-    public static int GetUnitsToSpawn()
+    public static int GetBusToSpawn()
     {
-        return unitsToSpawn;
+        return busToSpawn;
+    }
+
+    public static int GetCarsToSpawn()
+    {
+        return carsToSpawn;
     }
 
 }
