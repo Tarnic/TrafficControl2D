@@ -15,19 +15,18 @@ public class SpawnUnitsSystem : ComponentSystem {
     Grid pathfindingGrid;
     public int spawnedCars = 0;
     public int spawnedBusses = 0;
+    public int unitsToSpawn;
     //private bool firstUpdate = true;
 
     protected override void OnUpdate() {
         if (Input.GetKeyDown(KeyCode.Space)) {
-            //firstUpdate = false;
-
-            //random = new Unity.Mathematics.Random(56);
             Text textUI = GameObject.Find("CarNumber").GetComponent<Text>();
             pathfindingGrid = PathfindingGridSetup.Instance.pathfindingGrid;
             gridWidth = pathfindingGrid.GetWidth();
             gridHeight = pathfindingGrid.GetHeight();
-            
-            SpawnUnits(10000);
+            unitsToSpawn = PathfindingGridSetup.unitsToSpawn;
+
+            SpawnUnits(unitsToSpawn);
             textUI.text = "Current Cars: " + spawnedCars.ToString() + "\nCurrent Busses: " + spawnedBusses.ToString();
         }
 

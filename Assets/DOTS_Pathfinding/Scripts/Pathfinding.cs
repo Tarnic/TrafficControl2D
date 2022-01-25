@@ -26,20 +26,23 @@ public class Pathfinding : ComponentSystem {
 
     private const int MOVE_STRAIGHT_COST = 10;
     private const int MOVE_DIAGONAL_COST = 14;
-    float timeRemaining = 2;
+    float timeRemaining = 1;
 
     protected override void OnUpdate() {
-        int gridWidth = PathfindingGridSetup.Instance.pathfindingGrid.GetWidth();
-        int gridHeight = PathfindingGridSetup.Instance.pathfindingGrid.GetHeight();
-        int2 gridSize = new int2(gridWidth, gridHeight);
-        timeRemaining -= Time.DeltaTime;
-        List<FindPathJob> findPathJobList = new List<FindPathJob>();
-        NativeList<JobHandle> jobHandleList = new NativeList<JobHandle>(Allocator.Temp);
         
-        NativeArray<PathNode> pathNodeArray = GetPathNodeArray();
+        timeRemaining -= Time.DeltaTime;
+        
         if(timeRemaining <= 0)
         {
-            timeRemaining = 1f;
+            int gridWidth = PathfindingGridSetup.Instance.pathfindingGrid.GetWidth();
+            int gridHeight = PathfindingGridSetup.Instance.pathfindingGrid.GetHeight();
+            int2 gridSize = new int2(gridWidth, gridHeight);
+            NativeArray<PathNode> pathNodeArray = GetPathNodeArray();
+            List<FindPathJob> findPathJobList = new List<FindPathJob>();
+            NativeList<JobHandle> jobHandleList = new NativeList<JobHandle>(Allocator.Temp);
+
+            timeRemaining = 0.25f;
+
             Entities.ForEach((Entity entity, ref PathfindingParams pathfindingParams) => {
 
                 NativeArray<PathNode> tmpPathNodeArray = new NativeArray<PathNode>(pathNodeArray, Allocator.TempJob);

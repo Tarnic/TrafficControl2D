@@ -23,7 +23,9 @@ public class PathfindingGridSetup : MonoBehaviour {
     [SerializeField] public int height = 50;
     [SerializeField] public int width = 50;
     [SerializeField] public bool collisions;
+    [SerializeField] public int units;
     public static bool collisionsFlag;
+    public static int unitsToSpawn;
 
     public static PathfindingGridSetup Instance { private set; get; }
 
@@ -33,14 +35,12 @@ public class PathfindingGridSetup : MonoBehaviour {
     private void Awake() {
         Instance = this;
         collisionsFlag = collisions;
+        unitsToSpawn = units;
     }
 
     private void Start() {
-        pathfindingGrid = new Grid(height, width, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
-        //pathfindingGrid = new Grid(250, 100, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
-        //pathfindingGrid = new Grid(70, 50, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
-
-        // pathfindingVisual.SetGrid(pathfindingGrid);
+        pathfindingGrid = new Grid(width, height, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
+       
     }
 
     private void Update() {
@@ -62,6 +62,11 @@ public class PathfindingGridSetup : MonoBehaviour {
     public static bool GetCollisions()
     {
         return collisionsFlag;
+    }
+
+    public static int GetUnitsToSpawn()
+    {
+        return unitsToSpawn;
     }
 
 }
