@@ -40,8 +40,8 @@ public class PathfindingGridSetup : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
-        /////////////////////////////////////////////////////
-        // LOADING CONFIGURATIONS FROM TXT FILE
+        ///////////////////////////////////////////////////
+        //     LOADING CONFIGURATIONS FROM TXT FILE      //
         ///////////////////////////////////////////////////
         StreamReader reader = new StreamReader("Assets/configuration.TXT");
         string[] data = reader.ReadToEnd().Split('\n');

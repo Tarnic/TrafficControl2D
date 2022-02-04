@@ -1,8 +1,8 @@
-MapWidth=50
-MapHeight=50
-Collisions=0
-BusUnits=150
-CarUnits=1000
+MapWidth=200
+MapHeight=200
+Collisions=1
+BusUnits=0
+CarUnits=30
 
 
 // Collisions 1 = True, 0 = False.

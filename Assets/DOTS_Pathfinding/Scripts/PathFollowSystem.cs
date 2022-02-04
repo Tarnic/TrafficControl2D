@@ -197,10 +197,13 @@ public class PathFollowSystem : SystemBase {
                         }
                         else
                         {
-                            if(pathPosition.type == 10)
+                            // check if there is another car parked
+                            //Debug.Log(pathPosition.type);
+                            if(pathPosition.type == 0)
                             {
                                 pathFollow.pathIndex = -1;
                             }
+
                             if (!collisions)
                             {
                                 translation.Value += moveDir * moveSpeed * deltaTime;
@@ -257,7 +260,7 @@ public class PathFollowGetNewPathSystem : SystemBase {
             .WithNone<PathfindingParams, ParkingTimerComponent>()
             .WithAll<BusComponent>()
             .ForEach((Entity entity, int entityInQueryIndex, in PathFollow pathFollow, in Translation translation) => {
-                if (pathFollow.pathIndex == -1)
+                if (pathFollow.pathIndex <= -1)
                 {
                     Random random = Random.CreateFromIndex((uint) entityInQueryIndex+1);
                     AssignNewParams(entity, translation, busStops, cellSize, mapWidth, mapHeight, true, random, out int startX, out int startY, out int endX, out int endY);

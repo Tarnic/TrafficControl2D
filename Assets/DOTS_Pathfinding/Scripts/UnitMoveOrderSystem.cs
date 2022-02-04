@@ -11,35 +11,35 @@ public class UnitMoveOrderSystem : ComponentSystem
     private Unity.Mathematics.Random random = new Unity.Mathematics.Random(56);
     protected override void OnUpdate()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Vector3 mousePosition = UtilsClass.GetMouseWorldPosition();
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mouseposition = UtilsClass.GetMouseWorldPosition();
 
-        //    float cellSize = PathfindingGridSetup.Instance.pathfindingGrid.GetCellSize();
+            float cellsize = PathfindingGridSetup.Instance.pathfindingGrid.GetCellSize();
 
-        //    PathfindingGridSetup.Instance.pathfindingGrid.GetXY(mousePosition + new Vector3(1, 1) * cellSize * +.5f, out int endX, out int endY);
+            PathfindingGridSetup.Instance.pathfindingGrid.GetXY(mouseposition + new Vector3(1, 1) * cellsize * +.5f, out int endx, out int endy);
 
-        //    ValidateGridPosition(ref endX, ref endY);
-        //    //CMDebug.TextPopupMouse(x + ", " + y);
+            ValidateGridPosition(ref endx, ref endy);
+            //cmdebug.textpopupmouse(x + ", " + y);
 
-        //    Entities.ForEach((Entity entity, DynamicBuffer<PathPosition> pathPositionBuffer, ref Translation translation) =>
-        //    {
-        //        //Debug.Log("Add Component!");
-        //        PathfindingGridSetup.Instance.pathfindingGrid.GetXY(translation.Value + new float3(1, 1, 0) * cellSize * +.5f, out int startX, out int startY);
+            Entities.ForEach((Entity entity, DynamicBuffer<PathPosition> pathpositionbuffer, ref Translation translation) =>
+             {
+                //debug.log("add component!");
+                PathfindingGridSetup.Instance.pathfindingGrid.GetXY(translation.Value + new float3(1, 1, 0) * cellsize * +.5f, out int startx, out int starty);
 
-        //        ValidateGridPosition(ref startX, ref startY);
+                 ValidateGridPosition(ref startx, ref starty);
 
-        //        EntityManager.AddComponentData(entity, new PathfindingParams
-        //        {
-        //            startPosition = new int2(startX, startY),
-        //            endPosition = new int2(endX, endY)
-        //        });
-        //    });
-        //}
+                 EntityManager.AddComponentData(entity, new PathfindingParams
+                 {
+                     startPosition = new int2(startx, starty),
+                     endPosition = new int2(endx, endy)
+                 });
+             }) ;
+        }
 
     }
 
-        private void ValidateGridPosition(ref int x, ref int y)
+    private void ValidateGridPosition(ref int x, ref int y)
     {
         x = math.clamp(x, 0, PathfindingGridSetup.Instance.pathfindingGrid.GetWidth() - 1);
         y = math.clamp(y, 0, PathfindingGridSetup.Instance.pathfindingGrid.GetHeight() - 1);
