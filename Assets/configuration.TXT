@@ -1,5 +1,4 @@
-MapWidth=200
-MapHeight=200
+NumSectors=2
 Collisions=1
 BusUnits=0
 CarUnits=30

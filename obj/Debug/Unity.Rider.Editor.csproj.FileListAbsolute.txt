@@ -1,3 +1,4 @@
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Rider.Editor.csprojAssemblyReference.cache
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Rider.Editor.csproj.CoreCompileInputs.cache
 C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Rider.Editor.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Rider.Editor.csproj.AssemblyReference.cache

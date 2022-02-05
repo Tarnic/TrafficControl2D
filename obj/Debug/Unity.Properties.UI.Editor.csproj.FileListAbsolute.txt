@@ -1,2 +1,3 @@
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Properties.UI.Editor.csproj.CoreCompileInputs.cache
 C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Properties.UI.Editor.csproj.CoreCompileInputs.cache
+C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Properties.UI.Editor.csproj.AssemblyReference.cache
