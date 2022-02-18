@@ -62,21 +62,23 @@ public class PathfindingGridSetup : MonoBehaviour {
     }
 
     private void Start() {
-
-        Instantiate(nwAngle, new Vector3(0, sizeSector, 0), Quaternion.identity);
-        Instantiate(neAngle, new Vector3(sizeSector, sizeSector, 0), Quaternion.identity);
-        Instantiate(swAngle, new Vector3(0, 0, 0), Quaternion.identity);
-        Instantiate(seAngle, new Vector3(sizeSector, 0, 0), Quaternion.identity);
+        Vector3 offset = new Vector3(0.5f, 23.5f, 0f);
+        Instantiate(nwAngle, new Vector3(0, sizeSector, 0) - offset, Quaternion.identity);
+        Instantiate(neAngle, new Vector3(sizeSector, sizeSector, 0) - offset, Quaternion.identity);
+        Instantiate(swAngle, new Vector3(0, 0, 0) - offset, Quaternion.identity);
+        Instantiate(seAngle, new Vector3(sizeSector, 0, 0) - offset, Quaternion.identity);
 
         pathfindingGrid = new Grid(width, height, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
+        //pathfindingGrid = new Grid(width, height, 1f, new Vector3(0.5f, 23.5f, 0f), (Grid grid, int x, int y) => new GridNode(grid, x, y));
         pathfindingVisual.SetGrid(pathfindingGrid);
+        //new Vector3(0.5f, 23.5f, 0f)
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mousePosition = UtilsClass.GetMouseWorldPosition() - new Vector3(0, 23.5f, 0);
+            Vector3 mousePosition = UtilsClass.GetMouseWorldPosition();// - new Vector3(0, 23.5f, 0);
             GridNode node = pathfindingGrid.GetGridObject(mousePosition);
             Debug.Log(node.GetType());
         }

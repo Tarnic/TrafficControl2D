@@ -40,17 +40,25 @@ public class Grid {
         busStops = new NativeList<Vector3>(0, Allocator.Persistent);
         validPositions = new NativeList<Vector3>(0, Allocator.Persistent);
         gridArray = new GridNode[width, height];
+        Tilemap[] tilemaps = GameObject.FindObjectsOfType<Tilemap>();
+        foreach (var tilemap in tilemaps)
+        {
+            Debug.Log(tilemap.transform.parent.position.x);
+            Debug.Log(tilemap.transform.parent.position.y);
+            Debug.Log((int)tilemap.transform.parent.position.x);
+            Debug.Log((int)tilemap.transform.parent.position.y);
+        }
 
         for (int x = 0; x < gridArray.GetLength(0); x++) {
             for (int y = 0; y < gridArray.GetLength(1); y++) {
                 GridNode gridNode = createGridObject(this, x, y);
-
-                int type = 0;
                 Tilemap[] tilemapList = GameObject.FindObjectsOfType<Tilemap>();
-
                 Debug.Log(tilemapList.Length);
+                int type = 0;
+                int cont = 0;
                 foreach(var tilemap in tilemapList) {
-                    if (tilemap.HasTile(new Vector3Int(x, y, 0))) {
+                    if (tilemap.HasTile(new Vector3Int(x - (int)(tilemap.transform.parent.position.x+0.5), y - (int)(tilemap.transform.parent.position.y+0.5), 0))) {
+                        cont++;
                         string name = tilemap.name;
                         
                         if (name == "MoveUp") { 
@@ -121,8 +129,10 @@ public class Grid {
                 if (type == 0) {
                     gridNode.SetIsWalkable(false);
                 }
+                Debug.Log(cont);
                 gridNode.SetType(type);
                 gridArray[x, y] = gridNode;
+                //break;
 
             }
         }
