@@ -312,16 +312,23 @@ public class PathFollowGetNewPathSystem : SystemBase {
 
         if (isBus)
         {
-            int busStop = random.NextInt(0, positions.Length);
-            endX = (int)positions[busStop].x;
-            endY = (int)positions[busStop].y;
+            do
+            {
+                int busStop = random.NextInt(0, positions.Length);
+                endX = (int)positions[busStop].x;
+                endY = (int)positions[busStop].y;
+            } while (endX-startX > 40 || endY-startY > 40);
 
         }
         else
         {
-            int position = random.NextInt(0, positions.Length);
-            endX = (int)positions[position].x;
-            endY = (int)positions[position].y;
+            do
+            {
+                int position = random.NextInt(0, positions.Length);
+                endX = (int)positions[position].x;
+                endY = (int)positions[position].y;
+            } while (endX - startX > 40 || endY - startY > 40);
+            
         }
 
     }
