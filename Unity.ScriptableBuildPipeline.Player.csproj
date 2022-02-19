@@ -244,6 +244,9 @@
  <Reference Include="UnityEngine.XRModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.XRModule.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>C:/Users/tarni/Unity Projects/TrafficControl2D/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>C:/Users/tarni/Unity Projects/TrafficControl2D/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0-preview/Runtime/AOT/Newtonsoft.Json.dll</HintPath>
  </Reference>

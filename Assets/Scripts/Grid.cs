@@ -43,17 +43,17 @@ public class Grid {
         Tilemap[] tilemaps = GameObject.FindObjectsOfType<Tilemap>();
         foreach (var tilemap in tilemaps)
         {
-            Debug.Log(tilemap.transform.parent.position.x);
-            Debug.Log(tilemap.transform.parent.position.y);
-            Debug.Log((int)tilemap.transform.parent.position.x);
-            Debug.Log((int)tilemap.transform.parent.position.y);
+            //Debug.Log(tilemap.transform.parent.position.x);
+            //Debug.Log(tilemap.transform.parent.position.y);
+            //Debug.Log((int)tilemap.transform.parent.position.x);
+            //Debug.Log((int)tilemap.transform.parent.position.y);
         }
 
         for (int x = 0; x < gridArray.GetLength(0); x++) {
             for (int y = 0; y < gridArray.GetLength(1); y++) {
                 GridNode gridNode = createGridObject(this, x, y);
                 Tilemap[] tilemapList = GameObject.FindObjectsOfType<Tilemap>();
-                Debug.Log(tilemapList.Length);
+                //Debug.Log(tilemapList.Length);
                 int type = 0;
                 int cont = 0;
                 foreach(var tilemap in tilemapList) {
@@ -129,7 +129,7 @@ public class Grid {
                 if (type == 0) {
                     gridNode.SetIsWalkable(false);
                 }
-                Debug.Log(cont);
+                //Debug.Log(cont);
                 gridNode.SetType(type);
                 gridArray[x, y] = gridNode;
                 //break;

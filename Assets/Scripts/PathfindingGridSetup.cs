@@ -18,13 +18,22 @@ using CodeMonkey;
 using Unity.Mathematics;
 using Unity.Collections;
 using System.IO;
+using Random = Unity.Mathematics.Random;
 
 
-public class PathfindingGridSetup : MonoBehaviour {
+public class PathfindingGridSetup : MonoBehaviour 
+{
     [SerializeField] private GameObject nwAngle;
     [SerializeField] private GameObject neAngle;
     [SerializeField] private GameObject swAngle;
     [SerializeField] private GameObject seAngle;
+    [SerializeField] private GameObject[] centralBlocks;
+    [SerializeField] private GameObject borderDown;
+    [SerializeField] private GameObject borderLeft;
+    [SerializeField] private GameObject borderRight;
+    [SerializeField] private GameObject borderUp;
+
+    private Random random;
 
     private int numSectors;
     private bool collisions;
@@ -43,7 +52,8 @@ public class PathfindingGridSetup : MonoBehaviour {
     [SerializeField] private PathfindingVisual pathfindingVisual;
     public Grid pathfindingGrid;
 
-    private void Awake() {
+    private void Awake() 
+    {
         Instance = this;
 
         ///////////////////////////////////////////////////
@@ -57,21 +67,59 @@ public class PathfindingGridSetup : MonoBehaviour {
         busToSpawn = int.Parse(data[2].Split('=')[1]);
         carsToSpawn = int.Parse(data[3].Split('=')[1]);
         collisionsFlag = collisions;
-
+        random = new Random((uint)(numSectors * 13));
         height = width = sizeSector * numSectors;
     }
 
-    private void Start() {
+    private void Start() 
+    {
+        
         Vector3 offset = new Vector3(0.5f, 23.5f, 0f);
-        Instantiate(nwAngle, new Vector3(0, sizeSector, 0) - offset, Quaternion.identity);
-        Instantiate(neAngle, new Vector3(sizeSector, sizeSector, 0) - offset, Quaternion.identity);
-        Instantiate(swAngle, new Vector3(0, 0, 0) - offset, Quaternion.identity);
-        Instantiate(seAngle, new Vector3(sizeSector, 0, 0) - offset, Quaternion.identity);
+        float anglePosition = sizeSector * (numSectors - 1);
 
+        // Instatiate angle blocks
+        Instantiate(nwAngle, new Vector3(0, anglePosition, 0) - offset, Quaternion.identity);
+        Instantiate(neAngle, new Vector3(anglePosition, anglePosition, 0) - offset, Quaternion.identity);
+        Instantiate(swAngle, new Vector3(0, 0, 0) - offset, Quaternion.identity);
+        Instantiate(seAngle, new Vector3(anglePosition, 0, 0) - offset, Quaternion.identity);
+
+        // Instantiate border blocks
+
+        // Number of border blocks is given by the following formula
+        int numBorderBlocks = (int)(numSectors - 2);
+
+        for (int i = 0; i < numBorderBlocks; i++)
+        {
+            Instantiate(borderDown, new Vector3(sizeSector * (i + 1), 0, 0) - offset, Quaternion.identity);
+            Instantiate(borderUp, new Vector3(sizeSector * (i + 1), sizeSector * (numSectors - 1), 0) - offset, Quaternion.identity);
+            Instantiate(borderLeft, new Vector3(0, sizeSector * (i + 1), 0) - offset, Quaternion.identity);
+            Instantiate(borderRight, new Vector3(sizeSector * (numSectors - 1), sizeSector * (i + 1), 0) - offset, Quaternion.identity);
+        }
+
+        // Instantiate central blocks
+
+        // Number of central blocks is given by the following formula
+        int numCentralBlocks = (int) Mathf.Pow(numSectors - 2, 2);
+        int indexCentralBlocks;
+        if (numCentralBlocks == 1)
+        {
+            indexCentralBlocks = random.NextInt(centralBlocks.Length);
+            Instantiate(centralBlocks[indexCentralBlocks], new Vector3(sizeSector, sizeSector, 0) - offset, Quaternion.identity);
+        }
+        else
+        {
+            for (int i = 0; i < numCentralBlocks / 2; i++)
+            {
+                for (int j = 0; i < numCentralBlocks / 2; i++)
+                {
+                    indexCentralBlocks = random.NextInt(centralBlocks.Length);
+                    Instantiate(centralBlocks[indexCentralBlocks], new Vector3((i + 1) * sizeSector, (j + 1) * sizeSector, 0) - offset, Quaternion.identity);
+                }
+            }
+        }
+        
         pathfindingGrid = new Grid(width, height, 1f, Vector3.zero, (Grid grid, int x, int y) => new GridNode(grid, x, y));
-        //pathfindingGrid = new Grid(width, height, 1f, new Vector3(0.5f, 23.5f, 0f), (Grid grid, int x, int y) => new GridNode(grid, x, y));
         pathfindingVisual.SetGrid(pathfindingGrid);
-        //new Vector3(0.5f, 23.5f, 0f)
     }
 
     private void Update()

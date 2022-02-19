@@ -156,6 +156,15 @@ MonoBehaviour:
   neAngle: {fileID: 3262155102688245904, guid: 2f719c3c1753bce4b895a8b2d1d108b2, type: 3}
   swAngle: {fileID: 3262155102688245904, guid: 73b373bf71e3abf47afcdb6d859ae29b, type: 3}
   seAngle: {fileID: 3262155102688245904, guid: d11ce6838d01a9a4e81feb5d97b5329a, type: 3}
+  centralBlocks:
+  - {fileID: 3262155102688245904, guid: eeab3cd0c5c4e794eb61552cce8eef2a, type: 3}
+  - {fileID: 3262155102688245904, guid: 7f60957cd65c9204b8a2e332fed6ba63, type: 3}
+  - {fileID: 3262155102688245904, guid: 40264dbd7902a1c4687312a9724e6350, type: 3}
+  - {fileID: 3262155102688245904, guid: 8a5196181a3b7f846846588d006609a4, type: 3}
+  borderDown: {fileID: 3262155102688245904, guid: 26088e4f793f6ee42b817fe678f64b9e, type: 3}
+  borderLeft: {fileID: 3262155102688245904, guid: 84f56335fd4b7e94db3434c9b7b5c292, type: 3}
+  borderRight: {fileID: 3262155102688245904, guid: a400a9eefa07fc7498ff8888e552e0c7, type: 3}
+  borderUp: {fileID: 3262155102688245904, guid: 4c2af2db8bced4c4a9d5753675885125, type: 3}
   pathfindingVisual: {fileID: 427227530}
 --- !u!4 &27382666
 Transform:

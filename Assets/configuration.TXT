@@ -1,4 +1,4 @@
-NumSectors=2
+NumSectors=3
 Collisions=1
 BusUnits=0
 CarUnits=30
