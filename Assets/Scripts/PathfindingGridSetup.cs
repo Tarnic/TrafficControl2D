@@ -99,22 +99,15 @@ public class PathfindingGridSetup : MonoBehaviour
         // Instantiate central blocks
 
         // Number of central blocks is given by the following formula
-        int numCentralBlocks = (int) Mathf.Pow(numSectors - 2, 2);
+        int numCentralBlocks = (int) numSectors - 2;
         int indexCentralBlocks;
-        if (numCentralBlocks == 1)
+        
+        for (int i = 0; i < numCentralBlocks; i++)
         {
-            indexCentralBlocks = random.NextInt(centralBlocks.Length);
-            Instantiate(centralBlocks[indexCentralBlocks], new Vector3(sizeSector, sizeSector, 0) - offset, Quaternion.identity);
-        }
-        else
-        {
-            for (int i = 0; i < numCentralBlocks / 2; i++)
+            for (int j = 0; j < numCentralBlocks; j++)
             {
-                for (int j = 0; i < numCentralBlocks / 2; i++)
-                {
-                    indexCentralBlocks = random.NextInt(centralBlocks.Length);
-                    Instantiate(centralBlocks[indexCentralBlocks], new Vector3((i + 1) * sizeSector, (j + 1) * sizeSector, 0) - offset, Quaternion.identity);
-                }
+                indexCentralBlocks = random.NextInt(centralBlocks.Length);
+                Instantiate(centralBlocks[indexCentralBlocks], new Vector3((i + 1) * sizeSector, (j + 1) * sizeSector, 0) - offset, Quaternion.identity);
             }
         }
         
@@ -124,12 +117,12 @@ public class PathfindingGridSetup : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 mousePosition = UtilsClass.GetMouseWorldPosition();// - new Vector3(0, 23.5f, 0);
-            GridNode node = pathfindingGrid.GetGridObject(mousePosition);
-            Debug.Log(node.GetType());
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    Vector3 mousePosition = UtilsClass.GetMouseWorldPosition();// - new Vector3(0, 23.5f, 0);
+        //    GridNode node = pathfindingGrid.GetGridObject(mousePosition);
+        //    Debug.Log(node.GetType());
+        //}
     }
 
     private void OnDestroy()
