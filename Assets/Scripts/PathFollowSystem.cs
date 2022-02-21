@@ -308,9 +308,10 @@ public class PathFollowGetNewPathSystem : SystemBase {
     public static void AssignNewParams(Entity entity, Translation translation, NativeList<Vector3> positions, float cellSize, int mapWidth, int mapHeight, bool isBus, Random random, out int startX, out int startY, out int endX, out int endY)
     {
         GetXY(translation.Value + new float3(1, 1, 0) * cellSize * +.5f, float3.zero, cellSize, out startX, out startY);
-        ValidateGridPosition(ref startX, ref startY, mapWidth, mapHeight);
+        //ValidateGridPosition(ref startX, ref startY, mapWidth, mapHeight);
+        int mapX = (int)(mapWidth / cellSize)-1;
+        int mapY = (int)(mapHeight / cellSize)-1;
         GridNode gridNode;
-
         if (isBus)
         {
             do
@@ -318,21 +319,27 @@ public class PathFollowGetNewPathSystem : SystemBase {
                 int busStop = random.NextInt(0, positions.Length);
                 endX = (int)positions[busStop].x;
                 endY = (int)positions[busStop].y;
-            } while (endX-startX > 60 || endY-startY > 60);
+            } while (endX - startX > 30 || endY - startY > 30);
 
         }
         else
         {
             do
             {
-                int position = random.NextInt(0, positions.Length);
-                endX = random.NextInt(startX - 20, startX + 20);
-                endY = random.NextInt(startY - 20, startY + 20);
-                gridNode = PathfindingGridSetup.Instance.pathfindingGrid.GetGridObject(startX, startY);
+                //int position = random.NextInt(0, positions.Length);
+                int offset = 30;
+                endX = random.NextInt(startX - offset, startX + offset);
+                endY = random.NextInt(startY - offset, startY + offset);
+                if(endX > mapX) endX = mapX;
+                if (endX < 0) endX = 0;
+                if (endY > mapY) endY = mapY;
+                if (endY < 0) endY = 0;
 
-            } while (gridNode.GetType() > 4 && gridNode.GetType() != 10);
-            
-        }
+                gridNode = PathfindingGridSetup.Instance.pathfindingGrid.GetGridObject(endX, endY);
+
+            } while (!gridNode.IsWalkable()) ;
+
+    }
 
     }
 

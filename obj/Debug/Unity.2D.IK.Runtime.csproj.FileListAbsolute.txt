@@ -563,3 +563,4 @@ C:\Users\tarni\Unity Projects\TrafficControl2D\Temp\Bin\Debug\UnityEditor.UnityC
 C:\Users\tarni\Unity Projects\TrafficControl2D\Temp\Bin\Debug\Unity.Burst.Unsafe.xml
 C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.IK.Runtime.csproj.AssemblyReference.cache
 C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.2D.IK.Runtime.csproj.CopyComplete
+D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.2D.IK.Runtime.csprojAssemblyReference.cache

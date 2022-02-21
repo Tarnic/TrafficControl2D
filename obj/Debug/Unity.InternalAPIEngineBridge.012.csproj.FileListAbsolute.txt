@@ -563,3 +563,4 @@ C:\Users\tarni\Unity Projects\TrafficControl2D\Temp\Bin\Debug\UnityEditor.UIServ
 C:\Users\tarni\Unity Projects\TrafficControl2D\Temp\Bin\Debug\UnityEditor.UnityConnectModule.xml
 C:\Users\tarni\Unity Projects\TrafficControl2D\Temp\Bin\Debug\Unity.Burst.Unsafe.xml
 C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.InternalAPIEngineBridge.012.csproj.CopyComplete
+D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.InternalAPIEngineBridge.012.csprojAssemblyReference.cache

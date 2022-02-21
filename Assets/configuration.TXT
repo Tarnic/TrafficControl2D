@@ -1,7 +1,7 @@
-NumSectors=5
+NumSectors=3
 Collisions=0
-BusUnits=0
-CarUnits=1000
+BusUnits=50
+CarUnits=5000
 
 
 // Collisions 1 = True, 0 = False.

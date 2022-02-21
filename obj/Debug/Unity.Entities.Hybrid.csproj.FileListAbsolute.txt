@@ -1,3 +1,4 @@
 D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Entities.Hybrid.csproj.CoreCompileInputs.cache
 C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Entities.Hybrid.csproj.AssemblyReference.cache
 C:\Users\tarni\Unity Projects\TrafficControl2D\obj\Debug\Unity.Entities.Hybrid.csproj.CoreCompileInputs.cache
+D:\Github\Godot\TrafficControl2D\obj\Debug\Unity.Entities.Hybrid.csprojAssemblyReference.cache
