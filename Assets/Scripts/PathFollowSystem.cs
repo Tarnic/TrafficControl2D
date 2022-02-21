@@ -309,6 +309,7 @@ public class PathFollowGetNewPathSystem : SystemBase {
     {
         GetXY(translation.Value + new float3(1, 1, 0) * cellSize * +.5f, float3.zero, cellSize, out startX, out startY);
         ValidateGridPosition(ref startX, ref startY, mapWidth, mapHeight);
+        GridNode gridNode;
 
         if (isBus)
         {
@@ -317,7 +318,7 @@ public class PathFollowGetNewPathSystem : SystemBase {
                 int busStop = random.NextInt(0, positions.Length);
                 endX = (int)positions[busStop].x;
                 endY = (int)positions[busStop].y;
-            } while (endX-startX > 40 || endY-startY > 40);
+            } while (endX-startX > 60 || endY-startY > 60);
 
         }
         else
@@ -325,9 +326,11 @@ public class PathFollowGetNewPathSystem : SystemBase {
             do
             {
                 int position = random.NextInt(0, positions.Length);
-                endX = (int)positions[position].x;
-                endY = (int)positions[position].y;
-            } while (endX - startX > 40 || endY - startY > 40);
+                endX = random.NextInt(startX - 20, startX + 20);
+                endY = random.NextInt(startY - 20, startY + 20);
+                gridNode = PathfindingGridSetup.Instance.pathfindingGrid.GetGridObject(startX, startY);
+
+            } while (gridNode.GetType() > 4 && gridNode.GetType() != 10);
             
         }
 
