@@ -3,7 +3,7 @@
   "Assemblies": [
     {
       "FullName": "Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:41.0753252Z"
+      "LastWriteTime": "2022-02-21T15:31:38.4513161Z"
     },
     {
       "FullName": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
@@ -15,15 +15,23 @@
     },
     {
       "FullName": "Unity.Entities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:43.7713045Z"
+      "LastWriteTime": "2022-02-21T15:31:38.5093296Z"
     },
     {
       "FullName": "Unity.Rendering.Hybrid, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:45.2859854Z"
+      "LastWriteTime": "2022-02-21T15:31:38.5883475Z"
     },
     {
       "FullName": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
       "LastWriteTime": "2021-09-16T18:25:48Z"
+    },
+    {
+      "FullName": "Unity.Mathematics.Extensions, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2022-02-21T15:31:38.5363358Z"
+    },
+    {
+      "FullName": "Unity.Mathematics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2022-02-21T15:31:38.5443374Z"
     },
     {
       "FullName": "mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
@@ -31,19 +39,11 @@
     },
     {
       "FullName": "Unity.Collections, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:41.8898791Z"
-    },
-    {
-      "FullName": "Unity.Mathematics.Extensions, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:42.1649415Z"
-    },
-    {
-      "FullName": "Unity.Mathematics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:41.8088611Z"
+      "LastWriteTime": "2022-02-21T15:31:38.4633201Z"
     },
     {
       "FullName": "Unity.Burst.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2020-10-31T21:05:16Z"
+      "LastWriteTime": "2021-07-29T09:02:52Z"
     },
     {
       "FullName": "System.Runtime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
@@ -51,27 +51,27 @@
     },
     {
       "FullName": "Unity.Deformations, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:43.3432077Z"
+      "LastWriteTime": "2022-02-21T15:31:38.4763227Z"
     },
     {
       "FullName": "Unity.Transforms, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:43.5292489Z"
+      "LastWriteTime": "2022-02-21T15:31:38.6503621Z"
     },
     {
       "FullName": "Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:36:24.9341561Z"
+      "LastWriteTime": "2022-02-21T15:31:38.3682972Z"
     },
     {
       "FullName": "Unity.Scenes, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:43.6402744Z"
+      "LastWriteTime": "2022-02-21T15:31:38.6003501Z"
     },
     {
       "FullName": "Unity.Transforms.Hybrid, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:45.0019223Z"
+      "LastWriteTime": "2022-02-21T15:31:38.6473608Z"
     },
     {
       "FullName": "Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:41.8598721Z"
+      "LastWriteTime": "2022-02-21T15:31:38.4213096Z"
     },
     {
       "FullName": "UnityEngine.SpriteShapeModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -79,19 +79,19 @@
     },
     {
       "FullName": "Unity.2D.Animation.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:44.9028994Z"
+      "LastWriteTime": "2022-02-21T15:31:38.3843012Z"
     },
     {
       "FullName": "Unity.Entities.Hybrid, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:43.9663489Z"
+      "LastWriteTime": "2022-02-21T15:31:38.4973269Z"
     },
     {
       "FullName": "Unity.DOTS.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:45.1679596Z"
+      "LastWriteTime": "2022-02-21T15:31:38.4733218Z"
     },
     {
       "FullName": "Unity.Serialization, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-02-21T13:08:42.477011Z"
+      "LastWriteTime": "2022-02-21T15:31:38.6153533Z"
     }
   ],
   "Functions": [
@@ -129,23 +129,6 @@
       ]
     },
     {
-      "FullName": "System.Void Unity.Rendering.JobNativeMultiHashMapVisitKeyMutableValue/JobNativeMultiHashMapVisitKeyMutableValueProducer`3<Unity.Rendering.HybridV1SelectLodEnabled,Unity.Rendering.LocalGroupKey,Unity.Rendering.BatchChunkData>::Execute(Unity.Rendering.JobNativeMultiHashMapVisitKeyMutableValue/JobNativeMultiHashMapVisitKeyMutableValueProducer`3<TJob,TKey,TValue>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "6e904e98d84e974354d6e711997ccf94",
-      "LinkName": "AD32600A384833D8",
-      "AssemblyDependencyIndices": [
-        4,
-        1,
-        2,
-        5,
-        6,
-        7,
-        8,
-        9,
-        3
-      ]
-    },
-    {
       "FullName": "System.Void Unity.Rendering.JobNativeMultiHashMapVisitKeyValue/JobNativeMultiHashMapVisitKeyValueProducer`3<Unity.Rendering.HybridV1SimpleCullingJob,Unity.Rendering.LocalGroupKey,Unity.Rendering.BatchChunkData>::Execute(Unity.Rendering.JobNativeMultiHashMapVisitKeyValue/JobNativeMultiHashMapVisitKeyValueProducer`3<TJob,TKey,TValue>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
       "ModuleOptionsHash": 11834165633931345063,
       "ModuleHash": "809691ecf04473bd13e8c378a19a0a97",
@@ -155,11 +138,28 @@
         1,
         2,
         5,
+        6,
+        7,
+        3,
+        8,
+        9
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Rendering.JobNativeMultiHashMapVisitKeyMutableValue/JobNativeMultiHashMapVisitKeyMutableValueProducer`3<Unity.Rendering.HybridV1SelectLodEnabled,Unity.Rendering.LocalGroupKey,Unity.Rendering.BatchChunkData>::Execute(Unity.Rendering.JobNativeMultiHashMapVisitKeyMutableValue/JobNativeMultiHashMapVisitKeyMutableValueProducer`3<TJob,TKey,TValue>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "6e904e98d84e974354d6e711997ccf94",
+      "LinkName": "AD32600A384833D8",
+      "AssemblyDependencyIndices": [
+        4,
+        1,
+        2,
+        5,
         8,
         9,
-        3,
         6,
-        7
+        7,
+        3
       ]
     },
     {
@@ -168,7 +168,7 @@
       "ModuleHash": "b6ccd7d49262fdc6a9238ae4f231f0f5",
       "LinkName": "31D71C750A9E4345",
       "AssemblyDependencyIndices": [
-        7,
+        9,
         1,
         2
       ]
@@ -179,12 +179,12 @@
       "ModuleHash": "78860c448408ed35799110c10df481a5",
       "LinkName": "8CC3C64CA4A3FEDE",
       "AssemblyDependencyIndices": [
-        7,
+        9,
         1,
         2,
         5,
-        6,
-        9
+        8,
+        7
       ]
     },
     {
@@ -197,9 +197,9 @@
         1,
         2,
         5,
-        7,
-        6,
         9,
+        8,
+        7,
         0,
         10,
         11
@@ -215,9 +215,9 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
         9,
+        7,
         0,
         10,
         11
@@ -233,9 +233,9 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
         9,
+        7,
         0,
         10,
         11
@@ -251,9 +251,9 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
         9,
+        7,
         0,
         10,
         11
@@ -269,9 +269,9 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
         9,
+        7,
         0,
         10,
         11
@@ -287,9 +287,9 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
         9,
+        7,
         0,
         10,
         11
@@ -305,9 +305,9 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
         9,
+        7,
         0,
         10,
         11
@@ -323,9 +323,9 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
         9,
+        7,
         0,
         10,
         11
@@ -341,8 +341,8 @@
         1,
         2,
         5,
-        7,
-        9
+        9,
+        7
       ]
     },
     {
@@ -355,8 +355,8 @@
         1,
         2,
         5,
-        7,
-        9
+        9,
+        7
       ]
     },
     {
@@ -369,7 +369,7 @@
         1,
         2,
         5,
-        7
+        9
       ]
     },
     {
@@ -382,8 +382,8 @@
         1,
         2,
         5,
-        7,
-        6
+        9,
+        8
       ]
     },
     {
@@ -397,9 +397,9 @@
         1,
         2,
         5,
-        6,
-        7,
-        9
+        8,
+        9,
+        7
       ]
     },
     {
@@ -413,9 +413,9 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
         9,
+        7,
         12
       ]
     },
@@ -430,9 +430,9 @@
         1,
         2,
         5,
-        6,
-        9,
-        7
+        8,
+        7,
+        9
       ]
     },
     {
@@ -446,10 +446,10 @@
         1,
         2,
         5,
-        6,
-        9,
         8,
-        7
+        7,
+        6,
+        9
       ]
     },
     {
@@ -463,11 +463,11 @@
         1,
         2,
         5,
-        6,
         8,
-        9,
+        6,
+        7,
         13,
-        7
+        9
       ]
     },
     {
@@ -481,10 +481,10 @@
         1,
         2,
         5,
-        6,
-        9,
+        8,
+        7,
         13,
-        7
+        9
       ]
     },
     {
@@ -498,10 +498,10 @@
         1,
         2,
         5,
-        6,
-        9,
+        8,
+        7,
         13,
-        7
+        9
       ]
     },
     {
@@ -515,9 +515,9 @@
         1,
         2,
         5,
-        6,
-        9,
-        7
+        8,
+        7,
+        9
       ]
     },
     {
@@ -531,10 +531,10 @@
         1,
         2,
         5,
-        6,
+        8,
         13,
-        9,
-        7
+        7,
+        9
       ]
     },
     {
@@ -548,11 +548,11 @@
         1,
         2,
         5,
-        6,
         8,
-        9,
+        6,
+        7,
         13,
-        7
+        9
       ]
     },
     {
@@ -566,9 +566,9 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
         9,
+        7,
         13
       ]
     },
@@ -583,9 +583,9 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
         9,
+        7,
         13
       ]
     },
@@ -599,9 +599,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -614,9 +614,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -629,9 +629,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -644,9 +644,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -659,9 +659,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -674,9 +674,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -690,9 +690,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -706,9 +706,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -722,9 +722,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -738,9 +738,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -754,9 +754,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -770,9 +770,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -786,9 +786,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -802,9 +802,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -818,9 +818,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -834,9 +834,9 @@
         1,
         2,
         5,
-        7,
-        6,
-        9
+        9,
+        8,
+        7
       ]
     },
     {
@@ -849,8 +849,8 @@
         1,
         2,
         5,
-        6,
-        9
+        8,
+        7
       ]
     },
     {
@@ -863,9 +863,9 @@
         1,
         2,
         5,
-        6,
-        9,
-        7
+        8,
+        7,
+        9
       ]
     },
     {
@@ -878,9 +878,9 @@
         1,
         2,
         5,
-        6,
-        9,
-        7
+        8,
+        7,
+        9
       ]
     },
     {
@@ -893,9 +893,9 @@
         1,
         2,
         5,
-        6,
-        9,
-        7
+        8,
+        7,
+        9
       ]
     },
     {
@@ -909,9 +909,9 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
         9,
+        7,
         0,
         10,
         11
@@ -929,9 +929,9 @@
         1,
         2,
         5,
-        6,
-        9,
-        7
+        8,
+        7,
+        9
       ]
     },
     {
@@ -946,9 +946,9 @@
         1,
         2,
         5,
-        6,
-        9,
-        7
+        8,
+        7,
+        9
       ]
     },
     {
@@ -961,8 +961,8 @@
         1,
         2,
         5,
-        6,
-        7
+        8,
+        9
       ]
     },
     {
@@ -975,8 +975,8 @@
         1,
         2,
         5,
-        6,
-        7
+        8,
+        9
       ]
     },
     {
@@ -989,9 +989,9 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
         9,
+        7,
         0,
         10,
         11
@@ -1007,8 +1007,8 @@
         1,
         2,
         5,
-        6,
-        7
+        8,
+        9
       ]
     },
     {
@@ -1021,8 +1021,8 @@
         1,
         2,
         5,
-        6,
-        7
+        8,
+        9
       ]
     },
     {
@@ -1033,10 +1033,10 @@
       "AssemblyDependencyIndices": [
         5,
         17,
-        6,
+        8,
         1,
         2,
-        9,
+        7,
         18
       ]
     },
@@ -1048,11 +1048,11 @@
       "AssemblyDependencyIndices": [
         5,
         4,
-        6,
+        8,
         1,
         2,
-        9,
         7,
+        9,
         0,
         10,
         11
@@ -1066,14 +1066,14 @@
       "AssemblyDependencyIndices": [
         5,
         4,
-        6,
+        8,
         1,
         2,
-        8,
-        9,
+        6,
+        7,
         3,
         15,
-        7
+        9
       ]
     },
     {
@@ -1084,10 +1084,10 @@
       "AssemblyDependencyIndices": [
         5,
         19,
-        6,
+        8,
         1,
         2,
-        9
+        7
       ]
     },
     {
@@ -1098,10 +1098,10 @@
       "AssemblyDependencyIndices": [
         5,
         19,
-        6,
+        8,
         1,
         2,
-        9
+        7
       ]
     },
     {
@@ -1112,11 +1112,11 @@
       "AssemblyDependencyIndices": [
         5,
         20,
-        6,
+        8,
         1,
         2,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -1130,14 +1130,14 @@
       "AssemblyDependencyIndices": [
         5,
         20,
-        6,
+        8,
         1,
         2,
-        7,
+        9,
         0,
         10,
         11,
-        9
+        7
       ]
     },
     {
@@ -1148,14 +1148,14 @@
       "AssemblyDependencyIndices": [
         5,
         20,
-        6,
+        8,
         1,
         2,
-        7,
+        9,
         0,
         10,
         11,
-        9
+        7
       ]
     },
     {
@@ -1166,14 +1166,14 @@
       "AssemblyDependencyIndices": [
         5,
         20,
-        6,
+        8,
         1,
         2,
-        7,
+        9,
         0,
         10,
         11,
-        9
+        7
       ]
     },
     {
@@ -1184,11 +1184,11 @@
       "AssemblyDependencyIndices": [
         5,
         20,
-        6,
+        8,
         1,
         2,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -1202,14 +1202,14 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
+        9,
         0,
         10,
         11,
-        9
+        7
       ]
     },
     {
@@ -1220,11 +1220,11 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
-        9
+        9,
+        7
       ]
     },
     {
@@ -1235,11 +1235,11 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -1253,11 +1253,11 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -1271,11 +1271,11 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -1289,12 +1289,12 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
-        0,
         9,
+        0,
+        7,
         10,
         11
       ]
@@ -1307,11 +1307,11 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -1325,11 +1325,11 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -1343,11 +1343,11 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
-        9
+        9,
+        7
       ]
     },
     {
@@ -1358,11 +1358,11 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -1376,11 +1376,11 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -1394,11 +1394,11 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
-        9
+        9,
+        7
       ]
     },
     {
@@ -1409,14 +1409,14 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
+        9,
         0,
         10,
         11,
-        9
+        7
       ]
     },
     {
@@ -1427,11 +1427,11 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -1445,12 +1445,12 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
         3,
         1,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -1464,13 +1464,13 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
         3,
         1,
-        7,
-        0,
         9,
+        0,
+        7,
         10,
         11
       ]
@@ -1483,12 +1483,12 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
-        7,
+        9,
         1,
         3,
-        9,
+        7,
         0,
         10,
         11
@@ -1502,13 +1502,13 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
         3,
         1,
-        7,
-        0,
         9,
+        0,
+        7,
         10,
         11
       ]
@@ -1521,12 +1521,12 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
-        7,
+        9,
         1,
         3,
-        9,
+        7,
         0,
         10,
         11
@@ -1540,13 +1540,13 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
         3,
         1,
-        7,
-        0,
         9,
+        0,
+        7,
         10,
         11
       ]
@@ -1559,12 +1559,12 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
         3,
-        7,
-        1,
         9,
+        1,
+        7,
         0,
         10,
         11
@@ -1578,12 +1578,12 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
         3,
-        7,
-        1,
         9,
+        1,
+        7,
         0,
         10,
         11
@@ -1597,12 +1597,12 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
         3,
         1,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -1616,11 +1616,11 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
-        7,
-        1,
         9,
+        1,
+        7,
         0,
         10,
         11
@@ -1634,13 +1634,13 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
         3,
         1,
         15,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -1653,11 +1653,11 @@
       "LinkName": "352B6D5D03F8F621",
       "AssemblyDependencyIndices": [
         5,
-        7,
-        6,
+        9,
+        8,
         1,
         2,
-        9,
+        7,
         0,
         10,
         11
@@ -1670,221 +1670,11 @@
       "LinkName": "8F02018D2DAA4F36",
       "AssemblyDependencyIndices": [
         5,
-        7,
-        6,
-        1,
-        2,
         9,
-        0,
-        10,
-        11
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.NativeReferenceDisposeJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "159fa6a6fcb2574127840b4acc8d5d9c",
-      "LinkName": "703CA6DADE3415F0",
-      "AssemblyDependencyIndices": [
-        5,
-        7,
-        6,
-        1,
-        2,
-        9,
-        0,
-        10,
-        11
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.LowLevel.Unsafe.UnsafeHashMapDataDisposeJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "0f55a181f6d630b8122f3fb2a6b95480",
-      "LinkName": "C0BB42F31A3089F2",
-      "AssemblyDependencyIndices": [
-        5,
-        7,
-        6,
-        1,
-        2,
-        9,
-        0,
-        10,
-        11
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.LowLevel.Unsafe.UnsafeHashMapDisposeJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "411b10d77b18414c4745b55ec4825f85",
-      "LinkName": "0AFB48C3B9CA6ECF",
-      "AssemblyDependencyIndices": [
-        5,
-        7,
-        6,
-        1,
-        2,
-        9,
-        0,
-        10,
-        11
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.LowLevel.Unsafe.UnsafeDisposeJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "18ef00484389f20a58786ea90d02d7d1",
-      "LinkName": "5AAE3265C3BCB248",
-      "AssemblyDependencyIndices": [
-        5,
-        7,
-        6,
-        1,
-        2,
-        9,
-        0,
-        10,
-        11
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.NativeStream/ConstructJobList>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "ae9561d9392def0fe0c39322e2e5c50f",
-      "LinkName": "846F65225A066FD6",
-      "AssemblyDependencyIndices": [
-        5,
-        7,
-        6,
-        1,
-        2,
-        9,
-        0,
-        10,
-        11
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.NativeStream/ConstructJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "01941fe537c60f490b5c2efbbe159174",
-      "LinkName": "1F3827F16D435181",
-      "AssemblyDependencyIndices": [
-        5,
-        7,
-        6,
-        1,
-        2,
-        9,
-        0,
-        10,
-        11
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.LowLevel.Unsafe.UnsafeStream/DisposeJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "d51576d02d565821bfe08af243741fa2",
-      "LinkName": "A8134E26EAC44A70",
-      "AssemblyDependencyIndices": [
-        5,
-        7,
-        6,
-        1,
-        2,
-        9,
-        0,
-        10,
-        11
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.LowLevel.Unsafe.UnsafeStream/ConstructJobList>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "d654f699b7d2944d42ea4f63e9b20576",
-      "LinkName": "18F4EDFD51FD6159",
-      "AssemblyDependencyIndices": [
-        5,
-        7,
-        6,
-        1,
-        2,
-        9,
-        0,
-        10,
-        11
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.LowLevel.Unsafe.UnsafeStream/ConstructJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "26e2db297ea277c1bf09a0dd6838d8e4",
-      "LinkName": "EC65C6FB1FDE45E6",
-      "AssemblyDependencyIndices": [
-        5,
-        7,
-        6,
-        1,
-        2,
-        9,
-        0,
-        10,
-        11
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Transforms.ParentSystem/FindMissingChild>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "914e35e427b44a6d544fdd22699161b7",
-      "LinkName": "3ECA3D7CCCF185EC",
-      "AssemblyDependencyIndices": [
-        5,
-        13,
-        6,
+        8,
         1,
         2,
         7,
-        3,
-        9,
-        0,
-        10,
-        11
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Transforms.ParentSystem/FixupChangedChildren>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "6f68d143873658fefc52339c8792857f",
-      "LinkName": "ACE3633765E8E12C",
-      "AssemblyDependencyIndices": [
-        5,
-        13,
-        6,
-        1,
-        2,
-        7,
-        3,
-        9,
-        0,
-        10,
-        11
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Transforms.ParentSystem/GatherChildEntities>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "a4fa3b4a24d5f9e4a8820a681741ec48",
-      "LinkName": "4DBBB04EA08E446F",
-      "AssemblyDependencyIndices": [
-        5,
-        13,
-        6,
-        1,
-        2,
-        3,
-        7,
-        9,
         0,
         10,
         11
@@ -1898,59 +1688,7 @@
       "AssemblyDependencyIndices": [
         5,
         22,
-        6,
-        1,
-        2
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Serialization.Json.JsonTokenizer/DiscardCompletedJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "37d098a5594fccab613241405ef2daac",
-      "LinkName": "D145098390BDD5A2",
-      "AssemblyDependencyIndices": [
-        5,
-        22,
-        6,
-        1,
-        2
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Serialization.Json.NodeParser/ParseJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "174c8220934ba6dbd6fac37528a3da0b",
-      "LinkName": "7FE477DECBB60F82",
-      "AssemblyDependencyIndices": [
-        5,
-        22,
-        6,
-        1,
-        2
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Serialization.Json.PackedBinaryStream/DiscardCompletedJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "6c5c95dc489d24a454b76d70b5d251dd",
-      "LinkName": "D2585632E5D018E4",
-      "AssemblyDependencyIndices": [
-        5,
-        22,
-        6,
-        1,
-        2
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Serialization.Json.PackedBinaryWriter/WriteTokensJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "ff22c8a7cfcea718b53c1fbb3df1abff",
-      "LinkName": "17B2DA68941BEE11",
-      "AssemblyDependencyIndices": [
-        5,
-        22,
-        6,
+        8,
         1,
         2
       ]
@@ -1963,7 +1701,282 @@
       "AssemblyDependencyIndices": [
         5,
         22,
-        6,
+        8,
+        1,
+        2
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Serialization.Json.NodeParser/ParseJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "174c8220934ba6dbd6fac37528a3da0b",
+      "LinkName": "7FE477DECBB60F82",
+      "AssemblyDependencyIndices": [
+        5,
+        22,
+        8,
+        1,
+        2
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Serialization.Json.PackedBinaryWriter/WriteTokensJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "ff22c8a7cfcea718b53c1fbb3df1abff",
+      "LinkName": "17B2DA68941BEE11",
+      "AssemblyDependencyIndices": [
+        5,
+        22,
+        8,
+        1,
+        2
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobParallelForExtensions/ParallelForJobStruct`1<Unity.Serialization.Json.PackedBinaryWriter/WriteCharactersJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "9104688e02cd386e8257a588b16e78ef",
+      "LinkName": "B156491870A0D889",
+      "AssemblyDependencyIndices": [
+        5,
+        22,
+        8,
+        1,
+        2
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.NativeReferenceDisposeJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "159fa6a6fcb2574127840b4acc8d5d9c",
+      "LinkName": "703CA6DADE3415F0",
+      "AssemblyDependencyIndices": [
+        5,
+        9,
+        8,
+        1,
+        2,
+        7,
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.LowLevel.Unsafe.UnsafeHashMapDataDisposeJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "0f55a181f6d630b8122f3fb2a6b95480",
+      "LinkName": "C0BB42F31A3089F2",
+      "AssemblyDependencyIndices": [
+        5,
+        9,
+        8,
+        1,
+        2,
+        7,
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.LowLevel.Unsafe.UnsafeHashMapDisposeJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "411b10d77b18414c4745b55ec4825f85",
+      "LinkName": "0AFB48C3B9CA6ECF",
+      "AssemblyDependencyIndices": [
+        5,
+        9,
+        8,
+        1,
+        2,
+        7,
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.LowLevel.Unsafe.UnsafeDisposeJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "18ef00484389f20a58786ea90d02d7d1",
+      "LinkName": "5AAE3265C3BCB248",
+      "AssemblyDependencyIndices": [
+        5,
+        9,
+        8,
+        1,
+        2,
+        7,
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.NativeStream/ConstructJobList>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "ae9561d9392def0fe0c39322e2e5c50f",
+      "LinkName": "846F65225A066FD6",
+      "AssemblyDependencyIndices": [
+        5,
+        9,
+        8,
+        1,
+        2,
+        7,
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.NativeStream/ConstructJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "01941fe537c60f490b5c2efbbe159174",
+      "LinkName": "1F3827F16D435181",
+      "AssemblyDependencyIndices": [
+        5,
+        9,
+        8,
+        1,
+        2,
+        7,
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.LowLevel.Unsafe.UnsafeStream/DisposeJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "d51576d02d565821bfe08af243741fa2",
+      "LinkName": "A8134E26EAC44A70",
+      "AssemblyDependencyIndices": [
+        5,
+        9,
+        8,
+        1,
+        2,
+        7,
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.LowLevel.Unsafe.UnsafeStream/ConstructJobList>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "d654f699b7d2944d42ea4f63e9b20576",
+      "LinkName": "18F4EDFD51FD6159",
+      "AssemblyDependencyIndices": [
+        5,
+        9,
+        8,
+        1,
+        2,
+        7,
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Collections.LowLevel.Unsafe.UnsafeStream/ConstructJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "26e2db297ea277c1bf09a0dd6838d8e4",
+      "LinkName": "EC65C6FB1FDE45E6",
+      "AssemblyDependencyIndices": [
+        5,
+        9,
+        8,
+        1,
+        2,
+        7,
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Transforms.ParentSystem/FindMissingChild>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "914e35e427b44a6d544fdd22699161b7",
+      "LinkName": "3ECA3D7CCCF185EC",
+      "AssemblyDependencyIndices": [
+        5,
+        13,
+        8,
+        1,
+        2,
+        9,
+        3,
+        7,
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Transforms.ParentSystem/FixupChangedChildren>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "6f68d143873658fefc52339c8792857f",
+      "LinkName": "ACE3633765E8E12C",
+      "AssemblyDependencyIndices": [
+        5,
+        13,
+        8,
+        1,
+        2,
+        9,
+        3,
+        7,
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Transforms.ParentSystem/GatherChildEntities>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "a4fa3b4a24d5f9e4a8820a681741ec48",
+      "LinkName": "4DBBB04EA08E446F",
+      "AssemblyDependencyIndices": [
+        5,
+        13,
+        8,
+        1,
+        2,
+        3,
+        9,
+        7,
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Serialization.Json.JsonTokenizer/DiscardCompletedJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "37d098a5594fccab613241405ef2daac",
+      "LinkName": "D145098390BDD5A2",
+      "AssemblyDependencyIndices": [
+        5,
+        22,
+        8,
+        1,
+        2
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Serialization.Json.PackedBinaryStream/DiscardCompletedJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "6c5c95dc489d24a454b76d70b5d251dd",
+      "LinkName": "D2585632E5D018E4",
+      "AssemblyDependencyIndices": [
+        5,
+        22,
+        8,
         1,
         2
       ]
@@ -1976,12 +1989,12 @@
       "AssemblyDependencyIndices": [
         5,
         14,
-        6,
+        8,
         1,
         2,
-        9,
-        3,
         7,
+        3,
+        9,
         0,
         10,
         11
@@ -1995,12 +2008,12 @@
       "AssemblyDependencyIndices": [
         5,
         14,
-        6,
+        8,
         1,
         2,
-        9,
-        3,
         7,
+        3,
+        9,
         0,
         10,
         11
@@ -2014,12 +2027,12 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
-        7,
+        8,
+        9,
         1,
         2,
         0,
-        9,
+        7,
         10,
         11
       ]
@@ -2032,7 +2045,7 @@
       "AssemblyDependencyIndices": [
         5,
         4,
-        6,
+        8,
         1,
         2
       ]
@@ -2045,7 +2058,7 @@
       "AssemblyDependencyIndices": [
         5,
         4,
-        6,
+        8,
         1,
         2
       ]
@@ -2058,13 +2071,13 @@
       "AssemblyDependencyIndices": [
         5,
         4,
-        6,
+        8,
         3,
         1,
         2,
-        8,
-        9,
-        7
+        6,
+        7,
+        9
       ]
     },
     {
@@ -2075,10 +2088,10 @@
       "AssemblyDependencyIndices": [
         5,
         4,
-        6,
+        8,
         1,
         2,
-        9
+        7
       ]
     },
     {
@@ -2089,11 +2102,11 @@
       "AssemblyDependencyIndices": [
         5,
         4,
-        6,
-        7,
+        8,
+        9,
         1,
         2,
-        9
+        7
       ]
     },
     {
@@ -2104,7 +2117,7 @@
       "AssemblyDependencyIndices": [
         5,
         4,
-        6,
+        8,
         1,
         2
       ]
@@ -2117,11 +2130,11 @@
       "AssemblyDependencyIndices": [
         5,
         4,
-        6,
+        8,
         3,
         1,
         2,
-        7
+        9
       ]
     },
     {
@@ -2132,11 +2145,11 @@
       "AssemblyDependencyIndices": [
         5,
         19,
-        6,
-        9,
+        8,
+        7,
         1,
         2,
-        7
+        9
       ]
     },
     {
@@ -2147,10 +2160,10 @@
       "AssemblyDependencyIndices": [
         5,
         19,
-        6,
+        8,
         1,
         2,
-        9
+        7
       ]
     },
     {
@@ -2161,10 +2174,10 @@
       "AssemblyDependencyIndices": [
         5,
         19,
-        6,
+        8,
         1,
         2,
-        9
+        7
       ]
     },
     {
@@ -2175,7 +2188,7 @@
       "AssemblyDependencyIndices": [
         5,
         19,
-        6,
+        8,
         1,
         2
       ]
@@ -2188,11 +2201,11 @@
       "AssemblyDependencyIndices": [
         5,
         19,
-        6,
+        8,
         1,
         2,
-        9,
-        7
+        7,
+        9
       ]
     },
     {
@@ -2203,11 +2216,11 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
-        9
+        9,
+        7
       ]
     },
     {
@@ -2218,10 +2231,10 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7
+        9
       ]
     },
     {
@@ -2232,10 +2245,10 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7
+        9
       ]
     },
     {
@@ -2246,10 +2259,10 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7
+        9
       ]
     },
     {
@@ -2260,11 +2273,11 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
-        9
+        9,
+        7
       ]
     },
     {
@@ -2275,7 +2288,7 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2
       ]
@@ -2288,11 +2301,11 @@
       "AssemblyDependencyIndices": [
         5,
         3,
-        6,
+        8,
         1,
         2,
-        7,
-        9
+        9,
+        7
       ]
     },
     {
@@ -2303,12 +2316,12 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
         3,
         1,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -2322,11 +2335,11 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
         3,
         1,
-        7
+        9
       ]
     },
     {
@@ -2337,12 +2350,12 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         3,
         1,
         2,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -2356,11 +2369,11 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         3,
         1,
         2,
-        7
+        9
       ]
     },
     {
@@ -2371,12 +2384,12 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
         3,
         1,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -2390,24 +2403,11 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         2,
         3,
         1,
-        7
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobParallelForExtensions/ParallelForJobStruct`1<Unity.Serialization.Json.PackedBinaryWriter/WriteCharactersJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "9104688e02cd386e8257a588b16e78ef",
-      "LinkName": "B156491870A0D889",
-      "AssemblyDependencyIndices": [
-        5,
-        22,
-        6,
-        1,
-        2
+        9
       ]
     },
     {
@@ -2418,13 +2418,13 @@
       "AssemblyDependencyIndices": [
         5,
         21,
-        6,
+        8,
         3,
         2,
         1,
         13,
-        7,
         9,
+        7,
         0,
         10,
         11
@@ -2438,7 +2438,7 @@
       "AssemblyDependencyIndices": [
         5,
         22,
-        6,
+        8,
         1,
         2
       ]
@@ -2451,7 +2451,7 @@
       "AssemblyDependencyIndices": [
         5,
         22,
-        6,
+        8,
         1,
         2
       ]
@@ -2464,8 +2464,8 @@
       "AssemblyDependencyIndices": [
         5,
         4,
-        6,
-        9,
+        8,
+        7,
         1,
         2
       ]
@@ -2478,8 +2478,8 @@
       "AssemblyDependencyIndices": [
         5,
         19,
-        6,
-        9,
+        8,
+        7,
         1,
         2
       ]
@@ -2492,8 +2492,8 @@
       "AssemblyDependencyIndices": [
         5,
         19,
-        6,
-        9,
+        8,
+        7,
         1,
         2
       ]
@@ -2506,13 +2506,13 @@
       "AssemblyDependencyIndices": [
         5,
         16,
-        6,
+        8,
         3,
         1,
         2,
         13,
-        9,
-        7
+        7,
+        9
       ]
     },
     {
@@ -2523,8 +2523,8 @@
       "AssemblyDependencyIndices": [
         5,
         16,
-        6,
-        9,
+        8,
+        7,
         1,
         2
       ]
@@ -2537,8 +2537,8 @@
       "AssemblyDependencyIndices": [
         5,
         16,
-        6,
-        9,
+        8,
+        7,
         1,
         2
       ]
@@ -2551,9 +2551,9 @@
       "AssemblyDependencyIndices": [
         5,
         16,
-        6,
+        8,
         13,
-        9,
+        7,
         1,
         2,
         3
@@ -2567,14 +2567,14 @@
       "AssemblyDependencyIndices": [
         5,
         16,
-        6,
+        8,
         20,
         1,
         2,
-        7,
+        9,
         3,
         13,
-        9,
+        7,
         0,
         10,
         11
@@ -2589,13 +2589,13 @@
         20,
         1,
         2,
-        7,
+        9,
         5,
-        6,
+        8,
         0,
         10,
         11,
-        9
+        7
       ]
     },
     {
@@ -2607,11 +2607,11 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
-        0,
         9,
+        5,
+        8,
+        0,
+        7,
         10,
         11
       ]
@@ -2625,7 +2625,7 @@
         3,
         1,
         2,
-        7
+        9
       ]
     },
     {
@@ -2637,10 +2637,10 @@
         3,
         1,
         2,
-        7,
         9,
+        7,
         5,
-        6
+        8
       ]
     },
     {
@@ -2663,10 +2663,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2681,28 +2681,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
-        0,
-        10,
-        11
-      ]
-    },
-    {
-      "FullName": "System.Boolean Unity.Entities.StructuralChange::_mono_to_burst_AddComponentEntity(System.IntPtr,System.IntPtr,System.Int32)",
-      "ModuleOptionsHash": 11834165633931345063,
-      "ModuleHash": "ca330faa2581eff673118b17c14c82f7",
-      "LinkName": "1744DD3AD0FF1C74",
-      "AssemblyDependencyIndices": [
-        3,
-        1,
-        2,
-        7,
         5,
-        6,
-        9,
+        8,
+        7,
         0,
         10,
         11
@@ -2717,10 +2699,28 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "FullName": "System.Boolean Unity.Entities.StructuralChange::_mono_to_burst_AddComponentEntity(System.IntPtr,System.IntPtr,System.Int32)",
+      "ModuleOptionsHash": 11834165633931345063,
+      "ModuleHash": "ca330faa2581eff673118b17c14c82f7",
+      "LinkName": "1744DD3AD0FF1C74",
+      "AssemblyDependencyIndices": [
+        3,
+        1,
+        2,
+        9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2735,10 +2735,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2753,10 +2753,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2771,10 +2771,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2789,10 +2789,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2807,10 +2807,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2825,10 +2825,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2843,10 +2843,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2861,10 +2861,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2879,10 +2879,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2897,10 +2897,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2915,9 +2915,9 @@
         3,
         1,
         2,
-        7,
+        9,
         5,
-        6
+        8
       ]
     },
     {
@@ -2929,10 +2929,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2947,10 +2947,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2965,10 +2965,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -2983,7 +2983,7 @@
         3,
         1,
         2,
-        7
+        9
       ]
     },
     {
@@ -2995,7 +2995,7 @@
         3,
         1,
         2,
-        7
+        9
       ]
     },
     {
@@ -3008,7 +3008,7 @@
         1,
         2,
         5,
-        6
+        8
       ]
     },
     {
@@ -3020,10 +3020,10 @@
         3,
         1,
         2,
-        7,
+        9,
         5,
-        6,
-        9
+        8,
+        7
       ]
     },
     {
@@ -3036,9 +3036,9 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
         9,
+        7,
         0,
         10,
         11
@@ -3054,9 +3054,9 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
         9,
+        7,
         0,
         10,
         11
@@ -3071,10 +3071,10 @@
         3,
         1,
         2,
-        7,
+        9,
         5,
-        6,
-        9
+        8,
+        7
       ]
     },
     {
@@ -3086,10 +3086,10 @@
         3,
         1,
         2,
-        7,
+        9,
         5,
-        6,
-        9
+        8,
+        7
       ]
     },
     {
@@ -3101,7 +3101,7 @@
         3,
         1,
         2,
-        7
+        9
       ]
     },
     {
@@ -3113,7 +3113,7 @@
         3,
         1,
         2,
-        7
+        9
       ]
     },
     {
@@ -3125,7 +3125,7 @@
         3,
         1,
         2,
-        7
+        9
       ]
     },
     {
@@ -3137,10 +3137,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -3155,10 +3155,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -3173,10 +3173,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -3191,10 +3191,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -3209,10 +3209,10 @@
         3,
         1,
         2,
-        7,
-        5,
-        6,
         9,
+        5,
+        8,
+        7,
         0,
         10,
         11
@@ -3228,8 +3228,8 @@
         1,
         2,
         5,
-        6,
-        7,
+        8,
+        9,
         0,
         10,
         11
@@ -3241,12 +3241,12 @@
       "ModuleHash": "b81dd3e78a6edfad4e7bb7daa97da040",
       "LinkName": "C86228259FBD2D15",
       "AssemblyDependencyIndices": [
-        7,
+        9,
         1,
         2,
         0,
         5,
-        6
+        8
       ]
     },
     {
@@ -3255,13 +3255,13 @@
       "ModuleHash": "0249fb00919194de32c4aa2c4103d5c0",
       "LinkName": "652A50F98488BE6F",
       "AssemblyDependencyIndices": [
-        7,
+        9,
         1,
         2,
-        9,
+        7,
         0,
         5,
-        6
+        8
       ]
     }
   ]
